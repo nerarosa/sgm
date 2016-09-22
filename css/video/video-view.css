@@ -34,7 +34,7 @@ h1.post-title a{text-align:left;}
 .vjs-overlay.vjs-overlay-top-right{left:auto;right:5px}
 .vjs-overlay.vjs-overlay-left{top:50%;margin-top:-15px}
 .vjs-overlay.vjs-overlay-right{left:auto;right:5px;top:50%;margin-top:-15px}
-.vjs-overlay.vjs-overlay-bottom{margin-left:-32.25%;left:50%;top:auto;bottom:4.5em;overflow:hidden}
+.vjs-overlay.vjs-overlay-bottom{margin-left:-32.25%;left:50%;top:auto;bottom:4.5em;overflow:hidden;z-index:17;}
 .vjs-overlay.vjs-overlay-bottom-left{bottom:4.5em;top:auto;left:5px}
 .vjs-overlay.vjs-overlay-bottom-right{bottom:4.5em;top:auto;left:auto;right:5px}
 .vjs-default-skin:hover .vjs-progress-control {font-size: .5em ;}
