@@ -304,3 +304,16 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 	clip: auto;
 	position:relative;
 }
+
+.vjs-default-skin .vjs-slider-handle:before {
+    content: "";
+    border-radius: 50%;
+    background: #FFF;
+}
+
+.vjs-default-skin .vjs-seek-handle:before {
+    padding-top: .1em;
+    width: 1em;
+    height: 1em;
+    background: #E80028;
+}
