@@ -1,0 +1,43 @@
+.blog-posts .control-audio {
+    position: fixed;
+    font-size: 2em;
+    margin-left: -14px;
+    z-index: 1000;
+    bottom: 0;
+    left: 50vh;
+	cursor:pointer;
+}
+#bg-audio{display:none;}
+
+@keyframes circle {
+	from {transform: scale(0)}
+	to {transform: scale(3)}
+}
+.circle {
+	margin: 0 auto;
+    width: 20px;
+    height: 20px;
+	border: 0.5px solid #369FCF;
+    border-radius: 50%;
+    position: fixed;
+	bottom: 8px;
+    left: 50vh;
+    margin-left: -16px;
+	opacity: 0.6;
+}
+.one {animation: circle 4s infinite linear;}
+.two {animation: circle 3s infinite linear;}
+.three {animation: circle 2s infinite linear;}
+
+.paused-animate {
+   -ms-animation-play-state:paused;
+   -o-animation-play-state:paused;
+   -moz-animation-play-state:paused;
+   -webkit-animation-play-state:paused;
+  animation-play-state: paused;
+}
+
+@media screen and (max-width: 1024px) {
+	.blog-posts .control-audio {bottom: 50vh;left: 5vh;}
+	.circle {bottom: 52vh;left: 5vh;}
+}
