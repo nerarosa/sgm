@@ -61,3 +61,19 @@ select#newest-post-select::-ms-expand {display: none;}
 	.in-one-album h5{width:275px}
 }
 
+.disabled {pointer-events: none !important;cursor: default !important;opacity: 0.5 !important;}
+.download-info{text-align: center;margin-top: 10px;position: relative;}
+.down__link {border: none;cursor: pointer;padding: 10px 0;width: 50%;display: inline-block;text-transform: uppercase;letter-spacing: 1px;font-weight: 700;outline: none;position: relative;background: #B24E44;color: #fff;}
+.down__link a {color: #FFF;}
+.down__link svg {left: 0;}
+.down__link:hover,
+.down__link:focus {color: #D52828;}
+span.like__post {display: block;border: 2px solid #03A9F4;border-radius: 50%;width: 60px;height: 60px;line-height: 60px;margin-left: -32px;position: relative;background-color: #FFFFFF;top: -10px;left: 50%;z-index: 1;position: absolute;}
+.next__post{border: none;cursor: pointer;padding: 10px 0;width: 50%;display: inline-block;text-transform: uppercase;letter-spacing: 1px;font-weight: 700;outline: none;position: relative;background: #B24E44;color: #fff;}
+.icobutton {font-size: 3em;position: relative;top: 8px;margin: 0;padding: 0;color: #c0c1c3;border: 0;background: none;overflow: visible;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.icobutton div{pointer-events:none;z-index:0;}
+.icobutton .fa {display: block;padding: 0 0.1em;}
+.icobutton__text {font-size: 0.65em;position: absolute;top: 100%;left: -50%;width: 200%;text-align: center;line-height: 1.5;color: #000000;}
+.icobutton__text--side {top: 0;left: 100%;width: 100%;width: auto;padding: 0 0 0 0.3em;}
+.icobutton svg {left: 0;}
+.icobutton:hover,.icobutton:focus {outline: none;}
