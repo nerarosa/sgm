@@ -1,0 +1,123 @@
+.adsrightx600{display:none;}
+.post-outer{padding-left: 0;padding-right: 0;}
+.sgm-post-footer, #related_posts{padding-left: 20px;padding-right:20px;}
+.wallpaper-post-content{display:none;}
+#wallpaper-wrap .wp-thumb{text-align: center;margin-bottom: 10px;width: 100%;}
+#wallpaper-wrap .wp-thumb img{max-width: 100%;margin: 0;}
+#wallpaper-wrap .wp-user-resolution, #wallpaper-wrap .resolution-item{padding: 0 20px;}
+#wallpaper-wrap .accordion .resolution-item{padding:0;}
+#wallpaper-wrap .wp-down-info .wp-user-resolution{font-size: 12px;font-weight: bold;}
+#wallpaper-wrap .wp-down-info .type-resolution{display: block;float: left;min-width: 100px;font-weight: bold;font-size: 1em;}
+#wallpaper-wrap .wp-down-info .resolution-item{margin: 10px 0;width: 100%;}
+a#crop-wp, a#original-wp{display: inline-block;padding: 5px 10px;background-color: #ED5565;color: #000;}
+#wallpaper-wrap .wp-down-info .download-resolution{float: left;font-size: 11px;}
+#wallpaper-wrap .wp-down-info .download-resolution ul{margin: 0;padding: 0;list-style: none;}
+#wallpaper-wrap .wp-down-info .download-resolution ul li{float: left;}
+#wallpaper-wrap .wp-down-info .download-resolution ul li a{padding: 0 5px;}
+#wallpaper-wrap .wp-down-info .download-resolution ul li a:hover{color: #FFF;background: #1E6AA2;transition: none;}
+
+/*accordion css*/
+.accordion * {box-sizing: border-box;outline: 0}
+.accordion {background-color: #fff;border: 1px solid #e9e9e9}
+.accordion-header {height: 40px;padding: 0 15px;line-height: 40px;font-size: 13px;font-weight: 600;color: #434955;border-bottom: solid 1px #e9e9e9;cursor: pointer;overflow: hidden;background-color: #fdfdfd;-webkit-tap-highlight-color: transparent;transition: background .2s linear}
+.accordion-item:last-child .accordion-header {border-bottom: none}
+.accordion-header:hover,
+.accordion-item.active .accordion-header {background-color: #f7f8f9}
+.accordion-header i {width: 26px;margin-right: 5px;text-align: center;font-size: 16px}
+.accordion-header .accordion-item-arrow:before {content: "\f107";font-family: FontAwesome;float: right;font-size: 18px;transition: all .2s linear}
+.accordion-item.active .accordion-header .accordion-item-arrow:before {
+	-ms-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg)
+}
+.accordion-content {padding: 15px;display: none;border-bottom: solid 1px #e9e9e9;font-size: 14px;color: #434955}
+.accordion-item:last-child .accordion-content {border-bottom: none;border-top: solid 1px #e9e9e9}
+
+.blue .accordion-content,
+.blue .accordion-header,
+.blue.accordion {border-color: #32CDFB}
+.blue .accordion-header:hover,
+.blue .accordion-item.active .accordion-header {background-color: #32CDFB;color: #fff}
+
+.green .accordion-content,
+.green .accordion-header,
+.green.accordion {border-color: #37DB67}
+.green .accordion-header:hover,
+.green .accordion-item.active .accordion-header {background-color: #37DB67;color: #fff}
+
+.red .accordion-content,
+.red .accordion-header,
+.red.accordion {border-color: #FC4337}
+.red .accordion-header:hover,
+.red .accordion-item.active .accordion-header {background-color: #FC4337;color: #fff}
+
+.orange .accordion-content,
+.orange .accordion-header,
+.orange.accordion {border-color: #FFA400}
+.orange .accordion-header:hover,
+.orange .accordion-item.active .accordion-header {background-color: #FFA400;color: #fff}
+
+.yellow .accordion-content,
+.yellow .accordion-header,
+.yellow.accordion {border-color: #FFCE54}
+.yellow .accordion-header:hover,
+.yellow .accordion-item.active .accordion-header {background-color: #FFCE54;color: #fff}
+
+.purple .accordion-content,
+.purple .accordion-header,
+.purple.accordion {border-color: #AC92EC}
+.purple .accordion-header:hover,
+.purple .accordion-item.active .accordion-header {background-color: #AC92EC;color: #fff}
+
+/*Underline skin*/
+.accordion{border: none;}
+.accordion-item{margin-bottom: 2px;}
+.accordion-header{border-bottom: solid 2px transparent;background-color: #f7f8f9;transition: border .2s linear;}
+.accordion-item:last-child .accordion-header{border-bottom: solid 2px transparent;}
+.accordion-header:hover,
+.accordion-item.active .accordion-header,
+.accordion-item:last-child .accordion-header:hover{border-bottom-color: #cdd3d9;}
+.accordion-content{border: none;}
+.accordion-item:last-child .accordion-content{border: none;}
+
+.blue.accordion,
+.blue  .accordion-header,
+.blue  .accordion-content{border-color: transparent;}
+.blue .accordion-header:hover,
+.blue .accordion-item.active .accordion-header,
+.blue .accordion-item:last-child .accordion-header:hover{border-bottom: solid 2px #32CDFB;background-color: #f7f8f9;color: #434955;}
+
+.green.accordion,
+.green  .accordion-header,
+.green  .accordion-content{border-color: transparent;}
+.green .accordion-header:hover,
+.green .accordion-item.active .accordion-header,
+.green .accordion-item:last-child .accordion-header:hover{border-bottom: solid 2px #37DB67;background-color: #f7f8f9;color: #434955;}
+
+.red.accordion,
+.red  .accordion-header,
+.red  .accordion-content{border-color: transparent;}
+.red .accordion-header:hover,
+.red .accordion-item.active .accordion-header,
+.red .accordion-item:last-child .accordion-header:hover{border-bottom: solid 2px #FC4337;background-color: #f7f8f9;color: #434955;}
+
+.orange.accordion,
+.orange  .accordion-header,
+.orange  .accordion-content{border-color: transparent;}
+.orange .accordion-header:hover,
+.orange .accordion-item.active .accordion-header,
+.orange .accordion-item:last-child .accordion-header:hover{border-bottom: solid 2px #FFA400;background-color: #f7f8f9;color: #434955;}
+
+.yellow.accordion,
+.yellow  .accordion-header,
+.yellow  .accordion-content{border-color: transparent;}
+.yellow .accordion-header:hover,
+.yellow .accordion-item.active .accordion-header,
+.yellow .accordion-item:last-child .accordion-header:hover{border-bottom: solid 2px #FFCE54;background-color: #f7f8f9;color: #434955;}
+
+.purple.accordion,
+.purple .accordion-header,
+.purple .accordion-content{border-color: transparent;}
+.purple .accordion-header:hover,
+.purple .accordion-item.active .accordion-header,
+.purple .accordion-item:last-child .accordion-header:hover{border-bottom: solid 2px #AC92EC;background-color: #f7f8f9;color: #434955;}
