@@ -1,10 +1,6 @@
 (function(b){var f=[];b.fn.floatingFixed=function(g){g=b.extend({},b.floatingFixed.defaults,g);var e=b(this).each(function(){var a=b(this),c=a.position();c.position=a.css("position");a.data("floatingFixedOrig",c);a.data("floatingFixedOptions",g);f.push(a)});h();return e};b.floatingFixed=b.fn.floatingFixed;b.floatingFixed.defaults={padding:0};var k=b(window),h=function(){if(0!==f.length)for(var b=k.scrollTop(),e=0;e<f.length;e++){var a=f[e],c=a.data("floatingFixedOptions");if(!a.data("isFloating")){var d=
 a.offset();a.data("floatingFixedTop",d.top);a.data("floatingFixedLeft",d.left)}d=d=a.data("floatingFixedTop");d<b+c.padding&&!a.data("isFloating")?a.css({position:"fixed",top:c.padding,left:a.data("floatingFixedLeft"),width:a.width()}).data("isFloating",!0):d>=b+c.padding&&a.data("isFloating")&&(c=a.data("floatingFixedOrig"),a.css(c).data("isFloating",!1))}};k.scroll(h).resize(h)})(jQuery);
 
-$(document).ready(function (){
-	$('.adsrightx600').floatingFixed();
-});
-
 function getPostByAlbum(label, wrap) {
 	$.ajax({
 		url: url_blog + "/feeds/posts/summary/-/ssAlbum/PartOne/" + label + "?alt=json-in-script&max-results=8",
@@ -93,6 +89,8 @@ function getRecentPost(label){
 }
 
 $(document).ready(function(){
+	$('.adsrightx600').floatingFixed();
+	
 	$('#newest-post-select option').filter(function() { 
 		return ($(this).text().toLowerCase() == postType);
 	}).prop('selected', true);
@@ -575,3 +573,41 @@ function initViewCount(){
 		}
 	});
 }
+
+(function($){	
+	var newerLink = $('a.blog-pager-newer-link');
+	var olderLink = $('a.blog-pager-older-link');
+	
+	function getNextPrev(link, labelText){
+		var path = link.attr('href').split('.com')[1];
+		var url = 'https://www.googleapis.com/blogger/v3/blogs/9217536117332083683/posts/bypath?path='+path+'&key=AIzaSyAgi7eyJY7T5TZY7iNp0KNQAa6NG67CbYo&fields=title,content';
+		$.ajax({
+			url: url,
+			type: "GET",
+			dataType: "jsonp",
+			success: function(data){
+				var thumbnail = '';
+				var title = data.title;
+				var content = $(data.content).find('img');
+
+				if(content.length > 1){
+					thumbnail = content[1].src;
+				}else if(content.length == 1){
+					thumbnail = content[0].src;
+				}else{
+					thumbnail = "http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.GIF";
+				}
+				
+				link.html('<span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-2"></svg></span><div><span>'+ labelText +' Gallery</span><h3>'+title+'</h3><p>by SSGirl</p><img src="'+ thumbnail.replace(/\/s[0-9]+(\-no)?/g, '/s104-c') +'" alt="'+ labelText +' thumb" /></div>');
+			},
+			error: function(e){
+				console.log(e);
+			}
+		});
+	}
+	
+	if(newerLink.length)
+		getNextPrev(newerLink, 'Next');
+	if(olderLink.length)	
+		getNextPrev(olderLink, 'Previous');
+})(jQuery);
