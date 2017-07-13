@@ -149,3 +149,220 @@ $(document).ready(function(){
 		});
 	})();
 });
+
+/*
+    JQuery Advanced News Ticker 1.0.11 (20/02/14)
+    created by risq
+    website (docs & demos) : http://risq.github.io/jquery-advanced-news-ticker/
+*/
+(function(b,k,l,m){function g(a,f){this.element=a;this.$el=b(a);this.options=b.extend({},c,f);this._defaults=c;this._name=d;this.moveInterval;this.moving=this.paused=this.state=0;(this.$el.is("ul")||this.$el.is("ol"))&&this.init()}var d="newsTicker",c={row_height:20,max_rows:3,speed:400,duration:2500,direction:"up",autostart:1,pauseOnHover:1,nextButton:null,prevButton:null,startButton:null,stopButton:null,hasMoved:function(){},movingUp:function(){},movingDown:function(){},start:function(){},stop:function(){},
+pause:function(){},unpause:function(){}};g.prototype={init:function(){this.$el.height(this.options.row_height*this.options.max_rows).css({overflow:"hidden"});this.checkSpeed();this.options.nextButton&&"undefined"!==typeof this.options.nextButton[0]&&this.options.nextButton.click(function(a){this.moveNext();this.resetInterval()}.bind(this));this.options.prevButton&&"undefined"!==typeof this.options.prevButton[0]&&this.options.prevButton.click(function(a){this.movePrev();this.resetInterval()}.bind(this));
+this.options.stopButton&&"undefined"!==typeof this.options.stopButton[0]&&this.options.stopButton.click(function(a){this.stop()}.bind(this));this.options.startButton&&"undefined"!==typeof this.options.startButton[0]&&this.options.startButton.click(function(a){this.start()}.bind(this));this.options.pauseOnHover&&this.$el.hover(function(){this.state&&this.pause()}.bind(this),function(){this.state&&this.unpause()}.bind(this));this.options.autostart&&this.start()},start:function(){this.state||(this.state=
+1,this.resetInterval(),this.options.start())},stop:function(){this.state&&(clearInterval(this.moveInterval),this.state=0,this.options.stop())},resetInterval:function(){this.state&&(clearInterval(this.moveInterval),this.moveInterval=setInterval(function(){this.move()}.bind(this),this.options.duration))},move:function(){this.paused||this.moveNext()},moveNext:function(){"down"===this.options.direction?this.moveDown():"up"===this.options.direction&&this.moveUp()},movePrev:function(){"down"===this.options.direction?
+this.moveUp():"up"===this.options.direction&&this.moveDown()},pause:function(){this.paused||(this.paused=1);this.options.pause()},unpause:function(){this.paused&&(this.paused=0);this.options.unpause()},moveDown:function(){this.moving||(this.moving=1,this.options.movingDown(),this.$el.children("li:last").detach().prependTo(this.$el).css("marginTop","-"+this.options.row_height+"px").animate({marginTop:"0px"},this.options.speed,function(){this.moving=0;this.options.hasMoved()}.bind(this)))},moveUp:function(){if(!this.moving){this.moving=
+1;this.options.movingUp();var a=this.$el.children("li:first");a.animate({marginTop:"-"+this.options.row_height+"px"},this.options.speed,function(){a.detach().css("marginTop","0").appendTo(this.$el);this.moving=0;this.options.hasMoved()}.bind(this))}},updateOption:function(a,b){"undefined"!==typeof this.options[a]&&(this.options[a]=b,"duration"==a||"speed"==a)&&(this.checkSpeed(),this.resetInterval())},add:function(a){this.$el.append(b("<li>").html(a))},getState:function(){return paused?2:this.state},
+checkSpeed:function(){this.options.duration<this.options.speed+25&&(this.options.speed=this.options.duration-25)},destroy:function(){this._destroy()}};b.fn[d]=function(a){var f=arguments;return this.each(function(){var c=b(this),e=b.data(this,"plugin_"+d),h="object"===typeof a&&a;e||c.data("plugin_"+d,e=new g(this,h));"string"===typeof a&&e[a].apply(e,Array.prototype.slice.call(f,1))})}})(jQuery,window,document);
+
+/**
+ * jquery.cbpQTRotator.min.js v1.0.0
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright 2013, Codrops
+ * http://www.codrops.com
+ */
+(function(c,b,e){var d=b.Modernizr;c.CBPQTRotator=function(f,g){this.$el=c(g);this._init(f)};c.CBPQTRotator.defaults={speed:700,easing:"ease",interval:8000};c.CBPQTRotator.prototype={_init:function(f){this.options=c.extend(true,{},c.CBPQTRotator.defaults,f);this._config();this.$items.eq(this.current).addClass("cbp-qtcurrent");if(this.support){this._setTransition()}this._startRotator()},_config:function(){this.$items=this.$el.children("div.cbp-qtcontent");this.itemsCount=this.$items.length;this.current=0;this.support=d.csstransitions;if(this.support){this.$progress=c('<span class="cbp-qtprogress"></span>').appendTo(this.$el)}},_setTransition:function(){setTimeout(c.proxy(function(){this.$items.css("transition","opacity "+this.options.speed+"ms "+this.options.easing)},this),25)},_startRotator:function(){if(this.support){this._startProgress()}setTimeout(c.proxy(function(){if(this.support){this._resetProgress()}this._next();this._startRotator()},this),this.options.interval)},_next:function(){this.$items.eq(this.current).removeClass("cbp-qtcurrent");this.current=this.current<this.itemsCount-1?this.current+1:0;this.$items.eq(this.current).addClass("cbp-qtcurrent")},_startProgress:function(){setTimeout(c.proxy(function(){this.$progress.css({transition:"width "+this.options.interval+"ms linear",width:"100%"})},this),25)},_resetProgress:function(){this.$progress.css({transition:"none",width:"0%"})},destroy:function(){if(this.support){this.$items.css("transition","none");this.$progress.remove()}this.$items.removeClass("cbp-qtcurrent").css({position:"relative","z-index":100,"pointer-events":"auto",opacity:1})}};var a=function(f){if(b.console){b.console.error(f)}};c.fn.cbpQTRotator=function(g){if(typeof g==="string"){var f=Array.prototype.slice.call(arguments,1);this.each(function(){var h=c.data(this,"cbpQTRotator");if(!h){a("cannot call methods on cbpQTRotator prior to initialization; attempted to call method '"+g+"'");return}if(!c.isFunction(h[g])||g.charAt(0)==="_"){a("no such method '"+g+"' for cbpQTRotator instance");return}h[g].apply(h,f)})}else{this.each(function(){var h=c.data(this,"cbpQTRotator");if(h){h._init()}else{h=c.data(this,"cbpQTRotator",new c.CBPQTRotator(g,this))}})}return this}})(jQuery,window);
+</script>
+<script type="text/javascript">
+$( '#cbp-qtrotator' ).cbpQTRotator();
+
+
+(function getStory(){
+	var url = url_blog + '/feeds/posts/default/-/Radio?alt=json-in-script&max-results=8';
+	
+	$.ajax({
+		url: url,
+		type: "get",
+		dataType: "jsonp",
+		success: function(data){
+			var entry = data.feed.entry,
+				htmlEmbed = '';
+				
+			if(entry !== undefined){
+				var titlePost = urlPost = sumPost = '';
+				
+				for(var i = 0, len = entry.length; i < len; i++){
+					for(var j = 0; j < entry[i].link.length; j++){
+						if(entry[i].link[j].rel == 'alternate')
+							urlPost = entry[i].link[j].href;
+					}
+					
+					var content = "content" in entry[i] ? entry[i].content.$t : "";
+						content = content.replace(/<(?:.|\n)*?>/gm, '');
+					
+					if(content.length > 100){
+						sumPost = content.substring(0,100) + '...';
+					}else{
+						sumPost = content;						
+					}
+					
+					titlePost = entry[i].title.$t;
+					
+					htmlEmbed += '<li>'+ sumPost +' <a href="'+ urlPost +'" title="'+ titlePost +'">Read more</a> </li>';										
+				}
+				
+				$('#nt-storytext').html(htmlEmbed);
+				
+				var nt_storytext = $('#nt-storytext').newsTicker({
+					row_height: 80,
+					max_rows: 4,
+					duration: 20000,
+					prevButton: $('#nt-storytext-prev'),
+					nextButton: $('#nt-storytext-next')
+				});
+			}else{
+				$('#nt-storytext').html('<strong>No Result!!!</strong>');
+			}			
+		},
+		error: function(){
+			getStory();
+		}
+	});
+})();
+(function getRadio(){
+	var url = url_blog + '/feeds/posts/default/-/Radio?alt=json-in-script&max-results=8';
+	
+	$.ajax({
+		url: url,
+		type: "get",
+		dataType: "jsonp",
+		success: function(data){
+			var entry = data.feed.entry,
+				htmlEmbed = '';
+				
+			if(entry !== undefined){
+				var titlePost = urlPost = sumPost = '';
+				
+				for(var i = 0, len = entry.length; i < len; i++){
+					for(var j = 0; j < entry[i].link.length; j++){
+						if(entry[i].link[j].rel == 'alternate')
+							urlPost = entry[i].link[j].href;
+					}
+					
+					var content = "content" in entry[i] ? entry[i].content.$t : "";
+						content = content.replace(/<(?:.|\n)*?>/gm, '');
+					
+					if(content.length > 100){
+						sumPost = content.substring(0,100) + '...';
+					}else{
+						sumPost = content;						
+					}
+					
+					titlePost = entry[i].title.$t;
+					
+					htmlEmbed += '<li><a href="'+ urlPost +'">'+ titlePost +'</a></li>';										
+				}
+				
+				$('#oneliner .radio-newsticker').html(htmlEmbed);
+				
+				 var oneliner = $('#oneliner .radio-newsticker').newsTicker({
+					row_height: 44,
+					max_rows: 1,
+					time: 10000,
+					nextButton: $('#oneliner .header')
+				});
+				
+				$('#oneliner .header').hover(function() {
+					oneliner.newsTicker('pause');
+				}, function() {
+					oneliner.newsTicker('unpause');
+				});
+			}else{
+				$('#oneliner .radio-newsticker').html('<strong>No Result!!!</strong>');
+			}			
+		},
+		error: function(){
+			getRadio();
+		}
+	});
+})();
+
+(function getAudioBook(){
+	var url = url_blog + '/feeds/posts/default/-/AudioBook?alt=json-in-script&max-results=8';
+	$.ajax({
+		url: url,
+		type: "get",
+		dataType: "jsonp",
+		success: function(data){
+			var entry = data.feed.entry,
+				htmlEmbed = '';
+				
+			if(entry !== undefined){
+				var titlePost = urlPost = sumPost = '';
+				
+				for(var i = 0, len = entry.length; i < len; i++){
+					for(var j = 0; j < entry[i].link.length; j++){
+						if(entry[i].link[j].rel == 'alternate')
+							urlPost = entry[i].link[j].href;
+					}
+					
+					var content = "content" in entry[i] ? entry[i].content.$t : "";
+						content = content.replace(/<(?:.|\n)*?>/gm, '');
+					
+					content = sgmTags("sum", content);
+					
+					if(content.length > 300){
+						sumPost = content.substring(0,300) + '...';
+					}else{
+						sumPost = content;						
+					}
+					
+					titlePost = entry[i].title.$t;
+					
+					htmlEmbed += '<li data-infos="'+ sumPost +'"><i class="fa fa-fw fa-play state"></i><span class="hour">08:12</span> <a href="'+ urlPost +'">'+ titlePost +'</a></li>';
+					
+					if(i == 0){
+						$('#nt-audio-infos-container .infos-text').text(sumPost);
+					}
+				}
+				
+				$('#nt-audio').html(htmlEmbed);
+				
+				var nt_audio = $('#nt-audio').newsTicker({
+					row_height: 60,
+					max_rows: 1,
+					speed: 300,
+					duration: 20000,
+					prevButton: $('#nt-audio-prev'),
+					nextButton: $('#nt-audio-next'),
+					hasMoved: function() {
+						$('#nt-audio-infos-container').fadeOut(200, function(){
+							$('#nt-audio-infos .infos-hour').text($('#nt-audio li:first span').text());
+							$('#nt-audio-infos .infos-text').text($('#nt-audio li:first').data('infos'));
+							$(this).fadeIn(400);
+						});
+					},
+					pause: function() {
+						$('#nt-audio li i').removeClass('fa-play').addClass('fa-pause');
+					},
+					unpause: function() {
+						$('#nt-audio li i').removeClass('fa-pause').addClass('fa-play');
+					}
+				});
+				$('#nt-audio-infos').hover(function() {
+					nt_audio.newsTicker('pause');
+				}, function() {
+					nt_audio.newsTicker('unpause');
+				});
+				
+			}else{
+				$('#nt-audio').html('<strong>No Result!!!</strong>');
+			}
+		},
+		error: function(){
+			getAudioBook();
+		}
+	});
+})();
