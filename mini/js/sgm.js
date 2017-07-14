@@ -788,8 +788,23 @@ $('.searchbutton').click(function(){
 });
 
 //Menu Top
-$(document).ready(function(){var str=location.href.toLowerCase();$('.main-nav ul li a').each(function(){if(str.indexOf(this.href.toLowerCase())>-1){$("li.highlight").removeClass("highlight");$(this).parent().addClass("highlight")}})})
-$(function(){var pull=$('#pull');menu=$('.main-nav ul');menuHeight=menu.height();$(pull).on('click',function(e){e.preventDefault();menu.slideToggle()});$(window).resize(function(){var w=$(window).width();if(w>320&&menu.is(':hidden')){menu.removeAttr('style')}})});
+/*$(document).ready(function(){
+	var str=location.href.toLowerCase();
+	$('.main-nav ul li a').each(function(){
+		if(str.indexOf(this.href.toLowerCase())>-1){
+			$("li.highlight").removeClass("highlight");
+			$(this).parent().addClass("highlight")
+		}})})
+$(function(){
+	var pull=$('#pull');
+		menu=$('.main-nav ul');
+		menuHeight=menu.height();
+		$(pull).on('click',function(e){e.preventDefault();menu.slideToggle()});
+		$(window).resize(function(){
+			var w=$(window).width();
+			if(w>320&&menu.is(':hidden')){menu.removeAttr('style')}
+		})
+});*/
 
 function showLucky(a){a=a.feed.entry[0];for(var b=0;b<a.link.length;++b)"alternate"==a.link[b].rel&&(window.location=a.link[b].href)}function fetchLuck(a){script=document.createElement("script");script.src="/feeds/posts/summary?start-index="+a+"&max-results=1&alt=json-in-script&callback=showLucky";script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script)}
 function readLucky(a){a=parseInt(a.feed.openSearch$totalResults.$t,10);a=Math.floor(Math.random()*a);a++;fetchLuck(a)}function feelingLucky(){var a=document.createElement("script");a.type="text/javascript";a.src="/feeds/posts/summary?max-results=0&alt=json-in-script&callback=readLucky";document.getElementsByTagName("head")[0].appendChild(a)};
