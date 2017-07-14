@@ -449,6 +449,9 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 .mobile .vjs-default-skin .vjs-volume-bar {
     margin-top: 1.4em;
 }
+.mobile .vjs-default-skin .vjs-volume-control, .mobile .vjs-default-skin .vjs-ssglogo-control{
+	display:none;
+}
 .mobile div#postView{float:none;text-align: right;}
 
 .dropdown-context .nav-header {
