@@ -227,6 +227,10 @@ Create your own skin at http://designer.videojs.com
     width: 5em;
     overflow: hidden;
 	padding-right: 3px;
+	background: transparent;
+    box-shadow: none;
+    bottom: 0;
+    left: -0.6em;
 }
 .vjs-default-skin .vjs-progress-control {
     position: absolute;
@@ -1175,9 +1179,6 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 	width: 7em;
 }
 
-.vjs-default-skin .vjs-volume-menu-button:hover .vjs-menu{
-	width: 7em;
-}
 .mobile .vjs-default-skin .vjs-volume-bar {
     margin-top: 1.4em;
 }
