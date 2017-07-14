@@ -102,8 +102,8 @@ Create your own skin at http://designer.videojs.com
 }
 .vjs-default-skin .vjs-control:before {
     font-family: 'SGMVideo';
-    font-size: 1.5em;
-    line-height: 2;
+    font-size: 2.5em;
+    line-height: 1.4;
     position: absolute;
     top: 0;
     left: 0;
@@ -965,7 +965,7 @@ h1.post-title a{text-align:left;}
 .vjs-social-overlay{position:absolute;color:#fff;font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;font-weight:300;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.75);padding:45px 70px;text-align:left;letter-spacing:1px;z-index:21}
 .vjs-social-overlay .vjs-hidden {display: none;}
 .ie8 .vjs-social-overlay {background: black;}
-.vjs-social-cancel{position:absolute;top:10px;right:10px;font-family:bc-share-icons;font-size:16px;font-style:normal;text-align:center;height:18px;width:18px;padding:6px;overflow:hidden;cursor:pointer}
+.vjs-social-cancel{position:absolute;top:10px;right:10px;font-family:'SGMVideo';font-size:16px;font-style:normal;text-align:center;height:18px;width:18px;padding:6px;overflow:hidden;cursor:pointer}
 .vjs-social-cancel:before {content: '\e800';}
 .vjs-social-overlay legend {border: none;color: #fff;margin-bottom: 14px;font-size: 14px;line-height: 17px;width: 100%;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
 .vjs-social-overlay label{font-weight:400;font-size:13px;display:block;margin-bottom:16px}
@@ -981,14 +981,14 @@ ul.vjs-share-options li a {text-decoration: none;cursor: pointer;height: 32px;}
 .vjs-share-facebook {background-color: #3b5998;}
 .vjs-share-facebook:before {content: '\e801';}
 .vjs-share-gplus {background-color: #d53326;}
-.vjs-share-gplus:before {font-family: "bc-share-icons";content: '\e802';}
+.vjs-share-gplus:before {font-family: "SGMVideo";content: '\e802';}
 .vjs-share-twitter {background-color: #55acee;}
-.vjs-share-twitter:before {font-family: "bc-share-icons";content: '\e803';}
+.vjs-share-twitter:before {font-family: "SGMVideo";content: '\e803';}
 .vjs-share-tumblr {background-color: #29364b;}
-.vjs-share-tumblr:before {font-family: "bc-share-icons";content: '\e804';}
+.vjs-share-tumblr:before {font-family: "SGMVideo";content: '\e804';}
 .vjs-share-linkedin {background-color: #069;}
-.vjs-share-linkedin:before {font-family: "bc-share-icons";content: '\e807';}
-.vjs-share-pinterest:before {font-family: "bc-share-icons";content: '\e806';}
+.vjs-share-linkedin:before {font-family: "SGMVideo";content: '\e807';}
+.vjs-share-pinterest:before {font-family: "SGMVideo";content: '\e806';}
 .vjs-share-pinterest {background-color: #c10218;}
 .vjs-social-overlay input {width: 100%;display: block;margin-top: 6px;border-radius: 2px;padding: 0 9px;line-height: 32px;height: 32px;border: none;color: #515151;font-weight: bold;font-size: 12px !important;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
 
@@ -1125,13 +1125,10 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 .vjs-default-skin .vjs-progress-control.vjs-control {
     height: 1em;
 }
-.vjs-default-skin .vjs-control:before{
-	font-size:1.7em;
-}
 
 .vjs-current-time-display, .vjs-duration-display {
-    font-size: 1.2em;
-    line-height: 2.95;
+	font-size: 1.3em;
+    line-height: 2.7;
 }
 
 .vjs-time-divider {
