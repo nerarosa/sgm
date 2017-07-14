@@ -197,8 +197,8 @@ h4#results-text-change{margin:0 10%}
 .result .rsthumb{float:left;width:15%;margin-right:5px}
 .result .rsurl{float:left;width:80%}
 .result .rsurl a{font-weight:700;color:#000}
-.item-select.slate select{background:0 0;width:209px;padding:5px;font-size:16px;line-height:1;border-radius:0;height:34px;-webkit-appearance:none;border:1px solid #ccc}
-.item-select.slate{background:#FFF url(http://i62.tinypic.com/2e3ybe1.jpg) right center no-repeat;height:34px;width:190px;float:left;overflow:hidden}
+.item-select.slate select{background:0 0;width:178px;padding:5px;font-size:16px;line-height:1;border-radius:0;height:34px;-webkit-appearance:none;border:1px solid #ccc}
+.item-select.slate{background:#FFF;height:34px;width:190px;float:left;overflow:hidden}
 .item-checkbox{float:left;height: 34px;line-height: 34px;padding: 0 5px;}
 #cb7, #cb6 {width: 19px;height: 19px;margin: -4px 4px 0 0;vertical-align: middle;cursor: pointer;}
 #popularOverlay .PopularPosts .widget-content{background:0 0}
