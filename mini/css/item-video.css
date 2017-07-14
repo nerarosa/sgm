@@ -454,6 +454,17 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 }
 .mobile div#postView{float:none;text-align: right;}
 
+.mobile .vjs-related-carousel-holder.active {
+	position: relative;
+	opacity: 1;
+	bottom: 0;
+	width: 100%;
+    margin: 0;
+}
+.mobile .vjs-related-carousel-holder h5 {
+    margin: 0 0.2em 0.2em 0.2em;
+}
+
 .dropdown-context .nav-header {
 	display: block;
 	padding: 3px 15px;
