@@ -1016,5 +1016,7 @@ $(document).ready(function() {
 		});
 	}
 	
-	init();
+	if(items.length){
+		init();
+	}
 })(window);
