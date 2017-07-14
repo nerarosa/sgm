@@ -614,3 +614,407 @@ function initViewCount(){
 	if(olderLink.length)	
 		getNextPrev(olderLink, 'Previous');
 })(jQuery);
+
+$(document).ready(function() {
+	//setting
+	var maxSearched = 12,
+		maxInLabel = 2,
+		max = 6,
+		imageSize = 's150-c',
+		defaultImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
+	
+	var campaignTracking = false,
+		campaignSource = "",
+		campaignMedium = "",
+		campaignName = "";
+
+	var mainLabel = ["Photo","Wallpaper","ComicFull","AudioBook", "Book", "Video", "Story", "Radio", "Gif"];
+		
+	//code	
+	if($.inArray("Video", labels) !== -1){
+		imageSize = 's250-c';
+		max = 12;
+	}else if($.inArray("Wallpaper", labels) !== -1){
+		imageSize = 's250-no';
+		max = 12;
+	}else if($.inArray("ComicFull", labels) !== -1){
+		imageSize = 'w150-h200-c';
+		max = 12;
+	}
+
+	if(labels.length > 0){
+		var titleCur = $(".entry-title").text().trim();
+		var url = url_blog + '/feeds/posts/default';
+		
+		(function relatedPost(num){
+			if(num === undefined || num === null) num = 0;
+			
+			if(labels.length == 1)
+				url = url_blog + '/feeds/posts/summary/-/' + labels[0];
+			else{
+				for(var i = 0; i < mainLabel.length; i++){
+					if($.inArray(mainLabel[i], labels) !== -1){
+						if(mainLabel[i] !== labels[num])
+							url = url_blog + '/feeds/posts/summary/-/' + mainLabel[i] + '/' + labels[num];
+						else
+							url = url_blog + '/feeds/posts/summary/-/' + mainLabel[i];
+					break;
+					}
+				}
+			}
+			
+			var htmlEmbed = '';
+			var exitsPost = [];
+			$('#related_posts ul li a.related-post-title').each(function() {
+				exitsPost.push($(this).text().trim())
+			});
+			
+			if(exitsPost.length <= max - maxInLabel){
+				$.ajax({
+					url: url,
+					data: {
+						"max-results": maxSearched,
+						alt: "json-in-script"
+					},
+					dataType: "jsonp",
+					beforeSend: function(){
+						if(num < labels.length)
+							num++;
+					},
+					success: function(e) {
+						var entry = e.feed.entry;
+						if(entry !== undefined){
+							if(exitsPost.length > 0){
+								$.each(exitsPost, function(t) {
+									for(var f in entry) {
+										if(entry[f].title.$t.trim() == exitsPost[t]) {											
+											entry.splice(f, 1)
+										}										
+									}
+								})
+							}
+							
+							for(var f in entry) {
+								if(entry[f].title.$t.trim() == titleCur) {
+									entry.splice(f, 1);
+									break;
+								}
+							}
+							
+							if(entry.length > 0){
+								entry.sort(function() {
+									return .5 - Math.random()
+								});
+								
+								$.each(entry, function(t, n) {
+									if (t == maxInLabel)
+										return false;
+
+									var titleP = entry[t].title.$t.trim();
+									
+									var urlP;
+									for (var u = 0; u < entry[t].link.length; u++) {
+										if (entry[t].link[u].rel === "alternate") {
+											urlP = entry[t].link[u].href
+										}
+									}
+									var thumb;
+									if (entry[t].media$thumbnail !== undefined) {
+										thumb = entry[t].media$thumbnail.url.split(/s72-c/).join(imageSize);
+									} else {
+										thumb = defaultImage;
+									}
+									if (campaignTracking === false) {
+										htmlEmbed += '<li class="news-title clearfix"><a href="' + urlP + '"><img src="' + thumb + '" alt="' + titleP + '" nopin="nopin"></a><a class="related-post-title" href="' + urlP + '" target="_top">' + titleP + '</a></li>';
+									} else if (campaignTracking === true) {
+										htmlEmbed += '<li class="news-title clearfix"><a href="' + urlP + "?utm_source=" + campaignSource + "&utm_medium=" + campaignMedium + "&utm_campaign=" + campaignName + '"><img src="' + thumb + '" alt="' + titleP + '" nopin="nopin"></a><a class="related-post-title" href="' + urlP + '" target="_top">' + titleP + '</a></li>';
+									}
+								});
+								
+								$("#related_posts ul").append(htmlEmbed);
+							}
+						}
+					}
+				}).always(function(){
+					if(num < labels.length)
+						relatedPost(num);
+				})
+			}else{
+				return false;
+			}
+		})();		
+	}	
+});
+
+;(function(window) {
+	'use strict';
+
+	function isIOSSafari() {
+		var userAgent;
+		userAgent = window.navigator.userAgent;
+		return userAgent.match(/iPad/i) || userAgent.match(/iPhone/i);
+	};
+
+	function isTouch() {
+		var isIETouch;
+		isIETouch = navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+		return [].indexOf.call(window, 'ontouchstart') >= 0 || isIETouch;
+	};
+	
+	var isIOS = isIOSSafari(),
+		clickHandler = isIOS || isTouch() ? 'touchstart' : 'click';
+
+	function extend( a, b ) {
+		for( var key in b ) { 
+			if( b.hasOwnProperty( key ) ) {
+				a[key] = b[key];
+			}
+		}
+		return a;
+	}
+
+	function Animocon(el, options) {
+		this.el = el;
+		this.options = extend( {}, this.options );
+		extend( this.options, options );
+
+		this.checked = false;
+		this.timeline = new mojs.Timeline();
+		
+		for(var i = 0, len = this.options.tweens.length; i < len; ++i) {
+			this.timeline.add(this.options.tweens[i]);
+		}
+
+		var self = this;
+		var countCl = 0;
+		this.el.addEventListener(clickHandler, function() {
+			if( self.checked ) {
+				self.options.onUnCheck();
+			}else {
+				self.options.onCheck();
+				self.timeline.replay();
+			}
+			self.checked = !self.checked;
+			
+			countCl++;
+			if(countCl > 10)
+				el.removeEventListener(clickHandler, function(){});
+		});
+	}
+
+	Animocon.prototype.options = {
+		tweens : [
+			new mojs.Burst({})
+		],
+		onCheck : function() { return false; },
+		onUnCheck : function() { return false; }
+	};
+
+	var items = [].slice.call(document.querySelectorAll('.download-info > .like__post'));
+	var videoRef = database.ref('posts/'+ postType +'s/' + idPost + '/like');
+	function init() {
+		var el8 = items[0].querySelector('button.icobutton'), el8span = el8.querySelector('span');
+		var scaleCurve8 = mojs.easing.path('M0,100 L25,99.9999983 C26.2328835,75.0708847 19.7847843,0 100,0');
+		new Animocon(el8, {
+			tweens : [
+				new mojs.Burst({
+					parent: el8,
+					count: 28,
+					radius: {50:110},
+					children: {
+						fill: '#E91E63',
+						opacity: 0.6,
+						radius: {'rand(5,20)':0},
+						scale: 1,
+						swirlSize: 15,
+						duration: 1600,
+						easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
+						isSwirl: true
+					}
+				}),
+				new mojs.Burst({
+					parent: el8,
+					count: 18,
+					angle: {0:10},
+					radius: {140:200},
+					children: {
+						fill: '#E91E63',
+						shape: 'line',
+						opacity: 0.6,
+						radius: {'rand(5,20)':0},
+						scale: 1,
+						stroke: '#E91E63',
+						strokeWidth: 2,
+						duration: 1800,
+						delay: 300,
+						easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+					}
+				}),
+				new mojs.Burst({
+					parent: el8,
+					radius: {40:80},
+					count: 18,
+					children: {
+						fill: '#E91E63',
+						opacity: 0.6,
+						radius: {'rand(5,20)':0},
+						scale: 1,
+						swirlSize: 15,
+						duration: 2000,
+						delay: 500,
+						easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
+						isSwirl: true
+					}
+				}),
+				new mojs.Burst({
+					parent: el8,
+					count: 20,
+					angle: {0:-10},
+					radius: {90:130},
+					children: {
+						fill: '#E91E63',
+						opacity: 0.6,
+						radius: {'rand(10,20)':0},
+						scale: 1,
+						duration: 3000,
+						delay: 750,
+						easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+					}
+				}),
+				new mojs.Tween({
+					duration : 400,
+					easing: mojs.easing.back.out,
+					onUpdate: function(progress) {
+						var scaleProgress = scaleCurve8(progress);
+						el8span.style.WebkitTransform = el8span.style.transform = 'scale3d(' + progress + ',' + progress + ',1)';
+					}
+				})
+			],
+			onCheck : function() {
+				el8.style.color = '#E91E63';
+				like();
+			},
+			onUnCheck : function() {
+				el8.style.color = '#C0C1C3';
+				unlike();
+			}
+		});
+
+		// bursts when hovering the link
+		var molinkEl = document.querySelector('.down__link'),
+			moTimeline = new mojs.Timeline(),
+			moburst1 = new mojs.Burst({
+				parent: molinkEl,
+				count: 6,
+				left: '0%',
+				top: '-50%',
+				radius: {0:60},
+				children: {
+					fill : [ '#988ADE', '#DE8AA0', '#8AAEDE', '#8ADEAD', '#DEC58A', '#8AD1DE' ],
+					duration: 1300,
+					easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+				}
+			}),
+			moburst2 = new mojs.Burst({
+				parent: molinkEl,
+				left: '-100%', top: '-20%',
+				count: 14,
+				radius: {0:120},
+				children: {
+					fill: [ '#988ADE', '#DE8AA0', '#8AAEDE', '#8ADEAD', '#DEC58A', '#8AD1DE' ],
+					duration: 1600,
+					delay: 100,
+					easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+				}
+			}),
+			moburst3 = new mojs.Burst({
+				parent: molinkEl,
+				left: '130%', 
+				top: '-70%',
+				count: 8,
+				radius: {0:90},
+				children: {
+					fill: [ '#988ADE', '#DE8AA0', '#8AAEDE', '#8ADEAD', '#DEC58A', '#8AD1DE' ],
+					duration: 1500,
+					delay: 200,
+					easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+				}
+			}),
+			moburst4 = new mojs.Burst({
+				parent: molinkEl,
+				left: '-20%', 
+				top: '-150%',
+				count: 14,
+				radius: {0:60},
+				children: {
+					fill: [ '#988ADE', '#DE8AA0', '#8AAEDE', '#8ADEAD', '#DEC58A', '#8AD1DE' ],
+					duration: 2000,
+					delay: 300,
+					easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+				}
+			}),
+			moburst5 = new mojs.Burst({
+				parent: molinkEl,
+				count: 12,
+				left: '30%', top: '-100%',
+				radius: {0:60},
+				children: {
+					fill: [ '#988ADE', '#DE8AA0', '#8AAEDE', '#8ADEAD', '#DEC58A', '#8AD1DE' ],
+					duration: 	1400,
+					delay: 400,
+					easing: mojs.easing.bezier(0.1, 1, 0.3, 1)
+				}
+			});
+
+		moTimeline.add(moburst1, moburst2, moburst3, moburst4, moburst5);
+		molinkEl.addEventListener('mouseenter', function() {
+			moTimeline.replay();
+		});
+	}
+	
+	function unlike(){		
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+				videoRef.transaction(function(currentLike) {
+						return currentLike - 1;
+				}, function(error, committed, snapshot) {
+				  if (error) {
+					console.log(error);
+				  } else if (!committed) {
+					console.log('We aborted the transaction.');
+				  } else {
+					
+				  }
+					if(snapshot !== null)
+						$('.like__post .icobutton__text').text(snapshot.val());
+					
+				}, true);
+			} else {
+				loginFireBase();
+			}
+		});
+	}
+	function like(){
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {				
+				videoRef.transaction(function(currentLike) {
+					return currentLike + 1;
+				}, function(error, committed, snapshot) {
+				  if (error) {
+					console.log(error);
+				  } else if (!committed) {
+					console.log('We aborted the transaction.');
+				  } else {
+					
+				  }
+				  if(snapshot !== null)
+					$('.like__post .icobutton__text').text(snapshot.val());
+				}, true);
+			} else {
+				loginFireBase();
+			}
+		});
+	}
+	
+	init();
+})(window);
