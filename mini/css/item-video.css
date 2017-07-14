@@ -233,11 +233,6 @@ ul.vjs-share-options li a {text-decoration: none;cursor: pointer;height: 32px;}
 .video-js .vjs-restart:hover:before,
 .video-js .vjs-restart:focus:before {text-shadow: 1px -1px 20px #fff, -1px 1px 20px #fff;}
 .video-js .vjs-restart:before {content: '\e808';}
-/* Do not render on mobile phones with 0px device width */
-@media only screen and (max-device-width: 480px) {
-  .vjs-share-control,
-  .vjs-social-overlay {display: none}
-}
 
 /*! videojs-custom-endscreen - v0.0.0 - 2015-2-3
  * Copyright (c) 2014 Brightcove */
