@@ -178,9 +178,11 @@ Create your own skin at http://designer.videojs.com
     float: right
 }
 .vjs-default-skin .vjs-volume-bar {
-    width: 5em;
-    height: .6em;
-    margin: 1.1em auto 0
+    height: .5em;
+    margin: 0.5em 0 0 0;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: .5em;
+	width: 5em;
 }
 .vjs-default-skin .vjs-volume-level {
     position: absolute;
@@ -210,7 +212,10 @@ Create your own skin at http://designer.videojs.com
 }
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu .vjs-menu-content {
     height: 0;
-    width: 0
+    width: 0;
+	background: transparent;
+    bottom: -0.5em;
+    box-shadow: none;
 }
 .vjs-default-skin .vjs-volume-menu-button:hover .vjs-menu,
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu.vjs-lock-showing {
@@ -218,8 +223,10 @@ Create your own skin at http://designer.videojs.com
 }
 .vjs-default-skin .vjs-volume-menu-button:hover .vjs-menu .vjs-menu-content,
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu.vjs-lock-showing .vjs-menu-content {
-    height: 2.9em;
-    width: 10em
+    height: 1.5em;
+    width: 5em;
+    overflow: hidden;
+	padding-right: 3px;
 }
 .vjs-default-skin .vjs-progress-control {
     position: absolute;
@@ -932,7 +939,6 @@ h1.post-title a{text-align:left;}
 /*custom button control bar*/
 .vjs-default-skin .vjs-ssglogo-control {float: right;background: transparent url("https://lh4.googleusercontent.com/-hMMoBl75IOs/Vfc-2uZR4UI/AAAAAAAARu8/rcpVKNAd1mg/s60-no/sssmlogo.png") no-repeat scroll center center / 100% auto;cursor: pointer;margin-right: 2px;}
 .vjs-default-skin .vjs-control-bar {background-color: rgba(7,20,30,.2);color: #FFF;z-index:22;height:3.5em}
-.vjs-default-skin .vjs-volume-bar {height: .6em;margin: 1em auto 0;background-color: rgba(255, 255, 255, .2);border-radius:4px;}
 .vjs-default-skin .vjs-volume-level {height: .6em;border-radius:4px;}
 .vjs-default-skin .vjs-volume-handle:before {top: -.25em;}
 
@@ -1156,37 +1162,19 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 
 .vjs-volume-menu-button .vjs-menu-content {
 	transform: rotate(-90deg);
-	margin-bottom: 35px !important;
+	margin-bottom: 2em !important;
 }
 
 .vjs-default-skin .vjs-volume-menu-button .vjs-menu{
-	border-top: 0;
+	border: 0;
     margin-bottom: 1.7em;
+	top:0;
 }
 
-.vjs-default-skin .vjs-volume-menu-button .vjs-menu .vjs-menu-content{
-	background: transparent;
-    bottom: -0.5em;
-    box-shadow: none;
-}
 .vjs-default-skin .vjs-volume-menu-button:hover .vjs-menu{
 	width: 7em;
 }
-.vjs-volume-menu-button .vjs-menu-content {
-	transform: rotate(-90deg);
-	margin-bottom: 35px !important;
-}
 
-.vjs-default-skin .vjs-volume-menu-button .vjs-menu{
-	border-top: 0;
-    margin-bottom: 1.7em;
-}
-
-.vjs-default-skin .vjs-volume-menu-button .vjs-menu .vjs-menu-content{
-	background: transparent;
-    bottom: -0.5em;
-    box-shadow: none;
-}
 .vjs-default-skin .vjs-volume-menu-button:hover .vjs-menu{
 	width: 7em;
 }
