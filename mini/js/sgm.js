@@ -118,7 +118,7 @@ function sgmSearch(urlNext) {
 				}
 			}
 			
-			if(resultItem === '' && $("#cb7").is(':checked') == false && $("#cb6").is(':checked') == false && enQueryValue.indexOf(' ') != -1){			
+			if(resultItem === '' && $("#cb7").is(':checked') == false && $("#cb6").is(':checked') == false && enQueryValue.indexOf(' ') != -1){
 				var arrChar = enQueryValue.split(' ');
 			
 				for (var i = 0; i < entry.length; i++) {
@@ -213,14 +213,14 @@ function sgmSearch(urlNext) {
 		}else{
 			if(urlNext === undefined){
 				if($('#advance-search-page').length == 0){
-					$("#grid-gallery").html('<strong id="no-result">Không tìm thấy kết quả nào</strong>');
+					$("#grid-gallery").html('<div id="no-result">Không tìm thấy kết quả nào</div>');
 					if($("h4#results-text-change").html() !== '') $("h4#results-text-change").html('');
 				}else{
 					if(nextLink != '')
 						sgmSearch(nextLink);
 					else{
 						if($("ul#og-grid a").length == 0){
-							//$("ul#og-grid").html('<strong id="no-result">Không tìm thấy kết quả nào</strong>');
+							//$("ul#og-grid").html('<div id="no-result">Không tìm thấy kết quả nào</div>');
 							//if($("h4#results-text-change").html() !== '') $("h4#results-text-change").html('');
 						}
 					}	
@@ -230,7 +230,7 @@ function sgmSearch(urlNext) {
 					sgmSearch(nextLink);							
 				else{
 					if($("#grid-gallery a").length == 0){
-						$("#grid-gallery").html('<strong id="no-result">Không tìm thấy kết quả nào</strong>');
+						$("#grid-gallery").html('<div id="no-result">Không tìm thấy kết quả nào</div>');
 						if($("h4#results-text-change").html() !== '') $("h4#results-text-change").html('');
 					}
 				}	
@@ -381,7 +381,7 @@ function sgmSearch(urlNext) {
 				if(thumbimg.indexOf('blogspot.com')!=-1)
 					thumbimg=thumbimg.replace(/\/s[0-9]+(\-c)?/g, "/s250-c");
 			} else {*/
-				thumbimg = "http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s72-c/grey.GIF";
+				thumbimg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
 			//}
 		}
 		
@@ -434,26 +434,8 @@ function sgmSearch(urlNext) {
 	return false;
 }
 
-function getCats(){
-	$.ajax({
-		type: "get",
-		url: url_blog + "/feeds/posts/default?alt=json-in-script&max-results=0",
-		cache: !1,
-		dataType: "jsonp",
-		success: function(data) {
-			var a = "",
-				d = '<option value="0" selected="selected">Thể loại</option>',
-				a = data.feed.category;
-			c = "ssgirl;ssAlbum;Album;Hàn Quốc;Việt Nam;Chinese;Nhật Bản;Thái Lan;Âu Mĩ;TuiGirl;XiuRen;Album-XiuRen;Album-TuiGirl".split(";");
-			if (void 0 !== a)
-				for (var b = 0; b < a.length; b++) - 1 == $.inArray(a[b].term, c) && (d += '<option value="' + a[b].term + '">' + a[b].term + "</option>");
-			$("select#category").html(d);
-		}
-	});
-}
 
-$(document).ready(function() {
-	getCats();	
+$(document).ready(function() {	
 
 	//run on event
 	$("input#morphsearchInput").on("keyup", function(e) {	

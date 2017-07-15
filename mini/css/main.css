@@ -168,12 +168,12 @@ button{cursor:pointer}
 .gn-search:focus::-webkit-input-placeholder{color:transparent}
 input[type=search]{-webkit-box-sizing:border-box;box-sizing:border-box}
 .morphsearch-input:focus,.morphsearch-submit:focus{outline:0}
-.morphsearch-submit{position:absolute;width:80px;height:80px;text-indent:100px;overflow:hidden;right:20px;top:30%;background:url(https://cdn.rawgit.com/nerarosa/sgm/master/imgs/magnifier.svg) center center no-repeat;background-size:100%;border:none;pointer-events:auto;opacity:1}
+.morphsearch-submit{position:absolute;width:80px;height:80px;text-indent:100px;overflow:hidden;right:20px;top:30%;background:url(../../imgs/magnifier.svg) center center no-repeat;background-size:100%;border:none;pointer-events:auto;opacity:1}
 .morphsearch-content{color:#333;margin-top:4.5em;width:100%;background:rgba(153,204,51,.9);opacity:1;height:auto;overflow:visible;pointer-events:auto}
 .dummy-column{width:30%;padding:0 0 6em;float:left;opacity:0;max-width:375px;margin-right:5px}
 .second-overlay.open .dummy-column{opacity:1}
 .dummy-column:nth-child(2){margin:0 1%}
-.dummy-column h2{font-size:1em;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:#000;padding:.5em 0}
+.dummy-column h3{font-size:1em;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:#000;padding:.5em 0}
 .round{border-radius:50%}
 .dummy-media-object{padding:.75em;display:block;margin:.3em 0;cursor:pointer;border-radius:5px;background:rgba(247,247,248,1)}
 .dummy-media-object:focus,.dummy-media-object:hover{background:rgba(118,117,128,.1)}
@@ -197,7 +197,7 @@ h4#results-text-change{margin:0 10%}
 .result .rsthumb{float:left;width:15%;margin-right:5px}
 .result .rsurl{float:left;width:80%}
 .result .rsurl a{font-weight:700;color:#000}
-.item-select.slate select{background:0 0;width:178px;padding:5px;font-size:16px;line-height:1;border-radius:0;height:34px;-webkit-appearance:none;border:1px solid #ccc}
+.item-select.slate select{background:0 0;width:178px;padding:5px;font-size:16px;line-height:1;border-radius:0;height:23px;-webkit-appearance:none;border:1px solid #ccc}
 .item-select.slate{background:#FFF;height:34px;width:190px;float:left;overflow:hidden}
 .item-checkbox{float:left;height: 34px;line-height: 34px;padding: 0 5px;}
 #cb7, #cb6 {width: 19px;height: 19px;margin: -4px 4px 0 0;vertical-align: middle;cursor: pointer;}
