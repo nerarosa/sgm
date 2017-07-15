@@ -164,3 +164,37 @@ jQuery.ias({
 		$('.blog-posts').masonry('layout');
 	},
 });
+
+
+jQuery.cachedScript = function( url, options ) {
+  options = $.extend( options || {}, {
+	dataType: "script",
+	cache: true,
+	url: url
+  });
+  return jQuery.ajax( options );
+};	
+
+var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
+	postsRef.once('value', function(data){
+		var htmlEmbed = '';
+		if(data.val() != null)
+			data.forEach(function(childSnapshot) {
+				var dataChild = childSnapshot.val();
+				if(dataChild.type == "photo")					
+					htmlEmbed = '<div class="col2 col-xs-6"><div class="card-outline"><a class="rt01img card-thumbnail" href="'+ dataChild.thumb.replace(/\/s[0-9](.*)\//gi, "/w300-c/") +'">' + dataChild.title + '</a><div class="card-content"><a href="'+ dataChild.url +'">' + dataChild.title + '</a></div><span class="view-count"><i aria-hidden="true" class="fa fa-eye"></i><span class="text-view-count">'+ (timeTop == "W" ? dataChild.viewCountW: (timeTop == "M" ? dataChild.viewCountM : dataChild.viewCount)) +'</span></span></div></div>' + htmlEmbed;
+				else if (dataChild.type == "video")
+					if(oneLabel == true)
+						htmlEmbed = '<div class="col2 col-xs-6"><div class="card-outline"><a class="rt01img card-thumbnail" href="'+ dataChild.thumb.replace(/\/s[0-9](.*)\//gi, "/w241-h161-c/") +'">' + dataChild.title + '</a><div class="card-content"><a href="'+ dataChild.url +'">' + dataChild.title + '</a></div><span class="view-count"><i aria-hidden="true" class="fa fa-eye"></i><span class="text-view-count">'+ (timeTop == "W" ? dataChild.viewCountW: (timeTop == "M" ? dataChild.viewCountM : dataChild.viewCount)) +'</span></span><span class="perma-link"><a href="'+ dataChild.url +'"><i class="fa fa-play-circle" aria-hidden="true"></i></a></span></div></div>' + htmlEmbed;
+					else
+						htmlEmbed = '<div class="col3 col-xs-6"><div class="card-outline"><a class="rt01img card-thumbnail" href="'+ dataChild.thumb.replace(/\/s[0-9](.*)\//gi, "/w241-h161-c/") +'">' + dataChild.title + '</a><div class="card-content"><a href="'+ dataChild.url +'">' + dataChild.title + '</a></div><span class="view-count"><i aria-hidden="true" class="fa fa-eye"></i><span class="text-view-count">'+ (timeTop == "W" ? dataChild.viewCountW: (timeTop == "M" ? dataChild.viewCountM : dataChild.viewCount)) +'</span></span><span class="perma-link"><a href="'+ dataChild.url +'"><i class="fa fa-play-circle" aria-hidden="true"></i></a></span></div></div>' + htmlEmbed;
+				else if (dataChild.type == "wallpaper")
+					htmlEmbed = '<div class="col2"><a class="rt01img card-img" href="'+ dataChild.thumb.replace(/\/s[0-9](.*)\//gi, "/w250-h166-c/") +'">' + dataChild.title + '</a><span class="view-count"><i aria-hidden="true" class="fa fa-eye"></i><span class="text-view-count">'+ (timeTop == "W" ? dataChild.viewCountW: (timeTop == "M" ? dataChild.viewCountM : dataChild.viewCount)) +'</span></span><span class="perma-link"><a href="'+ dataChild.url +'"><i class="fa fa-download" aria-hidden="true"></i></a></span></div>' + htmlEmbed;
+				else if (dataChild.type == "comicfull")
+					htmlEmbed = '<div class="col2 col-xs-6"><div class="card-outline"><a class="rt01img card-thumbnail" href="'+ dataChild.thumb.replace(/\/s[0-9](.*)\//gi, "/w180-h246-c/") +'">' + dataChild.title + '</a><div class="card-content"><a href="'+ dataChild.url +'">' + dataChild.title + '</a></div><span class="view-count"><i aria-hidden="true" class="fa fa-eye"></i><span class="text-view-count">'+ (timeTop == "W" ? dataChild.viewCountW: (timeTop == "M" ? dataChild.viewCountM : dataChild.viewCount)) +'</span></span></div></div>' + htmlEmbed;
+				
+			});
+		
+		$(sectionElement).append(htmlEmbed);
+	});
+};
