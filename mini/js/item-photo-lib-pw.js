@@ -445,9 +445,15 @@ var listimg = $('.post-body.entry-content .main-post-content').find('img');
 					$("#pwaudiocontrolbar").show();
 					$('#pwaudioprogressbar').show();
 				}
+				if(fromURL) {					
+					pwPlayer.on('loadeddata', function () {
+						pwPlayer.play();
+						console.log('canplay');
+					});
+				}else{
+					pwPlayer.play();
+				}
 				
-				pwPlayer.play();
-
 				$("#pwaudiocontrol").draggable({
 					axis: "x",
 					containment: "#pwaudiocontrolbar", 
