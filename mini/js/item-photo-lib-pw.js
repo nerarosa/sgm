@@ -19,6 +19,7 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.SoundCloudAudio = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+
 var anchor;
 var keys = 'protocol hostname host pathname port search hash href'.split(' ');
 function _parseURL (url) {
@@ -244,7 +245,7 @@ module.exports = SoundCloud;
 
 $(document).ready(function(){
 var listimg = $('.post-body.entry-content .main-post-content').find('img');
-		var pwPlayer = new SoundCloudAudio('08f79801a998c381762ec5b15e4914d5');				
+		var pwPlayer = new SoundCloudAudio('ed03d9ee0914b23c7fe5134568162bbe');				
 		var SCId = $('#music-id').data('soundcloud-id');
 		if(SCId == null || SCId == undefined) SCId = "174822441";
 		
