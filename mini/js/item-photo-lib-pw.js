@@ -446,7 +446,7 @@ var listimg = $('.post-body.entry-content .main-post-content').find('img');
 					$('#pwaudioprogressbar').show();
 				}
 				if(fromURL) {					
-					pwPlayer.on('loadeddata', function () {
+					pwPlayer.on('canplay', function () {
 						pwPlayer.play();
 					});
 				}else{
