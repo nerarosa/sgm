@@ -187,10 +187,26 @@ input[type=search]{-webkit-box-sizing:border-box;box-sizing:border-box}
 	.morphsearch .morphsearch-input{font-size:2em}
 	.dummy-column{float:none;width:auto;padding:0 0 2em}
 	.dummy-column:nth-child(2){margin:0}
-	.morphsearch .morphsearch-submit{-webkit-transform:translate3d(0,-50%,0) scale3d(.5,.5,1);transform:translate3d(0,-50%,0) scale3d(.5,.5,1)}
+	.morphsearch .morphsearch-submit{top: 40%;-webkit-transform:translate3d(0,-50%,0) scale3d(.5,.5,1);transform:translate3d(0,-50%,0) scale3d(.5,.5,1)}
 }
 @media screen and (max-width:60.625em){
-	.morphsearch{width:90%;top:10%;right:5%}
+	.morphsearch{width:100%;top:0;right:0}
+	.item-select.slate {width:50%;}
+	.item-select.slate select{
+		width: 100%;
+		padding-right: 0;
+	}
+	.morphsearch-content{
+		margin-top: 1.5em;
+	}
+	.morphsearch-form{
+		height: 120px;
+	}
+	.ss-overlay .overlay-close{
+		width: 60px;
+		height: 60px;
+		background: url(https://lh6.googleusercontent.com/-KmhmO7uDenk/VXMjlGWriwI/AAAAAAAACFE/wG_hT-MK3Bw/s48-no/cross.png) center center no-repeat #000;
+	}
 }
 h4#results-text{display:none;margin:5px 10%}
 h4#results-text-change{margin:0 10%}
@@ -248,3 +264,8 @@ h4#results-text-change{margin:0 10%}
 .grid-gallery-icon.story:before {content: '\f044';}
 .item-num {height: 15px;display: block;color: #fff;float: left;line-height: 16px;padding: 1px;margin-top: 9px;font-size: 10px;text-align: center;text-transform:uppercase;}
 .view-text .more-arrow {padding-left: 2px;font-size: 20px;font-family: Georgia, "Times New Roman", Times, serif;line-height: 20px;}
+div#no-result {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
