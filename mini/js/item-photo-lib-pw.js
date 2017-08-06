@@ -486,6 +486,7 @@ var listimg = $('.post-body.entry-content .main-post-content').find('img');
 					pwPlayer.pause();
 					$('#pwaudiocontrolbar').hide();
 					$('#pwaudioprogressbar').hide();
+					if($( '#photo' + pwgallery.getCurrentIndex()).length)
 					$('html, body').animate({
 						scrollTop: $( '#photo' + pwgallery.getCurrentIndex()).offset().top
 					}, 500);
