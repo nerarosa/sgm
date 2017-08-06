@@ -543,6 +543,7 @@ Create your own skin at http://designer.videojs.com
     box-shadow: -.2em -.2em .3em rgba(255, 255, 255, .2)
 }
 .vjs-default-skin .vjs-menu-button:hover .vjs-control-content .vjs-menu,
+.vjs-default-skin .vjs-menu-button:focus .vjs-control-content .vjs-menu,
 .vjs-default-skin .vjs-control-content .vjs-menu.vjs-lock-showing {
     display: block
 }
@@ -961,7 +962,7 @@ h1.post-title a{text-align:left;}
  * One for IE8 and one for everything else.
  */
 .vjs-default-skin .vjs-share-control{-webkit-box-ordinal-group:5;-moz-box-ordinal-group:5;-webkit-order:5;-ms-flex-order:5;-ms-order:5;order:5;float:right}
-.video-js .vjs-share-control.vjs-share-control:before {font-family: "SGMVideo";content: '\e805';}
+.video-js .vjs-share-control.vjs-share-control:before {font-family: "SGMVideo";content: '\e805';font-size: 2em;line-height: 1.7;}
 .vjs-social-overlay{position:absolute;color:#fff;font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;font-weight:300;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.75);padding:45px 70px;text-align:left;letter-spacing:1px;z-index:21}
 .vjs-social-overlay .vjs-hidden {display: none;}
 .ie8 .vjs-social-overlay {background: black;}
