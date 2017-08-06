@@ -485,7 +485,10 @@ var listimg = $('.post-body.entry-content .main-post-content').find('img');
 				pwgallery.listen('close', function() {					
 					pwPlayer.pause();
 					$('#pwaudiocontrolbar').hide();
-					$('#pwaudioprogressbar').hide();					
+					$('#pwaudioprogressbar').hide();
+					$('html, body').animate({
+						scrollTop: $( '#photo' + pwgallery.getCurrentIndex()).offset().top
+					}, 500);
 				});					
 			}
 			
