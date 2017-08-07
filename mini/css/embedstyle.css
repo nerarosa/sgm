@@ -1069,26 +1069,10 @@ body.vjs-full-window {
 }
 
 /*custom button control bar*/
-.vjs-default-skin .vjs-ssglogo-control {
-    float: right;
-    background: transparent url("https://lh4.googleusercontent.com/-hMMoBl75IOs/Vfc-2uZR4UI/AAAAAAAARu8/rcpVKNAd1mg/s60-no/sssmlogo.png") no-repeat scroll center center / 100% auto;
-	cursor: pointer;
-	margin-right: 2px;
-}
-.vjs-default-skin .vjs-control-bar {
-	background-color: rgba(7,20,30,.2);
-	color: #FFF;
-}
-.vjs-default-skin .vjs-volume-bar {
-  height: .3em;
-  margin: 1.3em auto 0;
-}
-.vjs-default-skin .vjs-volume-level {
-  height: .3em;
-}
-.vjs-default-skin .vjs-volume-handle:before {
-  top: -.25em;
-}
+.vjs-default-skin .vjs-ssglogo-control {float: right;background: transparent url("https://lh4.googleusercontent.com/-hMMoBl75IOs/Vfc-2uZR4UI/AAAAAAAARu8/rcpVKNAd1mg/s60-no/sssmlogo.png") no-repeat scroll center center / 100% auto;cursor: pointer;margin-right: 2px;}
+.vjs-default-skin .vjs-control-bar {background-color: rgba(7,20,30,.2);color: #FFF;z-index:22;height:3.5em}
+.vjs-default-skin .vjs-volume-level {height: .6em;border-radius:4px;}
+.vjs-default-skin .vjs-volume-handle:before {top: -.25em;}
 
 /*! videojs-social - v0.0.0 - 2014-5-1
  * Copyright (c) 2014 Brightcove */
