@@ -435,7 +435,7 @@ function sgmSearch(urlNext) {
 }
 
 
-$(document).ready(function() {	
+$(document).ready(function() {
 
 	//run on event
 	$("input#morphsearchInput").on("keyup", function(e) {	
