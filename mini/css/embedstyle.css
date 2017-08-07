@@ -1,11 +1,15 @@
 /*CSS Reset*/
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
 
-
+html, body {
+	width: 100%;
+	height: 100%;
+}
 #player-wrapper {
   margin: 0 auto;
   max-width: 100%;
   width: 100%;
+  height: 100%;
   position:relative;
   z-index:101;
 }
@@ -817,6 +821,7 @@ body.vjs-full-window {
     display: inline;
     z-index: 98;
 	top:0;
+	left:0;
 	opacity: 0.7;
 	background: transparent !important;
 }
@@ -859,7 +864,8 @@ body.vjs-full-window {
   margin-top: -15px;
 }
 .vjs-overlay.vjs-overlay-bottom {
-  margin-left: -32.25%;
+	transform: translate(-50%,0);
+	max-width: 468px;
   left: 50%;
   top: auto;
   bottom: 4.5em;
@@ -896,6 +902,8 @@ body.vjs-full-window {
 /*display progress bar*/
 .vjs-default-skin {
   overflow: hidden;
+  text-align:center;
+  height: 100%;
 }
 .vjs-default-skin.vjs-has-started .vjs-control-bar {
   -webkit-transition: bottom 0.3s;
@@ -1498,7 +1506,7 @@ div#adOnPause {
 #playeranim {
     width: 40px;
     font-size: 25px;
-    font-family: 'VideoJS';
+    font-family: 'SGMVideo';
     height: 40px;
     margin-left: 17px;
     margin-top: 13px;
@@ -1506,6 +1514,11 @@ div#adOnPause {
 #anim-container.play #playeranim {margin-left: 19px;}
 #anim-container.play #playeranim:before {content: "\e037";}
 #anim-container.pause #playeranim:before {content: "\e034";}
+
+.vjs-tech {
+	width: auto;
+    height: 100%;
+}
 
 /*select quanlity*/
 .vjs-res-button {
