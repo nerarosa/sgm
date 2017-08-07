@@ -89,5 +89,5 @@ html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}artic
 .top-video .area-highlight{position: relative;}
 .top-video .area-highlight .perma-link{font-size: 45px;}
 .unloadtabs {height: 1px; overflow:hidden}
-@media screen and (max-width:430px){.sgm-rubytabs .col2 {width: 25%;}}
+@media screen and (max-width:430px){.sgm-rubytabs .col2 {width: 32%;} .sgm-rubytabs .row {margin-left: 0px;}}
 
