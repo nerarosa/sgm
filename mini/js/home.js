@@ -1,5 +1,5 @@
 function shuffle(d){for(var b=d.length,a,c;0!==b;)c=Math.floor(Math.random()*b),--b,a=d[b],d[b]=d[c],d[c]=a;return d}
-function getNewVideo(d){$.ajax({url:url_blog+"/feeds/posts/summary/-/Video?alt=json-in-script&orderby=published&max-results=40",type:"GET",dataType:"jsonp",success:function(b){var a="",c="",e="",g=[];b=b.feed.entry;if(void 0!==b){b=shuffle(b);for(var f=0;f<b.length;f++){for(a=0;a<b[f].link.length;a++)if("alternate"==b[f].link[a].rel){e=b[f].link[a].href;break}a=b[f].title.$t;"media$thumbnail"in b[f]?(c=b[f].media$thumbnail.url,c=c.replace(/\/s[0-9]+(\-c)\/?/g,"/w300-h225-c")):c="http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.GIF";
+function getNewVideo(d){$.ajax({url:url_blog+"feeds/posts/summary/-/Video?alt=json-in-script&orderby=published&max-results=40",type:"GET",dataType:"jsonp",success:function(b){var a="",c="",e="",g=[];b=b.feed.entry;if(void 0!==b){b=shuffle(b);for(var f=0;f<b.length;f++){for(a=0;a<b[f].link.length;a++)if("alternate"==b[f].link[a].rel){e=b[f].link[a].href;break}a=b[f].title.$t;"media$thumbnail"in b[f]?(c=b[f].media$thumbnail.url,c=c.replace(/\/s[0-9]+(\-c)\/?/g,"/w300-h225-c")):c="http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.GIF";
 g.push('<a href="'+e+'" title="'+a+'"><img src="'+c+'" alt="'+a+'"/><div class="tt-grid-caption"><span>'+a+'</span></div><span class="videoplay"><i class="fa fa-play-circle-o"></i></span></a>')}}else g="<span>No Result!</span>";d(g)},error:function(){newestInsert="<strong>Error Loading Feed!</strong>"}})}
 (function(){getNewVideo(function(d){function b(a,b,c){var d=0,e=function(){this.removeEventListener(g,e);++d;d===b&&c.call()};a.forEach(function(a,b){a.querySelector("a").addEventListener(g,e)})}var a=[],a=d,c="";d=0;if(10>=a.length)for(var e=0;e<a.length;e++)c+="<li>"+a[e]+"</li>";else{for(e=0;e<a.length;e++)9>=e&&(c+="<li>"+a[e]+"</li>");d=parseInt(a.length/10)}$(".tt-grid").html(c);if(0<d)for(c=1;c<d;)$(".tt-grid-wrapper nav").append("<a></a>"),c++;var g={WebkitAnimation:"webkitAnimationEnd",OAnimation:"oAnimationEnd",
 msAnimation:"MSAnimationEnd",animation:"animationend"}[Modernizr.prefixed("animation")],f=function(){var a=!1,b=navigator.userAgent||navigator.vendor||window.opera;if(/(android|ipad|playbook|silk|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(b)||
@@ -24,7 +24,7 @@ $(document).ready(function(){
 	(function getUpdateComic () {
 		$.ajax({
 			beforeSend: handleBefore,
-			url: url_blog + '/feeds/posts/summary/-/ComicFull?alt=json-in-script&orderby=updated&max-results=12',
+			url: url_blog + 'feeds/posts/summary/-/ComicFull?alt=json-in-script&orderby=updated&max-results=12',
 			type: 'get',
 			dataType: "jsonp",
 			success: function(data) {
@@ -88,7 +88,7 @@ $(document).ready(function(){
 	(function getUpdateBook () {
 		$.ajax({
 			beforeSend: handleBefore,
-			url: url_blog + '/feeds/posts/summary/-/Book?alt=json-in-script&orderby=updated&max-results=12',
+			url: url_blog + 'feeds/posts/summary/-/Book?alt=json-in-script&orderby=updated&max-results=12',
 			type: 'get',
 			dataType: "jsonp",
 			success: function(data) {
@@ -180,7 +180,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 });
 
 (function getStory(){
-	var url = url_blog + '/feeds/posts/default/-/Radio?alt=json-in-script&max-results=8';
+	var url = url_blog + 'feeds/posts/default/-/Radio?alt=json-in-script&max-results=8';
 	
 	$.ajax({
 		url: url,
@@ -232,7 +232,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 	});
 })();
 (function getRadio(){
-	var url = url_blog + '/feeds/posts/default/-/Radio?alt=json-in-script&max-results=8';
+	var url = url_blog + 'feeds/posts/default/-/Radio?alt=json-in-script&max-results=8';
 	
 	$.ajax({
 		url: url,
@@ -290,7 +290,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 })();
 
 (function getAudioBook(){
-	var url = url_blog + '/feeds/posts/default/-/AudioBook?alt=json-in-script&max-results=8';
+	var url = url_blog + 'feeds/posts/default/-/AudioBook?alt=json-in-script&max-results=8';
 	$.ajax({
 		url: url,
 		type: "get",

@@ -11,9 +11,9 @@ $(document).ready(function () {
 	numpostx     = 20;
 	var labelget = $('.slider4').text().trim();
 	if(labelget != '')
-		var urlfeed = '/feeds/posts/default/-/'+labelget+'?alt=json-in-script&orderby=updated&max-results=';
+		var urlfeed = 'feeds/posts/default/-/'+labelget+'?alt=json-in-script&orderby=updated&max-results=';
 	else
-		var urlfeed = '/feeds/posts/default/-/Photo?alt=json-in-script&orderby=updated&max-results=';	
+		var urlfeed = 'feeds/posts/default/-/Photo?alt=json-in-script&orderby=updated&max-results=';	
 	$.ajax({
 		url: url_blog + urlfeed + numpostx,
 		type: 'get',

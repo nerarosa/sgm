@@ -26,9 +26,9 @@ function sgmSearch(urlNext) {
 	
 	if(urlNext === undefined){
 		if(multiLabel == ''){
-			var urlsearch = url_blog+"/feeds/posts/summary?alt=json-in-script&max-results=200";
+			var urlsearch = url_blog+"feeds/posts/summary?alt=json-in-script&max-results=200";
 		}else {
-			var urlsearch = url_blog+"/feeds/posts/summary/-" + multiLabel + "?alt=json-in-script&max-results=200";
+			var urlsearch = url_blog+"feeds/posts/summary/-" + multiLabel + "?alt=json-in-script&max-results=200";
 		}
 	}else{
 		var urlsearch = urlNext;
@@ -75,9 +75,9 @@ function sgmSearch(urlNext) {
 			if(globalLink[i].rel == 'next'){
 				nextLink = globalLink[i].href;							
 				if(multiLabel == ''){
-					nextLink = url_blog+"/feeds/posts/summary?" + nextLink.split('?')[1];
+					nextLink = url_blog+"feeds/posts/summary?" + nextLink.split('?')[1];
 				}else {
-					nextLink = url_blog+"/feeds/posts/summary/-" + multiLabel + "?" + nextLink.split('?')[1];
+					nextLink = url_blog+"feeds/posts/summary/-" + multiLabel + "?" + nextLink.split('?')[1];
 				}
 				$('#advance-search-page').html('<span id="next-link" data-url-next="' + nextLink + '">Load More</span>');
 			}else{
@@ -517,7 +517,7 @@ $(document).ready(function(){
 	getRecent ('Sexy','#recentOverlay1', true);
 });	
 	
-function getRecent(h,d,k){$.ajax({url:""+url_blog+"/feeds/posts/default/-/"+h+"?alt=json-in-script&orderby=updated&max-results=6",type:"get",dataType:"jsonp",success:function(a){var g,e,f="",b="";a=a.feed.entry;if(void 0!==a){for(var c=0;c<a.length;c++){for(b=0;b<a[c].link.length;b++)if("alternate"==a[c].link[b].rel){g=a[c].link[b].href;break}e=a[c].title.$t;b=a[c].media$thumbnail.url;f+='<a class="dummy-media-object" href="'+g+'" target="_blank"><img '+(1==k?'class="round"':"")+' src="'+b+'" alt="'+
+function getRecent(h,d,k){$.ajax({url:""+url_blog+"feeds/posts/default/-/"+h+"?alt=json-in-script&orderby=updated&max-results=6",type:"get",dataType:"jsonp",success:function(a){var g,e,f="",b="";a=a.feed.entry;if(void 0!==a){for(var c=0;c<a.length;c++){for(b=0;b<a[c].link.length;b++)if("alternate"==a[c].link[b].rel){g=a[c].link[b].href;break}e=a[c].title.$t;b=a[c].media$thumbnail.url;f+='<a class="dummy-media-object" href="'+g+'" target="_blank"><img '+(1==k?'class="round"':"")+' src="'+b+'" alt="'+
 e+'"/><h3>'+e+"</h3></a>"}$(d).html(f)}else $(d).html("<span>No result!</span>")},error:function(){$(d).html("<strong>Error Loading Feed!</strong>")}})};
 
 (function(){function c(){if(classie.has(a,"open")){classie.remove(a,"open");classie.remove(d,"overlay-open");classie.add(a,"close");var b=function(c){if(support.transitions){if("visibility"!==c.propertyName)return;this.removeEventListener(transEndEventName,b)}classie.remove(a,"close")};support.transitions?a.addEventListener(transEndEventName,b):b()}else classie.has(a,"close")||(classie.add(a,"open"),classie.add(d,"overlay-open"))}var d=document.querySelector("div.sgm-container"),b=document.getElementById("trigger-overlay"),
@@ -557,7 +557,7 @@ function getListStar(){
 					}
 					
 					
-					listHtml += '<div class="mix' + filterclass + '" data-abcorder="' + namegirl + '"><a href="' + url_blog + '/search?q=' + idgirl + '&d=ssgirl" >' + namegirl + '</a></div>';
+					listHtml += '<div class="mix' + filterclass + '" data-abcorder="' + namegirl + '"><a href="' + url_blog + 'search?q=' + idgirl + '&d=ssgirl" >' + namegirl + '</a></div>';
 				}
 				
 				$('#mix-container').html(listHtml);

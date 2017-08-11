@@ -6,7 +6,7 @@ a.offset();a.data("floatingFixedTop",d.top);a.data("floatingFixedLeft",d.left)}d
 
 function getPostByAlbum(label, wrap) {
 	$.ajax({
-		url: url_blog + "/feeds/posts/summary/-/ssAlbum/PartOne/" + label + "?alt=json-in-script&max-results=8",
+		url: url_blog + "feeds/posts/summary/-/ssAlbum/PartOne/" + label + "?alt=json-in-script&max-results=8",
 		type: "GET",
 		dataType: "jsonp",
 		success: function(data){
@@ -49,7 +49,7 @@ function getPostByAlbum(label, wrap) {
 
 function getRecentPost(label){
 	$.ajax({
-		url: url_blog + "/feeds/posts/summary/-/" + label,
+		url: url_blog + "feeds/posts/summary/-/" + label,
 		type: "GET",
 		data: {
 			alt: "json-in-script",
@@ -114,7 +114,7 @@ $(document).ready(function(){
 				
 		function getPostByText(textsearch, maxpost, idtag){
 			$.ajax({
-				url: url_blog + "/feeds/posts/summary?alt=json-in-script&q="+ textsearch +"&orderby=published&max-results=" + maxpost,
+				url: url_blog + "feeds/posts/summary?alt=json-in-script&q="+ textsearch +"&orderby=published&max-results=" + maxpost,
 				type: "GET",
 				dataType: "jsonp",
 				success: function(data){
@@ -644,20 +644,20 @@ $(document).ready(function() {
 
 	if(labels.length > 0){
 		var titleCur = $(".entry-title").text().trim();
-		var url = url_blog + '/feeds/posts/default';
+		var url = url_blog + 'feeds/posts/default';
 		
 		(function relatedPost(num){
 			if(num === undefined || num === null) num = 0;
 			
 			if(labels.length == 1)
-				url = url_blog + '/feeds/posts/summary/-/' + labels[0];
+				url = url_blog + 'feeds/posts/summary/-/' + labels[0];
 			else{
 				for(var i = 0; i < mainLabel.length; i++){
 					if($.inArray(mainLabel[i], labels) !== -1){
 						if(mainLabel[i] !== labels[num])
-							url = url_blog + '/feeds/posts/summary/-/' + mainLabel[i] + '/' + labels[num];
+							url = url_blog + 'feeds/posts/summary/-/' + mainLabel[i] + '/' + labels[num];
 						else
-							url = url_blog + '/feeds/posts/summary/-/' + mainLabel[i];
+							url = url_blog + 'feeds/posts/summary/-/' + mainLabel[i];
 					break;
 					}
 				}

@@ -5,6 +5,12 @@
 
 @media screen and (max-width:430px){
 	.tt-grid li {
+		width: calc(33% - 22px);
+	}
+}	
+
+@media screen and (max-width:430px){
+	.tt-grid li {
 		width: 45%;
 		height: 150px;
 		margin: 1%;
