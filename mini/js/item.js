@@ -577,7 +577,8 @@ function initViewCount(){
 	});
 }
 
-(function($){	
+(function($){
+if(isMobile == false)	
 	var newerLink = $('a.blog-pager-newer-link');
 	var olderLink = $('a.blog-pager-older-link');
 	
@@ -613,6 +614,7 @@ function initViewCount(){
 		getNextPrev(newerLink, 'Next');
 	if(olderLink.length)	
 		getNextPrev(olderLink, 'Previous');
+}	
 })(jQuery);
 
 $(document).ready(function() {
