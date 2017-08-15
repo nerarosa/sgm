@@ -341,8 +341,8 @@ var EndCard = function (_Component) {
   return EndCard;
 }(Component);
 
-videojs.registerComponent('EndCard', EndCard);
-//videojs.components('EndCard', EndCard);
+//videojs.registerComponent('EndCard', EndCard);
+videojs.Component.extend(init:EndCard);
 
 var onPlayerReady = function onPlayerReady(player, options) {
   player.addClass('vjs-upnext');
