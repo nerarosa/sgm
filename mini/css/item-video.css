@@ -977,7 +977,7 @@ h1.post-title a{text-align:left;}
 .vjs-social-overlay li:first-child {margin-left: 0;}
 ul.vjs-share-options li a {text-decoration: none;cursor: pointer;height: 32px;}
 [class^="vjs-share-"],
-[class*=" vjs-share-"] {display: block;border-radius: 2px;font-family: "bc-share-icons";}
+[class*=" vjs-share-"] {display: block;border-radius: 2px;font-family: "SGMVideo";}
 .vjs-social-overlay a {display: block;border-radius: 2px;color: #FFF;}
 .vjs-share-facebook {background-color: #3b5998;}
 .vjs-share-facebook:before {content: '\e801';}
@@ -1015,7 +1015,7 @@ ul.vjs-share-options li a {text-decoration: none;cursor: pointer;height: 32px;}
 .video-js .vjs-restart-control,
 .video-js .vjs-trigger-social-control {color: #fff;background-color: transparent;border: 0;outline: 0;}
 .video-js .vjs-restart-control:before,
-.video-js .vjs-trigger-social-control:before {font-size: 4.5em;font-family: "bc-custom-end-icons";padding: 0.2em;}
+.video-js .vjs-trigger-social-control:before {font-size: 4.5em;font-family: "SGMVideo";padding: 0.2em;}
 .video-js .vjs-restart-control:hover:before,
 .video-js .vjs-restart-control:focus:before,
 .video-js .vjs-trigger-social-control:hover:before,
