@@ -81,7 +81,7 @@ videojs.plugin('OpenloadAnim', function(options) {
         id: 'anim-container',
         innerHTML: '<div id="playeranim"></div>'
     };
-    var el = videojs.Component.prototype.createEl(null, props);
+    var el = Component.prototype.createEl(null, props);
     this.bigPlayButton.el().parentNode.appendChild(el);
     document.getElementById("anim-container").style.visibility = "hidden";
     var playinganimation = false;
