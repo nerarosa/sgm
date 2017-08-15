@@ -45,9 +45,9 @@ $(document).ready(function(){
 							datePost = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 						
 						if("media$thumbnail" in entry[i]){
-							thumbPost = entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/');
+							thumbPost = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;refresh=31536000&amp;url=" + encodeURIComponent(entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/'));
 						}else{
-							thumbPost = 'http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/w280-h370-c/grey.GIF';
+							thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 						}
 						
 						itemEmbed += '<div class="col-xs-12 col-sm-6 col-md-6"><div class="gp_products_inner"><div class="gp_products_item_image"><a href="'+ urlPost +'"><img src="'+ thumbPost +'" alt="'+ titlePost +'" /></a></div><div class="gp_products_item_caption"><ul class="gp_products_caption_name"><li><a href="'+ urlPost +'">'+ titlePost +'</a></li><li><a href="#">'+ datePost +'</a></li></ul></div></div></div>';
@@ -109,9 +109,9 @@ $(document).ready(function(){
 							datePost = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 						
 						if("media$thumbnail" in entry[i]){
-							thumbPost = entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/');
+							thumbPost = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;refresh=31536000&amp;url=" + encodeURIComponent(entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/'));
 						}else{
-							thumbPost = 'http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/w280-h370-c/grey.GIF';
+							thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 						}
 						
 						itemEmbed += '<div class="col-xs-12 col-sm-6 col-md-6"><div class="gp_products_inner"><div class="gp_products_item_image"><a href="'+ urlPost +'"><img src="'+ thumbPost +'" alt="'+ titlePost +'" /></a></div><div class="gp_products_item_caption"><ul class="gp_products_caption_name"><li><a href="'+ urlPost +'">'+ titlePost +'</a></li><li><a href="#">'+ datePost +'</a></li></ul></div></div></div>';
