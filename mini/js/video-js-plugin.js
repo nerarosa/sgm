@@ -341,7 +341,7 @@ var EndCard = function (_Component) {
   return EndCard;
 }(Component);
 
-//videojs.registerComponent('EndCard', EndCard);
+videojs.registerComponent('EndCard', EndCard);
 //videojs.components('EndCard', EndCard);
 
 var onPlayerReady = function onPlayerReady(player, options) {
