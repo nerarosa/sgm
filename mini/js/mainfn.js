@@ -28,6 +28,20 @@ function isImageOk(img) {
     }
     return true;
 }
+function imageHostFix(url){
+	if(url.indexOf('googleusercontent.com') != -1)
+		return url;
+	
+	if(url.indexOf('1.bp.blogspot.com') != -1 || url.indexOf('3.bp.blogspot.com')){
+		url = url.replace(/[1|3]\.bp\.blogspot\.com/, 'lh3.googleusercontent.com')
+	}else if(url.indexOf('2.bp.blogspot.com') != -1 || url.indexOf('4.bp.blogspot.com')){
+		url = url.replace(/[2|4]\.bp\.blogspot\.com/, 'lh4.googleusercontent.com')
+	}else{
+		url = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;refresh=31536000&amp;url=" + encodeURIComponent(url);
+	}
+	
+	return url;
+}
 function getViewportSize(){
 	var w = window, 
 		d = document, 

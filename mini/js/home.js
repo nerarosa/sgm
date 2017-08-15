@@ -45,7 +45,7 @@ $(document).ready(function(){
 							datePost = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 						
 						if("media$thumbnail" in entry[i]){
-							thumbPost = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;refresh=31536000&amp;url=" + encodeURIComponent(entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/'));
+							thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/'));
 						}else{
 							thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 						}
@@ -109,7 +109,7 @@ $(document).ready(function(){
 							datePost = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 						
 						if("media$thumbnail" in entry[i]){
-							thumbPost = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;refresh=31536000&amp;url=" + encodeURIComponent(entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/'));
+							thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/'));
 						}else{
 							thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 						}
