@@ -33,7 +33,7 @@ $(document).ready(function () {
 						}                
 					posttitle = entry[i].title.$t;
 					if ("media$thumbnail" in entry[i]) {
-						postimg = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=31536000&url=" + encodeURIComponent(entry[i].media$thumbnail.urlreplace('/s72-c/','/w300-h280-c/'));
+						postimg = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=31536000&url=" + encodeURIComponent(entry[i].media$thumbnail.url.replace('/s72-c/','/w300-h280-c/'));
 					} else {
 						postimg = "http://placehold.it/300x280&amp;text=No+Image"
 					}
