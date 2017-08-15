@@ -27,10 +27,9 @@ function getPostByAlbum(label, wrap) {
 					if(titlePost.indexOf('- P1') != -1) titlePost = titlePost.substring(0, titlePost.indexOf('- P1')).trim();
 					
 					if("media$thumbnail" in entry[i]){
-						thumbPost = entry[i].media$thumbnail.url;
-						thumbPost = thumbPost.replace(/\/s[0-9]+(.*)\/?/g, "/s180-c/")
+						thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace(/\/s[0-9]+(.*)\/?/g, "/s180-c/"));
 					}else{
-						thumbPost = "http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.GIF"
+						thumbPost = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg=="
 					}
 					
 					albumInsert += '<li><a href="' + urlPost + '" title="' + titlePost + '"><img src="' + thumbPost + '" alt="' + titlePost + '"><span>' + (titlePost.length > 20 ? (titlePost.substring(0, 20) + '...') : titlePost) + '</span></a></li>';
@@ -72,9 +71,9 @@ function getRecentPost(label){
 					titlePost = entry[i].title.$t;						
 					
 					if("media$thumbnail" in entry[i]){
-						thumbPost = entry[i].media$thumbnail.url.replace(/\/s[0-9]+(\-c)?/g, "/s180-c");
+						thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace(/\/s[0-9]+(\-c)?/g, "/s180-c"));
 					}else{
-						thumbPost = "http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.GIF"
+						thumbPost = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
 					}
 					
 					newestInsert += '<li><a href="' + urlPost + '" title="' + titlePost + '"><img src="' + thumbPost + '" alt="' + titlePost + '"><span>' + (titlePost.length > 20 ? (titlePost.substring(0, 20) + '...') : titlePost) + '</span>'+ (label == "Video" ? '<div class="play-icon fa fa-play fa-5"></div>' : '') +'</a></li>';
@@ -129,9 +128,9 @@ $(document).ready(function(){
 							}
 							titlePost = entry[i].title.$t;
 							if("media$thumbnail" in entry[i]){
-								thumbPost = entry[i].media$thumbnail.url.replace('/s72-c/', '/s172-c/');
+								thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace('/s72-c/', '/s172-c/'));
 							}else{
-								thumbPost = 'http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s172-c/grey.GIF';
+								thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 							}
 							
 							htmlEmbed += '<div class="ssgirl-post-item"><a title="'+titlePost+'" href="'+ urlPost +'"><img alt="'+titlePost+'" title="'+ titlePost +'" class="ssgirl-post-item-thumb" src="'+ thumbPost +'"/><span class="ssgirl-post-item-title">'+ titlePost +'</span></a></div>';
@@ -599,10 +598,10 @@ if(isMobile == false)
 				}else if(content.length == 1){
 					thumbnail = content[0].src;
 				}else{
-					thumbnail = "http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.GIF";
+					thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
 				}
 				
-				link.html('<span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-2"></svg></span><div><span>'+ labelText +' Gallery</span><h3>'+title+'</h3><p>by SSGirl</p><img src="'+ thumbnail.replace(/\/s[0-9]+(\-no)?/g, '/s104-c') +'" alt="'+ labelText +' thumb" /></div>');
+				link.html('<span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-2"></svg></span><div><span>'+ labelText +' Gallery</span><h3>'+title+'</h3><p>by SSGirl</p><img src="'+ imageHostFix(thumbnail.replace(/\/s[0-9]+(\-no)?/g, '/s104-c')) +'" alt="'+ labelText +' thumb" /></div>');
 			},
 			error: function(e){
 				console.log(e);
@@ -722,7 +721,7 @@ $(document).ready(function() {
 									}
 									var thumb;
 									if (entry[t].media$thumbnail !== undefined) {
-										thumb = entry[t].media$thumbnail.url.split(/s72-c/).join(imageSize);
+										thumb = imageHostFix(entry[t].media$thumbnail.url.split(/s72-c/).join(imageSize));
 									} else {
 										thumb = defaultImage;
 									}
