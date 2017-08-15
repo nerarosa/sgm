@@ -59,7 +59,7 @@ a.alt=c[f].title;var g=document.createElement("a");g.href=c[f].url;g.appendChild
 (function(){videojs.plugin("progressTips",function(e){this.on("loadedmetadata",function(){var c;"Html5"===this.techName&&(c=this,$(".vjs-progress-control").after($("      <div id='vjs-tip'>      <div id='vjs-tip-arrow'></div>      <div id='vjs-tip-inner'></div>      </div>    ")),$(".vjs-progress-control").on("mousemove",function(d){var b,a;b=c.controlBar.progressControl.seekBar;a=(d.pageX-$(b.el()).offset().left)/b.width()*c.duration();a===c.duration()&&(a-=.1);b=Math.floor(a/60);a=Math.floor(a-
 60*b);10>a&&(a="0"+a);$("#vjs-tip-inner").html(""+b+":"+a);b=$(".vjs-control-bar").height();$("#vjs-tip").css("bottom",""+(b+14)+"px").css("left",""+(d.pageX-$(this).offset().left-20)+"px").css("visibility","visible")}),$(".vjs-progress-control, .vjs-play-control").on("mouseout",function(){$("#vjs-tip").css("visibility","hidden")}))})})}).call(this);
 
-function supportsTransitions() {
+/* function supportsTransitions() {
     var b = document.body || document.documentElement,
         s = b.style,
         p = 'transition';
@@ -81,7 +81,7 @@ videojs.plugin('OpenloadAnim', function(options) {
         id: 'anim-container',
         innerHTML: '<div id="playeranim"></div>'
     };
-    var el = Component.prototype.createEl(null, props);
+    var el = videojs.Component.prototype.createEl(null, props);
     this.bigPlayButton.el().parentNode.appendChild(el);
     document.getElementById("anim-container").style.visibility = "hidden";
     var playinganimation = false;
@@ -106,7 +106,7 @@ videojs.plugin('OpenloadAnim', function(options) {
             timeAnim();
         }
     }.bind(this));
-});
+}); */
 
 /**
  * Video.js Resolution Selector
