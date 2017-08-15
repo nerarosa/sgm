@@ -342,7 +342,7 @@ var EndCard = function (_Component) {
 }(Component);
 
 //videojs.registerComponent('EndCard', EndCard);
-videojs.Component.extend(init:EndCard);
+videojs.Component.extend({init:EndCard});
 
 var onPlayerReady = function onPlayerReady(player, options) {
   player.addClass('vjs-upnext');
