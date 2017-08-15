@@ -374,7 +374,7 @@ function sgmSearch(urlNext) {
 		sum = ("content" in entry) ? entry.content.$t : ("summary" in entry) ? entry.summary.$t : "";	
 		
 		if ("media$thumbnail" in entry) {
-			thumbimg = entry.media$thumbnail.url;
+			thumbimg = imageHostFix(entry.media$thumbnail.url);
 		} else {
 			/*if (imgInContent.length != 0) {
 				thumbimg = imgInContent[0].src;
@@ -517,7 +517,7 @@ $(document).ready(function(){
 	getRecent ('Sexy','#recentOverlay1', true);
 });	
 	
-function getRecent(h,d,k){$.ajax({url:""+url_blog+"feeds/posts/default/-/"+h+"?alt=json-in-script&orderby=updated&max-results=6",type:"get",dataType:"jsonp",success:function(a){var g,e,f="",b="";a=a.feed.entry;if(void 0!==a){for(var c=0;c<a.length;c++){for(b=0;b<a[c].link.length;b++)if("alternate"==a[c].link[b].rel){g=a[c].link[b].href;break}e=a[c].title.$t;b="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=31536000&url=" + encodeURIComponent(a[c].media$thumbnail.url);f+='<a class="dummy-media-object" href="'+g+'" target="_blank"><img '+(1==k?'class="round"':"")+' src="'+b+'" alt="'+
+function getRecent(h,d,k){$.ajax({url:""+url_blog+"feeds/posts/default/-/"+h+"?alt=json-in-script&orderby=updated&max-results=6",type:"get",dataType:"jsonp",success:function(a){var g,e,f="",b="";a=a.feed.entry;if(void 0!==a){for(var c=0;c<a.length;c++){for(b=0;b<a[c].link.length;b++)if("alternate"==a[c].link[b].rel){g=a[c].link[b].href;break}e=a[c].title.$t;b=imageHostFix(a[c].media$thumbnail.url);f+='<a class="dummy-media-object" href="'+g+'" target="_blank"><img '+(1==k?'class="round"':"")+' src="'+b+'" alt="'+
 e+'"/><h3>'+e+"</h3></a>"}$(d).html(f)}else $(d).html("<span>No result!</span>")},error:function(){$(d).html("<strong>Error Loading Feed!</strong>")}})};
 
 (function(){function c(){if(classie.has(a,"open")){classie.remove(a,"open");classie.remove(d,"overlay-open");classie.add(a,"close");var b=function(c){if(support.transitions){if("visibility"!==c.propertyName)return;this.removeEventListener(transEndEventName,b)}classie.remove(a,"close")};support.transitions?a.addEventListener(transEndEventName,b):b()}else classie.has(a,"close")||(classie.add(a,"open"),classie.add(d,"overlay-open"))}var d=document.querySelector("div.sgm-container"),b=document.getElementById("trigger-overlay"),
