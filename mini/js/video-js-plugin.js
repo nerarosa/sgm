@@ -363,8 +363,6 @@ var upnext = function upnext(options) {
     cancelText: opts.cancelText || 'Cancel',
     headText: opts.headText || 'Up Next'
   };
-
-  console.log(this);
   
   this.addChild('endCard', settings);
 };
