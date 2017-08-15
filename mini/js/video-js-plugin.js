@@ -364,7 +364,7 @@ var upnext = function upnext(options) {
     headText: opts.headText || 'Up Next'
   };
 
-  this.appendChild('endCard', settings);
+  this.player.addChild('endCard', settings);
 };
 
 // Register the plugin with video.js.
