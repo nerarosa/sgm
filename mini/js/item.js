@@ -577,7 +577,7 @@ function initViewCount(){
 }
 
 (function($){
-if(isMobile == false)	
+if(isMobile == false){	
 	var newerLink = $('a.blog-pager-newer-link');
 	var olderLink = $('a.blog-pager-older-link');
 	
