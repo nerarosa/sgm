@@ -601,7 +601,7 @@ if(isMobile == false){
 					thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
 				}
 				
-				link.html('<span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-left-'+ (labelText == 'Next' ? "1" : "2") +'"></svg></span><div><span>'+ labelText +' Gallery</span><h3>'+title+'</h3><p>by SSGirl</p><img src="'+ imageHostFix(thumbnail.replace(/\/s[0-9]+(\-no)?/g, '/s104-c')) +'" alt="'+ labelText +' thumb" /></div>');
+				link.html('<span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-'+ (labelText == 'Next' ? "right" : "left") +'-2"></svg></span><div><span>'+ labelText +' Gallery</span><h3>'+title+'</h3><p>by SSGirl</p><img src="'+ imageHostFix(thumbnail.replace(/\/s[0-9]+(\-no)?/g, '/s104-c')) +'" alt="'+ labelText +' thumb" /></div>');
 			},
 			error: function(e){
 				console.log(e);
