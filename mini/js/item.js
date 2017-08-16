@@ -623,11 +623,7 @@ $(document).ready(function() {
 		max = 6,
 		imageSize = 's150-c',
 		defaultImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
-	
-	var campaignTracking = false,
-		campaignSource = "",
-		campaignMedium = "",
-		campaignName = "";
+
 
 	var mainLabel = ["Photo","Wallpaper","ComicFull","AudioBook", "Book", "Video", "Story", "Radio", "Gif"];
 		
@@ -636,7 +632,7 @@ $(document).ready(function() {
 		imageSize = 's250-c';
 		max = 12;
 	}else if($.inArray("Wallpaper", labels) !== -1){
-		imageSize = 's250-no';
+		imageSize = 'w250-h155-c';
 		max = 12;
 	}else if($.inArray("ComicFull", labels) !== -1){
 		imageSize = 'w150-h200-c';
@@ -644,7 +640,6 @@ $(document).ready(function() {
 	}
 
 	if(labels.length > 0){
-		var titleCur = $(".entry-title").text().trim();
 		var url = url_blog + 'feeds/posts/default';
 		
 		(function relatedPost(num){
@@ -666,8 +661,8 @@ $(document).ready(function() {
 			
 			var htmlEmbed = '';
 			var exitsPost = [];
-			$('#related_posts ul li a.related-post-title').each(function() {
-				exitsPost.push($(this).text().trim())
+			$('#related_posts ul li').each(function() {
+				exitsPost.push($(this).data('id').trim())
 			});
 			
 			if(exitsPost.length <= max - maxInLabel){
@@ -688,7 +683,7 @@ $(document).ready(function() {
 							if(exitsPost.length > 0){
 								$.each(exitsPost, function(t) {
 									for(var f in entry) {
-										if(entry[f].title.$t.trim() == exitsPost[t]) {											
+										if(entry[f].id.$t.split('post-')[1].trim() == exitsPost[t]) {											
 											entry.splice(f, 1)
 										}										
 									}
@@ -696,7 +691,7 @@ $(document).ready(function() {
 							}
 							
 							for(var f in entry) {
-								if(entry[f].title.$t.trim() == titleCur) {
+								if(entry[f].title.$t.trim() == titleP) {
 									entry.splice(f, 1);
 									break;
 								}
@@ -712,7 +707,7 @@ $(document).ready(function() {
 										return false;
 
 									var titleP = entry[t].title.$t.trim();
-									
+									var id = entry.id.$t.split('post-')[1];
 									var urlP;
 									for (var u = 0; u < entry[t].link.length; u++) {
 										if (entry[t].link[u].rel === "alternate") {
@@ -725,11 +720,9 @@ $(document).ready(function() {
 									} else {
 										thumb = defaultImage;
 									}
-									if (campaignTracking === false) {
-										htmlEmbed += '<li class="news-title clearfix"><a href="' + urlP + '"><img src="' + thumb + '" alt="' + titleP + '" nopin="nopin"></a><a class="related-post-title" href="' + urlP + '" target="_top">' + titleP + '</a></li>';
-									} else if (campaignTracking === true) {
-										htmlEmbed += '<li class="news-title clearfix"><a href="' + urlP + "?utm_source=" + campaignSource + "&utm_medium=" + campaignMedium + "&utm_campaign=" + campaignName + '"><img src="' + thumb + '" alt="' + titleP + '" nopin="nopin"></a><a class="related-post-title" href="' + urlP + '" target="_top">' + titleP + '</a></li>';
-									}
+									
+									htmlEmbed += '<li data-id="'+ id +'" class="news-title clearfix"><a href="' + urlP + '"><img src="' + thumb + '" alt="' + titleP + '" nopin="nopin"></a><a class="related-post-title" href="' + urlP + '" target="_top">' + titleP + '</a></li>';
+									
 								});
 								
 								$("#related_posts ul").append(htmlEmbed);
