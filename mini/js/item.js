@@ -707,7 +707,7 @@ $(document).ready(function() {
 										return false;
 
 									var titleP = entry[t].title.$t.trim();
-									var id = entry.id.$t.split('post-')[1];
+									var id = entry[t].id.$t.split('post-')[1];
 									var urlP;
 									for (var u = 0; u < entry[t].link.length; u++) {
 										if (entry[t].link[u].rel === "alternate") {
