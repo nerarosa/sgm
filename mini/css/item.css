@@ -47,9 +47,9 @@ select#newest-post-select::-ms-expand {display: none;}
 }
 .in-one-album .box,.recent-content .box{padding:0;overflow:hidden;background:#FFF;height:auto}
 .in-one-album .box ul,.recent-content .box ul{margin: 0 auto;}
-.in-one-album .box ul li,.recent-content .box ul li{float:left;display:inline;width:48%;height:165px;margin:1%;overflow:hidden;position:relative}
-.in-one-album .box ul li a,.recent-content .box ul li a{display:block;width:100%;height:160px;color: #FFF;}
-.in-one-album .box ul li img,.recent-content .box ul li a img{width:100%;height:160px}
+.in-one-album .box ul li,.recent-content .box ul li{float:left;display:inline;width:48%;height:auto;margin:1%;overflow:hidden;position:relative}
+.in-one-album .box ul li a,.recent-content .box ul li a{display:block;width:100%;height:auto;color: #FFF;}
+.in-one-album .box ul li img,.recent-content .box ul li a img{width:100%;height:auto}
 .in-one-album .box ul li span,.recent-content .box ul li span{width:100%;height:28px;line-height:28px;overflow:hidden;text-align:center;position:absolute;left:0;bottom:0;background:#A7051C;opacity:.8;font-size:11px}
 .in-one-album h5{display:block;width:285px;height:31px;line-height:31px;font-size:14px;color:#FFF;text-indent:55px;background:url(https://lh6.googleusercontent.com/-jRgM13ts_50/VSqLVSx4XsI/AAAAAAAACDo/vtFzM2eMhBk/w318-h31-no/picbox_title_h5_img.jpg) no-repeat}
 @media screen and (min-width:801px) and (max-width:980px){
