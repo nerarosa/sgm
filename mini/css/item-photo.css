@@ -48,7 +48,7 @@ div#change-layout-button div a{background-color:#eee; display:block; width:100%}
 .tooltip-content::after {content: '';top: 40%;left: 0;border: solid transparent;height: 0;width: 0;position: absolute;pointer-events: none;border-color: transparent;border-right-color: #2a3035;border-width: 10px;margin-left: -20px;}
 .tooltip-content img {position: relative;height: 170px;display: block;float: left;margin-right: 1em;}
 .tooltip-text {font-size: 1em;line-height: 1.35;display: block;padding: 1.31em 1.21em 1.21em 0;color: #fff;}
-.sgmtooltip:hover .tooltip-content {
+.sgmtooltip:hover .tooltip-content,.sgmtooltip:focus .tooltip-content,.sgmtooltip:active .tooltip-content {
 	pointer-events: auto;
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
