@@ -1,10 +1,10 @@
 .comic-post-content{display:none;}
 #comic-wrap .comic-thumb {float: left;width: 30%;}
 .comic-thumb img {box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);}
-#comic-wrap .comic-info {float: right;width: 70%;}
-.comic-info ul{list-style: none;}
+#comic-wrap .comic-info {float: right;width: 70%;font-size:12px;}
+.comic-info ul{list-style: none;margin-top:0;}
 .comic-info ul li {text-transform: uppercase;color: #383838;line-height: 28px;clear: both;}
-.comic-info ul li span{display: inline;margin: 0;padding: 5px 0;}
+.comic-info ul li span{display: inline;margin: 0;padding: 5px 0;background:transparent;}
 .comic-info ul li span.key{font-weight: 700;color: #31a95b;}
 .comic-info ul li span.value a{margin-left: 5px;display: inline-block;}
 .comic-info .info-footer{margin-left:2em;}
