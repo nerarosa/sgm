@@ -450,7 +450,7 @@ function initViewCount(){
 	database.ref('posts/audiobooks').once('value', function(snapshot) {
 		var updates = {};
 		snapshot.forEach(function(childSnapshot) {
-			updates[childSnapshot.key() + '/viewCountW'] = 1;
+			updates[childSnapshot.key + '/viewCountW'] = 1;
 		});
 
 	   
