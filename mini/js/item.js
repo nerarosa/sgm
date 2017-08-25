@@ -458,7 +458,7 @@ function initViewCount(){
 	if(postType != ''){
 		var postRef = database.ref('posts/'+ postType +'s/' + idPost);
 	}else{
-		var postRef = database.ref('posts/other/' + idPost);
+		var postRef = database.ref('posts/others/' + idPost);
 	}
 	
 	var ranNum = Math.floor(Math.random()*(10000 - 100 +1) + 100);
@@ -473,7 +473,7 @@ function initViewCount(){
 			data.viewCount = ranNum;
 			data.viewCountW = ranNum;
 			data.viewCountM = ranNum;
-			data.url = location.protocol + '//' + location.host + location.pathname;
+			data.url = urlP;
 			if(postType != '')
 				data.type = postType;			
 			else
