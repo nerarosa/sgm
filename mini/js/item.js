@@ -447,7 +447,7 @@ function initViewCount(){
 		}
 	});
 	
-	database.ref('posts').once('child_added', function(snapshot) {
+	database.ref('posts/photos').once('child_added', function(snapshot) {
 		console.log(snapshot.val());
 	})	
 	
