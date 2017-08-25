@@ -447,8 +447,8 @@ function initViewCount(){
 		}
 	});
 	
-	database.ref('posts').once('value', function(snapshot) {
-		console.log(snapshot);
+	database.ref('posts').once('child_added', function(snapshot) {
+		console.log(snapshot.val());
 	})	
 	
 	var idGirl = $('.model-name').attr('data-idgirl');
