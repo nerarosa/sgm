@@ -519,7 +519,8 @@ function initViewCount(){
 			data.viewCountM++;
 		}
 		
-		if(isnew) 
+		if(isnew)
+			console.log(data);
 			postRef.set(data);
 		else {
 			postRef.child('viewCount').set(data.viewCount);
