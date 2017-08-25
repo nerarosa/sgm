@@ -447,19 +447,56 @@ function initViewCount(){
 		}
 	});
 	
-	database.ref('posts/audiobooks').once('value', function(snapshot) {
-		var updates = {};
-		snapshot.forEach(function(childSnapshot) {
-			updates[childSnapshot.key + '/viewCountW'] = 1;
-		});
-
-	   
-		database.ref('posts/audiobooks').update(updates, function(error) {
-		 if (error) {
-		   console.log('Error:', error);
-		 }
+	function updateAllWeek(ref){
+		ref.once('value', function(snapshot) {
+			var updates = {};
+			snapshot.forEach(function(childSnapshot) {
+				updates[childSnapshot.key + '/viewCountW'] = 1;
+			});
+		   
+			ref.update(updates, function(error) {
+			 if (error) {
+			   console.log(error);
+			 }
+			})
 		})
-	})
+	}
+	function updateAllMonth(ref){
+		ref.once('value', function(snapshot) {
+			var updates = {};
+			snapshot.forEach(function(childSnapshot) {
+				updates[childSnapshot.key + '/viewCountM'] = 1;
+			});
+		   
+			ref.update(updates, function(error) {
+			 if (error) {
+			   console.log(error);
+			 }
+			})
+		})
+	}
+	
+	if(newWeek){
+		updateAllWeek(database.ref('posts/photos'));
+		updateAllWeek(database.ref('posts/videos'));
+		updateAllWeek(database.ref('posts/comicfulls'));
+		updateAllWeek(database.ref('posts/wallpapers'));
+		updateAllWeek(database.ref('posts/audiobooks'));
+		updateAllWeek(database.ref('posts/books'));
+		updateAllWeek(database.ref('radios/books'));
+		updateAllWeek(database.ref('storys/books'));
+	}
+	if(newMonth){
+		updateAllMonth(database.ref('posts/photos'));
+		updateAllMonth(database.ref('posts/videos'));
+		updateAllMonth(database.ref('posts/comicfulls'));
+		updateAllMonth(database.ref('posts/wallpapers'));
+		updateAllMonth(database.ref('posts/audiobooks'));
+		updateAllMonth(database.ref('posts/books'));
+		updateAllMonth(database.ref('radios/books'));
+		updateAllMonth(database.ref('storys/books'));
+	}
+	
 	
 	var idGirl = $('.model-name').attr('data-idgirl');
 	if(postType == 'video')
@@ -520,17 +557,10 @@ function initViewCount(){
 		}
 		
 		data.viewCount++;
-		if(newWeek == true){
-			data.viewCountW = 1;
-		}else{
-			data.viewCountW++;
-		}
-		
-		if(newMonth == true){
-			data.viewCountM = 1;
-		}else{
-			data.viewCountM++;
-		}
+
+		data.viewCountW++;
+
+		data.viewCountM++;
 		
 		if(isnew){			
 			postRef.set(data).catch(function(error) {
