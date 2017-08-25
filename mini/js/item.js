@@ -425,7 +425,6 @@ function initViewCount(){
 				'thisMonth' : 0
 			};
 			timeRef.set(data);
-			
 		}else{
 			timeRef.child('current').set(firebase.database.ServerValue.TIMESTAMP);
 			
@@ -447,6 +446,8 @@ function initViewCount(){
 
 		}
 	});
+	
+	console.log(database.ref('posts').child('*'));
 	
 	var idGirl = $('.model-name').attr('data-idgirl');
 	if(postType == 'video')
@@ -508,19 +509,18 @@ function initViewCount(){
 		
 		data.viewCount++;
 		if(newWeek == true){
-			data.viewCount = 0;
+			data.viewCountW = 1;
 		}else{
 			data.viewCountW++;
 		}
 		
 		if(newMonth == true){
-			data.viewCountM = 0
+			data.viewCountM = 1;
 		}else{
 			data.viewCountM++;
 		}
 		
-		if(isnew){
-			console.log(data);	
+		if(isnew){			
 			postRef.set(data).catch(function(error) {
 				console.log(error);
 			});
