@@ -447,7 +447,9 @@ function initViewCount(){
 		}
 	});
 	
-	console.log(database.ref('posts').child('*'));
+	database.ref('posts').once('value', function(snapshot) {
+		console.log(snapshot);
+	})	
 	
 	var idGirl = $('.model-name').attr('data-idgirl');
 	if(postType == 'video')
