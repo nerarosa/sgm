@@ -447,9 +447,18 @@ function initViewCount(){
 		}
 	});
 	
-	database.ref('posts/photos').once('value', function(snapshot) {
-		console.log(snapshot.val());
-	})	
+	database.ref('posts/audiobooks').once('value', function(snapshot) {
+		var updates = {};
+		snapshot.forEach(function(childSnapshot) {
+			updates[childSnapshot.key() + '/viewCountW'] = 1;
+		});
+
+	   
+		database.ref('posts/audiobooks').update(updates, function(error) {
+		 if (error) {
+		   console.log('Error:', error);
+		}
+	})
 	
 	var idGirl = $('.model-name').attr('data-idgirl');
 	if(postType == 'video')
