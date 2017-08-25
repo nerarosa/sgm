@@ -457,6 +457,7 @@ function initViewCount(){
 		database.ref('posts/audiobooks').update(updates, function(error) {
 		 if (error) {
 		   console.log('Error:', error);
+		 }
 		}
 	})
 	
