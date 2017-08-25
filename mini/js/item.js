@@ -458,7 +458,7 @@ function initViewCount(){
 		 if (error) {
 		   console.log('Error:', error);
 		 }
-		}
+		})
 	})
 	
 	var idGirl = $('.model-name').attr('data-idgirl');
