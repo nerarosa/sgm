@@ -177,7 +177,7 @@ jQuery.cachedScript = function( url, options ) {
 };	
 
 var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
-	database.goOnline();
+	firebase.database().goOnline();
 	postsRef.once('value', function(data){
 		var htmlEmbed = '';
 		if(data.val() != null)
