@@ -96,14 +96,16 @@ function runMasonry(){
 
 
 var fetchData = function(postsRef, sectionElement) {
+	database.goOnline();
 	postsRef.on('value', function(data) {
 		if(data.exists())
 			var count = data.val().viewCount || 0;
 		else
 			var count = 0;
 	  
-	  sectionElement.html(count);	  
-	});
+	  sectionElement.html(count);
+	  database.goOffline();
+	});	
 };
 
 $(document).ready(function(){
