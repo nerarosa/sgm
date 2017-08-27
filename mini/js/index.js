@@ -195,5 +195,6 @@ var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
 			});
 		
 		$(sectionElement).append(htmlEmbed);
+		database.goOffline();
 	});
 };
