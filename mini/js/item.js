@@ -413,8 +413,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	}
 });	
 
-function initViewCount(){
-	database.goOnline();
+function initViewCount(){	
 	var timeRef = database.ref('times');
 	var newWeek = false,
 		newMonth = false;
@@ -620,8 +619,6 @@ function initViewCount(){
 			});			
 		}
 	});
-	
-	database.goOffline();
 }
 
 (function($){
@@ -1014,8 +1011,7 @@ $(document).ready(function() {
 		});
 	}
 	
-	function unlike(){
-		database.goOnline();
+	function unlike(){		
 		firebase.auth().onAuthStateChanged(function(user) {
 			if (user) {
 				videoRef.transaction(function(currentLike) {
@@ -1035,11 +1031,9 @@ $(document).ready(function() {
 			} else {
 				loginFireBase();
 			}
-		});
-		database.goOffline();
+		});		
 	}
 	function like(){
-		database.goOnline();
 		firebase.auth().onAuthStateChanged(function(user) {
 			if (user) {				
 				videoRef.transaction(function(currentLike) {
@@ -1058,8 +1052,7 @@ $(document).ready(function() {
 			} else {
 				loginFireBase();
 			}
-		});
-		database.goOffline();
+		});		
 	}
 	
 	if(items.length){

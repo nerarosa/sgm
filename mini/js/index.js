@@ -96,7 +96,6 @@ function runMasonry(){
 
 
 var fetchData = function(postsRef, sectionElement) {
-	database.goOnline();
 	postsRef.on('value', function(data) {
 		if(data.exists())
 			var count = data.val().viewCount || 0;
@@ -104,7 +103,6 @@ var fetchData = function(postsRef, sectionElement) {
 			var count = 0;
 	  
 	  sectionElement.html(count);
-	  database.goOffline();
 	});	
 };
 
@@ -176,8 +174,7 @@ jQuery.cachedScript = function( url, options ) {
   return jQuery.ajax( options );
 };	
 
-var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
-	firebase.database().goOnline();
+var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {	
 	postsRef.once('value', function(data){
 		var htmlEmbed = '';
 		if(data.val() != null)
@@ -198,6 +195,5 @@ var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
 			});
 		
 		$(sectionElement).append(htmlEmbed);
-		database.goOffline();
 	});
 };
