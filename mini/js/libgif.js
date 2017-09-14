@@ -725,7 +725,7 @@
                         playing = false;
                     }
                 };
-
+				console.log(iterationCount);
                 var doStep = function () {
                     stepping = playing;
                     if (!stepping) return;
