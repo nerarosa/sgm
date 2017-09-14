@@ -250,6 +250,7 @@ var listimg = $('.post-body.entry-content .main-post-content').find('img.lazy');
 		if(SCId == null || SCId == undefined) SCId = "174822441";
 		
 		pwPlayer.resolve('https://api.soundcloud.com/tracks/'+SCId, function (track) {
+			console.log(track);
 			if(track == 'Error')
 				pwPlayer.resolve('https://api.soundcloud.com/tracks/174822441', function (data) {});
 		});
