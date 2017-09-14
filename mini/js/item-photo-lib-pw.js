@@ -128,6 +128,7 @@ SoundCloud.prototype._json = function (url, callback) {
         }
         callback(resp);
       }else{
+		throw new Error('404');  
 		callback('Error');
 	  }
     }
