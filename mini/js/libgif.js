@@ -717,7 +717,7 @@
                     if (onEndListener !== null)
                         onEndListener(gif);
                     iterationCount++;
-
+					console.log(iterationCount);
                     if (overrideLoopMode !== false || iterationCount < 0) {
                         doStep();
                     } else {
@@ -725,7 +725,7 @@
                         playing = false;
                     }
                 };
-				console.log(iterationCount);
+				
                 var doStep = function () {
                     stepping = playing;
                     if (!stepping) return;
