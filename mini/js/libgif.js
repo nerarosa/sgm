@@ -712,17 +712,11 @@
 
             var step = (function () {
                 var stepping = false;
-				let idFr = 0;
+				
                 var completeLoop = function () {
                     if (onEndListener !== null)
                         onEndListener(gif);
-                    iterationCount++;
-					
-					if ($('#gifDownData').length > 0) {
-						if(idFr == frames.length - 1) idFr = 0;
-						$('#gifDownData').val(idFr).trigger('change');
-						++idFr;
-					}					
+                    iterationCount++;		
                     
 					if (overrideLoopMode !== false || iterationCount < 0) {
                         doStep();
@@ -772,7 +766,9 @@
                 ctx.globalCompositeOperation = "copy";
                 ctx.drawImage(tmpCanvas, 0, 0);
 				
-				console.log(i);
+				if ($('#gifDownData').length > 0) {
+					$('#gifDownData').val(i).trigger('change');
+				}
             };
 
             var play = function () {
