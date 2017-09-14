@@ -771,6 +771,8 @@
                 tmpCanvas.getContext("2d").putImageData(frames[i].data, offset.x, offset.y);
                 ctx.globalCompositeOperation = "copy";
                 ctx.drawImage(tmpCanvas, 0, 0);
+				
+				console.log(i);
             };
 
             var play = function () {
