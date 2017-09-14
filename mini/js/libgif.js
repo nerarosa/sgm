@@ -718,9 +718,11 @@
                         onEndListener(gif);
                     iterationCount++;
 					
-					if(idFr == frames.length - 1) idFr = 0;
-					console.log(idFr);					
-					++idFr;
+					if ($('#gifDownData').length > 0) {
+						if(idFr == frames.length - 1) idFr = 0;
+						$('#gifDownData').val(idFr).trigger('change');
+						++idFr;
+					}					
                     
 					if (overrideLoopMode !== false || iterationCount < 0) {
                         doStep();
