@@ -717,8 +717,10 @@
                     if (onEndListener !== null)
                         onEndListener(gif);
                     iterationCount++;
+					
 					if(idFr == frames.length - 1) idFr = 0;
-					console.log(++idFr);
+					console.log(idFr);					
+					++idFr;
                     
 					if (overrideLoopMode !== false || iterationCount < 0) {
                         doStep();
