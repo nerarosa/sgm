@@ -712,13 +712,15 @@
 
             var step = (function () {
                 var stepping = false;
-
+				let idFr = 0;
                 var completeLoop = function () {
                     if (onEndListener !== null)
                         onEndListener(gif);
                     iterationCount++;
-					console.log(iterationCount);
-                    if (overrideLoopMode !== false || iterationCount < 0) {
+					if(idFr == frames.length - 1) idFr = 0;
+					console.log(++idFr);
+                    
+					if (overrideLoopMode !== false || iterationCount < 0) {
                         doStep();
                     } else {
                         stepping = false;
