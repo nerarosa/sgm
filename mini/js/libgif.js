@@ -766,10 +766,6 @@
                 ctx.globalCompositeOperation = "copy";
                 ctx.drawImage(tmpCanvas, 0, 0);
 				
-				ctx.fillStyle= "red";
-				ctx.font = "italic bold 20pt Tahoma";
-				ctx.fillText("SGMedia",10,10);
-				
 				if ($('#gifDownData').length > 0) {
 					$('#gifDownData').val(i).trigger('change');
 				}
