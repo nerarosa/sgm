@@ -509,13 +509,9 @@ $(document).ready(function() {
 		}, 100));
 	});
 	
-});
-
-//get recent post ajax
-$(document).ready(function(){
 	getRecent ('Bikini','#recentOverlay');
 	getRecent ('Sexy','#recentOverlay1', true);
-});	
+});
 	
 function getRecent(h,d,k){$.ajax({url:""+url_blog+"feeds/posts/default/-/"+h+"?alt=json-in-script&orderby=updated&max-results=6",type:"get",dataType:"jsonp",success:function(a){var g,e,f="",b="";a=a.feed.entry;if(void 0!==a){for(var c=0;c<a.length;c++){for(b=0;b<a[c].link.length;b++)if("alternate"==a[c].link[b].rel){g=a[c].link[b].href;break}e=a[c].title.$t;b=imageHostFix(a[c].media$thumbnail.url);f+='<a class="dummy-media-object" href="'+g+'" target="_blank"><img '+(1==k?'class="round"':"")+' src="'+b+'" alt="'+
 e+'"/><h3>'+e+"</h3></a>"}$(d).html(f)}else $(d).html("<span>No result!</span>")},error:function(){$(d).html("<strong>Error Loading Feed!</strong>")}})};
