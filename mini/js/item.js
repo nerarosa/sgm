@@ -482,8 +482,9 @@ function initViewCount(){
 		updateAllWeek(database.ref('posts/wallpapers'));
 		updateAllWeek(database.ref('posts/audiobooks'));
 		updateAllWeek(database.ref('posts/books'));
-		updateAllWeek(database.ref('radios/books'));
-		updateAllWeek(database.ref('storys/books'));
+		updateAllWeek(database.ref('posts/radios'));
+		updateAllWeek(database.ref('posts/storys'));
+		updateAllWeek(database.ref('posts/gifs'));
 	}
 	if(newMonth){
 		updateAllMonth(database.ref('posts/photos'));
@@ -492,8 +493,9 @@ function initViewCount(){
 		updateAllMonth(database.ref('posts/wallpapers'));
 		updateAllMonth(database.ref('posts/audiobooks'));
 		updateAllMonth(database.ref('posts/books'));
-		updateAllMonth(database.ref('radios/books'));
-		updateAllMonth(database.ref('storys/books'));
+		updateAllMonth(database.ref('posts/radios'));
+		updateAllMonth(database.ref('posts/storys'));
+		updateAllMonth(database.ref('posts/gifs'));
 	}
 	
 	
