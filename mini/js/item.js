@@ -425,9 +425,7 @@ function initViewCount(){
 				'thisMonth' : 0
 			};
 			timeRef.set(data);
-		}else{
-			timeRef.child('current').set(firebase.database.ServerValue.TIMESTAMP);
-			
+		}else{			
 			var data = snapshot.val();			
 			var mydate = new Date(data.current),
 				curWeek = mydate.getWeek(),
@@ -443,7 +441,8 @@ function initViewCount(){
 				timeRef.child('thisMonth').set(curMonth);
 				newMonth = true;
 			}
-
+			
+			timeRef.child('current').set(firebase.database.ServerValue.TIMESTAMP);
 		}
 	});
 	
