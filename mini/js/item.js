@@ -415,8 +415,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function initViewCount(){	
 	var timeRef = database.ref('times');
-	var newWeek = false,
-		newMonth = false;
+
 	timeRef.once('value', function(snapshot){
 		if(!snapshot.exists()) {
 			var data = {
@@ -435,11 +434,29 @@ function initViewCount(){
 			
 			if(curWeek != dataWeek){
 				timeRef.child('thisWeek').set(curWeek);
-				newWeek = true;
+				
+				updateAllWeek(database.ref('posts/photos'));
+				updateAllWeek(database.ref('posts/videos'));
+				updateAllWeek(database.ref('posts/comicfulls'));
+				updateAllWeek(database.ref('posts/wallpapers'));
+				updateAllWeek(database.ref('posts/audiobooks'));
+				updateAllWeek(database.ref('posts/books'));
+				updateAllWeek(database.ref('posts/radios'));
+				updateAllWeek(database.ref('posts/storys'));
+				updateAllWeek(database.ref('posts/gifs'));
 			}
 			if(curMonth != dataMonth){
 				timeRef.child('thisMonth').set(curMonth);
-				newMonth = true;
+				
+				updateAllMonth(database.ref('posts/photos'));
+				updateAllMonth(database.ref('posts/videos'));
+				updateAllMonth(database.ref('posts/comicfulls'));
+				updateAllMonth(database.ref('posts/wallpapers'));
+				updateAllMonth(database.ref('posts/audiobooks'));
+				updateAllMonth(database.ref('posts/books'));
+				updateAllMonth(database.ref('posts/radios'));
+				updateAllMonth(database.ref('posts/storys'));
+				updateAllMonth(database.ref('posts/gifs'));
 			}
 			
 			timeRef.child('current').set(firebase.database.ServerValue.TIMESTAMP);
@@ -474,32 +491,6 @@ function initViewCount(){
 			})
 		})
 	}
-	
-	console.log(newWeek);
-	
-	if(newWeek){
-		updateAllWeek(database.ref('posts/photos'));
-		updateAllWeek(database.ref('posts/videos'));
-		updateAllWeek(database.ref('posts/comicfulls'));
-		updateAllWeek(database.ref('posts/wallpapers'));
-		updateAllWeek(database.ref('posts/audiobooks'));
-		updateAllWeek(database.ref('posts/books'));
-		updateAllWeek(database.ref('posts/radios'));
-		updateAllWeek(database.ref('posts/storys'));
-		updateAllWeek(database.ref('posts/gifs'));
-	}
-	if(newMonth){
-		updateAllMonth(database.ref('posts/photos'));
-		updateAllMonth(database.ref('posts/videos'));
-		updateAllMonth(database.ref('posts/comicfulls'));
-		updateAllMonth(database.ref('posts/wallpapers'));
-		updateAllMonth(database.ref('posts/audiobooks'));
-		updateAllMonth(database.ref('posts/books'));
-		updateAllMonth(database.ref('posts/radios'));
-		updateAllMonth(database.ref('posts/storys'));
-		updateAllMonth(database.ref('posts/gifs'));
-	}
-	
 	
 	var idGirl = $('.model-name').attr('data-idgirl');
 	if(postType == 'video')
