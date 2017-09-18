@@ -475,6 +475,8 @@ function initViewCount(){
 		})
 	}
 	
+	console.log(newWeek);
+	
 	if(newWeek){
 		updateAllWeek(database.ref('posts/photos'));
 		updateAllWeek(database.ref('posts/videos'));
