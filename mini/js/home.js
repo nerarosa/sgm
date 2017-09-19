@@ -180,13 +180,16 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 });
 
 (function getStory(){
-	var url = url_blog + 'feeds/posts/default/-/Radio?alt=json-in-script&max-results=8';
+	let url = url_blog + 'feeds/posts/default/-/Radio',
+		options = {
+			"alt":"json-in-script", 
+			"max-results": 8
+		};
 	
-	$.ajax({
-		url: url,
-		type: "get",
-		dataType: "jsonp",
-		success: function(data){
+	getAjax(url, options, function(data){
+		if(data == "effFeed"){
+			$('#nt-storytext').html('<strong>Error Load Feed!!!</strong>');
+		}else{
 			var entry = data.feed.entry,
 				htmlEmbed = '';
 				
@@ -225,11 +228,8 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 			}else{
 				$('#nt-storytext').html('<strong>No Result!!!</strong>');
 			}			
-		},
-		error: function(){
-			getStory();
 		}
-	});
+	})
 })();
 (function getRadio(){	
 	let url = url_blog + 'feeds/posts/default/-/Radio',
