@@ -116,7 +116,7 @@ $(document).ready(function(){
 		function getPostByText(textsearch, maxpost, idtag){
 			let options = {
 				"url": url_blog + "feeds/posts/summary",
-				dataSend:{
+				"dataSend":{
 					"q": textsearch,
 					"max-results": maxpost,
 					"orderby": "published"
