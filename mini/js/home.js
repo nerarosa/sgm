@@ -231,14 +231,17 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 		}
 	});
 })();
-(function getRadio(){
-	var url = url_blog + 'feeds/posts/default/-/Radio?alt=json-in-script&max-results=8';
+(function getRadio(){	
+	let url = url_blog + 'feeds/posts/default/-/Radio',
+		options = {
+			"alt":"json-in-script", 
+			"max-results": 8
+		};
 	
-	$.ajax({
-		url: url,
-		type: "get",
-		dataType: "jsonp",
-		success: function(data){
+	getAjax(url, options, function(data){
+		if(data == "effFeed"){
+			$('#oneliner .radio-newsticker').html('<strong>Error Load Feed!!!</strong>');
+		}else{
 			var entry = data.feed.entry,
 				htmlEmbed = '';
 				
@@ -281,16 +284,13 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 				});
 			}else{
 				$('#oneliner .radio-newsticker').html('<strong>No Result!!!</strong>');
-			}			
-		},
-		error: function(){
-			getRadio();
+			}
 		}
-	});
+	})
 })();
 
 (function getAudioBook(){
-	let url = url_blog + 'feeds/posts/default/-/AudioBook?alt=json-in-script&max-results=8',
+	let url = url_blog + 'feeds/posts/default/-/AudioBook',
 		options = {
 			"alt":"json-in-script", 
 			"max-results": 8
@@ -306,8 +306,8 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 			if(entry !== undefined){
 				var titlePost = urlPost = sumPost = '';
 				
-				for(var i = 0, len = entry.length; i < len; i++){
-					for(var j = 0; j < entry[i].link.length; j++){
+				for(let i = 0, len = entry.length; i < len; i++){
+					for(let j = 0; j < entry[i].link.length; j++){
 						if(entry[i].link[j].rel == 'alternate')
 							urlPost = entry[i].link[j].href;
 					}
