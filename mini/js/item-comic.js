@@ -68,14 +68,21 @@ $(document).ready(function(){
 	});
 	
 	function getChapter(url){
-		$.ajax({
-			url: url,
-			type: "GET",
-			dataType: "jsonp",
-			beforeSend: function(){
-				$(".comic-chap-list").html("Data is Loading...");
+		let options = {
+			"url":url,
+			"dataSend":{				
+				"max-results": 100,
+				"orderby": "published"
 			},
-			success: function(data){
+			"beforeHandle": function(){
+				$(".comic-chap-list").html("Data is Loading...");
+			}
+		};
+		
+		getAjax(options, function(data){
+			if(data == "effFeed"){
+				$('.comic-chap-list').html('<strong>Error Load Feed!!!</strong>');
+			}else{
 				var htmlChap = '', nextUrl = '',
 					entry = data.feed.entry,
 					links = data.feed.link;
@@ -94,7 +101,7 @@ $(document).ready(function(){
 						var date = new Date(dateChap);
 						dateChap = date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear();
 						
-						htmlChap += '<div class="row"><span><a href="' + url_blog + 'p/reader.html?id='+idMain + '&idc=' + idChap + '&sv=' + url.split('://')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span><span>'+ dateChap +'</span></div>';
+						htmlChap += '<div class="row"><span><a href="' + url_blog + 'p/reader.html?id='+idMain + '&idc=' + idChap + '&sv=' + url.split('//')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span><span>'+ dateChap +'</span></div>';
 						
 						if(i==0)
 							$('.start.btn').attr('href', '/p/reader.html?id='+idMain + '&idc=' + idChap + '&sv=' + url.split('://')[1].split('.')[0]);
@@ -111,15 +118,12 @@ $(document).ready(function(){
 					$(".comic-chap-list").append(htmlChap);
 				else
 					$(".comic-chap-list").html(htmlChap);
-			},
-			error: function(){
-				$(".comic-chap-list").html("Error load data");
 			}
 		});
 	}
 	
 	if(chap != ''){
-		var urlData = "http://" + chap.split(";")[0] + ".blogspot.com",
+		var urlData = "//" + chap.split(";")[0] + ".blogspot.com",
 			nameComic = chap.split(";")[1];
 		var urlSv = urlData + "/feeds/posts/default/-/" + nameComic + "?alt=json-in-script&max-results=100&orderby=published";
 		getChapter(urlSv);
