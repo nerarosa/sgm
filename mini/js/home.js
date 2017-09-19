@@ -86,12 +86,17 @@ $(document).ready(function(){
 	})();
 	
 	(function getUpdateBook () {
-		$.ajax({
-			beforeSend: handleBefore,
-			url: url_blog + 'feeds/posts/summary/-/Book?alt=json-in-script&orderby=updated&max-results=12',
-			type: 'get',
-			dataType: "jsonp",
-			success: function(data) {
+		let url = url_blog + 'feeds/posts/summary/-/Book',
+			options = {
+				"alt":"json-in-script", 
+				"max-results": 12,
+				"orderby":"updated"
+			};
+		
+		getAjax(url, options, function(data){
+			if(data == "effFeed"){
+				$('.updated-book').html('<strong>Error Load Feed!!!</strong>');
+			}else{
 				var titlePost = urlPost = thumbPost = datePost = htmlEmbed = '',
 					entry = data.feed.entry;
 				
@@ -142,11 +147,8 @@ $(document).ready(function(){
 				}else{
 					$('.updated-book').html('No Result');
 				}
-			},
-			error: function(){
-				getUpdateBook();
 			}
-		});
+		}, handleBefore)
 	})();
 });
 

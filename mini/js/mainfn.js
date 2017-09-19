@@ -73,13 +73,18 @@ $.fn.isOnScreen = function(){
     return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));  
 };
 
-function getAjax(url, options, callback){
+function getAjax(url, options, callback, beforeHandle){
 	let countLoop = 0;
+	
+	if(typeof beforeHandle === "undefined" || !$.isFunction(beforeHandle))
+		beforeHandle = function(){};
+	
 	$.ajax({
 		url: url,
 		type: "get",
 		data: options,
 		dataType: "jsonp",
+		beforeSend: beforeHandle,
 		success: function(data){
 			callback(data)
 		},
