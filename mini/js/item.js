@@ -5,13 +5,19 @@ d.event.mouseHooks;d.event.special.mousewheel={setup:function(){if(this.addEvent
 a.offset();a.data("floatingFixedTop",d.top);a.data("floatingFixedLeft",d.left)}d=d=a.data("floatingFixedTop");d<b+c.padding&&!a.data("isFloating")?a.css({position:"fixed",top:c.padding,left:a.data("floatingFixedLeft"),width:a.width()}).data("isFloating",!0):d>=b+c.padding&&a.data("isFloating")&&(c=a.data("floatingFixedOrig"),a.css(c).data("isFloating",!1))}};k.scroll(h).resize(h)})(jQuery);
 
 function getPostByAlbum(label, wrap) {
-	$.ajax({
-		url: url_blog + "feeds/posts/summary/-/ssAlbum/PartOne/" + label + "?alt=json-in-script&max-results=8",
-		type: "GET",
-		dataType: "jsonp",
-		success: function(data){
-			var titlePost = '', thumbPost = '', urlPost='', albumInsert='';
-			var entry = data.feed.entry;
+	let options = {
+		"url": url_blog + "feeds/posts/summary/-/ssAlbum/PartOne/" + label,
+		dataSend:{
+			"max-results": 8
+		}
+	}
+	
+	getAjax(options, function(data){
+		if(data == "effFeed"){
+			$(wrap).html('<strong>Error Loading Feed!</strong>');
+		}else{
+			let titlePost = '', thumbPost = '', urlPost='', albumInsert='';
+			let entry = data.feed.entry;
 			
 			if(entry !== undefined){
 				for(var i=0; i<entry.length; i++){
@@ -39,23 +45,22 @@ function getPostByAlbum(label, wrap) {
 			}
 			
 			$(wrap).html('<h5><a href="/search/label/Photo%2B'+ label +'?max-results=9">Cùng Album ' + label.split("-")[1] + '</a></h5><div class="box"><ul>' + albumInsert + '</ul></div>');
-		},
-		error: function(){
-			$(wrap).html('<strong>Error Loading Feed!</strong>');
 		}
 	});
 }
 
 function getRecentPost(label){
-	$.ajax({
-		url: url_blog + "feeds/posts/summary/-/" + label,
-		type: "GET",
-		data: {
-			alt: "json-in-script",
-			"max-results" : 8
-		},
-		dataType: "jsonp",
-		success: function(data){
+	let options = {
+		"url": url_blog + "feeds/posts/summary/-/" + label,
+		dataSend:{
+			"max-results": 8
+		}
+	}
+	
+	getAjax(options, function(data){
+		if(data == "effFeed"){
+			$("#box-content ul").html('<strong>Error Loading Feed!</strong>');
+		}else{
 			var titlePost = '', thumbPost = '', urlPost='', newestInsert='';
 			var entry = data.feed.entry;
 			
@@ -83,9 +88,6 @@ function getRecentPost(label){
 			}
 			
 			$("#box-content ul").html(newestInsert);
-		},
-		error: function(){
-			getRecentPost(label);
 		}
 	});
 }
@@ -112,15 +114,23 @@ $(document).ready(function(){
 		}		
 				
 		function getPostByText(textsearch, maxpost, idtag){
-			$.ajax({
-				url: url_blog + "feeds/posts/summary?alt=json-in-script&q="+ textsearch +"&orderby=published&max-results=" + maxpost,
-				type: "GET",
-				dataType: "jsonp",
-				success: function(data){
+			let options = {
+				"url": url_blog + "feeds/posts/summary",
+				dataSend:{
+					"q": textsearch,
+					"max-results": maxpost,
+					"orderby": "published"
+				}
+			}
+			
+			getAjax(options, function(data){
+				if(data == "effFeed"){
+					$(idtag).html('<strong>Error Loading Feed!</strong>');
+				}else{
 					var titlePost = '', urlPost = '', thumbPost = '', htmlEmbed = '',
 					entry = data.feed.entry;
 					if(entry !== undefined){
-						for(var i = 0; i < entry.length; i++){
+						for(let i = 0, len = entry.length; i < len; i++){
 							for(var j = 0; j < entry[i].link.length; j++){
 								if(entry[i].link[j].rel == "alternate"){
 									urlPost = entry[i].link[j].href;
@@ -140,9 +150,6 @@ $(document).ready(function(){
 					}else{
 						$(idtag).html("NO RESULT!!!");
 					}					
-				},
-				error: function(){
-					$(idtag).html('Error load feed.');
 				}
 			});
 		}
@@ -189,13 +196,14 @@ $(document).ready(function(){
 		}
 		
 
-		var idInput = $('#search-markup').data('ssgirl');
-		var profileurl = "http://ssgirl-profile.blogspot.com/feeds/posts/default/"+ idInput +"?alt=json-in-script&orderby=published&max-results=200";
-		$.ajax({
-			url: profileurl,
-			type: "GET",
-			dataType: "jsonp",
-			success: function(data){
+		var idInput = $('#search-markup').data('ssgirl');		
+		let options = {
+				"url": "//ssgirl-profile.blogspot.com/feeds/posts/default/"+ idInput,				
+			}
+		getAjax(options, function(data){
+			if(data == "effFeed"){
+				console.log(data);
+			}else{
 				var htmlEmbed = '', 
 					title='', 
 					entry = data.entry, 
@@ -238,9 +246,6 @@ $(document).ready(function(){
 				}
 				
 				getPostByText(idInput, 4, '#ssgirl-post-related');
-			},
-			error: function(e){
-				console.log(e);
 			}
 		});	
 	}
@@ -271,13 +276,15 @@ if(sgmgirl == true){
 	});
 	
 	var girlId = $('#search-markup').data('idgirl');
-	(function girlInfo(url){
-		$.ajax({
-			url: url,
-			type: "GET",
-			data: {alt: 'json-in-script'},
-			dataType: "jsonp",
-			success: function(data){
+	(function girlInfo(){
+		let options = {
+				"url": "//sgmgirldata.blogspot.com/feeds/posts/default/"+ girlId,				
+			}
+		
+		getAjax(options, function(data){
+			if(data == "effFeed"){
+				console.log(data);
+			}else{
 				var entry = data.entry;
 			
 				var nameG = entry.title.$t;
@@ -298,12 +305,9 @@ if(sgmgirl == true){
 				$('.girl--info').html('<span class="sgmtooltip tooltip-effect-1"><span class="tooltip-item">'+ nameG +'</span><span class="tooltip-content clearfix"><img src="'+ sAvt +'"><span class="tooltip-text"><strong>'+ nameG +'</strong><ul><li>'+ realName +'</li><li>'+ birthday +'</li><li>'+ height +'</li><li>'+ bsize +'</li></ul> <a href="/p/girl.html?idg='+ girlId +'">Xem thêm</a></span></span></span>').css({'background-image' : 'url(' + sAvt + ')'});
 				
 				$('.post-info .sgmlabel').append('<a href="/search?q=@'+ girlId +'" rel="tag nofollow">'+ nameG +'</a>');
-			},
-			error: function(e){
-				girlInfo(url);
 			}
 		});
-	})('http://sgmgirldata.blogspot.com/feeds/posts/default/'+ girlId);
+	})();
 }	
 	
 if(Cookies.get('confirmage')==null){
@@ -1025,7 +1029,7 @@ $(document).ready(function() {
 			} else {
 				loginFireBase();
 			}
-		});		
+		});
 	}
 	function like(){
 		firebase.auth().onAuthStateChanged(function(user) {

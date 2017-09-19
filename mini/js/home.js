@@ -25,7 +25,7 @@ $(document).ready(function(){
 		let url = url_blog + 'feeds/posts/summary/-/ComicFull',			
 			options = {
 				"url":url,
-				dataSend:{					
+				dataSend:{
 					"max-results": 12
 				},
 				"beforeHandle": handleBefore
