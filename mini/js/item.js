@@ -625,13 +625,21 @@ if(isMobile == false){
 	var olderLink = $('a.blog-pager-older-link');
 	
 	function getNextPrev(link, labelText){
-		var path = link.attr('href').split('.com')[1];
-		var url = 'https://www.googleapis.com/blogger/v3/blogs/9217536117332083683/posts/bypath?path='+path+'&key=AIzaSyAgi7eyJY7T5TZY7iNp0KNQAa6NG67CbYo&fields=title,content';
-		$.ajax({
-			url: url,
-			type: "GET",
-			dataType: "jsonp",
-			success: function(data){
+		let path = link.attr('href').split('.com')[1];
+		let url = 'https://www.googleapis.com/blogger/v3/blogs/9217536117332083683/posts/bypath',
+			options = {
+				"url":url,
+				"dataSend":{
+					"path":path, 
+					"key": "AIzaSyAgi7eyJY7T5TZY7iNp0KNQAa6NG67CbYo",
+					"fields":"title,content";
+				}
+			};
+		
+		getAjax(options, function(data){
+			if(data == "effFeed"){
+				console.log(data);
+			}else{
 				var thumbnail = '';
 				var title = data.title;
 				var content = $(data.content).find('img');
@@ -645,9 +653,6 @@ if(isMobile == false){
 				}
 				
 				link.html('<span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-'+ (labelText == 'Next' ? "right" : "left") +'-2"></svg></span><div><span>'+ labelText +' Gallery</span><h3>'+title+'</h3><p>by SSGirl</p><img src="'+ imageHostFix(thumbnail.replace(/\/s[0-9]+(\-no)?/g, '/s104-c')) +'" alt="'+ labelText +' thumb" /></div>');
-			},
-			error: function(e){
-				console.log(e);
 			}
 		});
 	}
