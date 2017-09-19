@@ -97,7 +97,7 @@ function getChapter(url){
 					
 					if(i == len - 1) $('.info-footer a.start').attr('href', '/p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + url.split('//')[1].split('.')[0]);
 					
-					htmlChap += '<div class="row"><span><i class="fa fa-leaf" aria-hidden="true"></i><a href="'+ url_blog + 'p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + url.split('://')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span></div>';
+					htmlChap += '<div class="row"><span><i class="fa fa-leaf" aria-hidden="true"></i><a href="'+ url_blog + 'p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + url.split('//')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span></div>';
 				}
 				
 				if(nextUrl != ''){
