@@ -632,7 +632,7 @@ if(isMobile == false){
 				"dataSend":{
 					"path":path, 
 					"key": "AIzaSyAgi7eyJY7T5TZY7iNp0KNQAa6NG67CbYo",
-					"fields":"title,content";
+					"fields":"title,content"
 				}
 			};
 		
