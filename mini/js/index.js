@@ -15,7 +15,7 @@ $(document).ready(function () {
 	
 	let options = {
 			"url":urlfeed,
-			dataSend:{
+			"dataSend":{
 				"max-results": 20,
 				"orderby":"updated"
 			},
