@@ -73,4 +73,22 @@ $.fn.isOnScreen = function(){
     return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));  
 };
 
-
+function getAjax(url, options, callback){
+	let countLoop = 0;
+	$.ajax({
+		url: url,
+		type: "get",
+		data: options,
+		dataType: "jsonp",
+		success: function(data){
+			callback(data)
+		},
+		error: function(){
+			countLoop++;
+			if(countLoop < 3)
+				getAjax(url, options, callback);
+			else
+				callback('errFeed');
+		}
+	});
+}

@@ -290,13 +290,17 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 })();
 
 (function getAudioBook(){
-	var url = url_blog + 'feeds/posts/default/-/AudioBook?alt=json-in-script&max-results=8';
-	$.ajax({
-		url: url,
-		type: "get",
-		dataType: "jsonp",
-		success: function(data){
-			var entry = data.feed.entry,
+	let url = url_blog + 'feeds/posts/default/-/AudioBook?alt=json-in-script&max-results=8',
+		options = {
+			"alt":"json-in-script", 
+			"max-results": 8
+		};
+	
+	getAjax(url, options, function(data){
+		if(data == "effFeed"){
+			$('#nt-audio').html('<strong>Error Load Feed!!!</strong>');
+		}else{
+			let entry = data.feed.entry,
 				htmlEmbed = '';
 				
 			if(entry !== undefined){
@@ -360,9 +364,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 			}else{
 				$('#nt-audio').html('<strong>No Result!!!</strong>');
 			}
-		},
-		error: function(){
-			getAudioBook();
 		}
-	});
+	})
+		
 })();
