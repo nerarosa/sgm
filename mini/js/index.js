@@ -7,20 +7,26 @@ $(document).ready(function () {
 		$(this).attr({src:$(this).attr("src").replace(/\/s72(.*)\//g,"/w294-no/")})
 	});*/
 
-	
-	numpostx     = 20;
 	var labelget = $('.slider4').text().trim();
 	if(labelget != '')
-		var urlfeed = 'feeds/posts/default/-/'+labelget+'?alt=json-in-script&orderby=updated&max-results=';
+		var urlfeed = 'feeds/posts/default/-/'+labelget;
 	else
-		var urlfeed = 'feeds/posts/default/-/Photo?alt=json-in-script&orderby=updated&max-results=';	
-	$.ajax({
-		url: url_blog + urlfeed + numpostx,
-		type: 'get',
-		dataType: "jsonp",
-		success: function(data) {
-				var posturl, posttitle, postimg, sliderHtml = '',
-					entry = data.feed.entry;
+		var urlfeed = 'feeds/posts/default/-/Photo';
+	
+	let options = {
+			"url":urlfeed,
+			dataSend:{
+				"max-results": 20,
+				"orderby":"updated"
+			},
+		};
+	
+	getAjax(options, function(data){
+		if(data == "effFeed"){
+			$('.slider4').html('<div class="slide"><strong>Error Loading Feed!</strong></div>');
+		}else{
+			var posturl, posttitle, postimg, sliderHtml = '',
+				entry = data.feed.entry;
 			if (entry !== undefined) {
 				for (var i = 0; i < entry.length; i++) {
 						for (var j=0; j < entry[i].link.length; j++)
@@ -55,11 +61,8 @@ $(document).ready(function () {
 			} else {
 				$('.slider4').html('<div class="slide"><span>No result!</span></div>');
 			}
-		},
-		error: function() {
-			$('.slider4').html('<div class="slide"><strong>Error Loading Feed!</strong></div>');
-	   }
-	});
+		}
+	})
 });
 
 

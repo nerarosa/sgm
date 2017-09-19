@@ -22,12 +22,19 @@ $(document).ready(function(){
     };
 	
 	(function getUpdateComic () {
-		$.ajax({
-			beforeSend: handleBefore,
-			url: url_blog + 'feeds/posts/summary/-/ComicFull?alt=json-in-script&orderby=updated&max-results=12',
-			type: 'get',
-			dataType: "jsonp",
-			success: function(data) {
+		let url = url_blog + 'feeds/posts/summary/-/ComicFull',			
+			options = {
+				"url":url,
+				dataSend:{					
+					"max-results": 12
+				},
+				"beforeHandle": handleBefore
+			};
+			
+		getAjax(options, function(data){
+			if(data == "effFeed"){
+				$('.updated-comic').html('<strong>Error Load Feed!!!</strong>');
+			}else{
 				var titlePost = urlPost = thumbPost = datePost = htmlEmbed = '',
 					entry = data.feed.entry;
 				
@@ -78,11 +85,8 @@ $(document).ready(function(){
 				}else{
 					$('.updated-comic').html('No Result');
 				}
-			},
-			error: function(){
-				getUpdateComic();
 			}
-		});
+		})
 	})();
 	
 	(function getUpdateBook () {
@@ -90,7 +94,7 @@ $(document).ready(function(){
 			options = {
 				"url":url,
 				dataSend:{					
-					"max-results": 8
+					"max-results": 12
 				},
 				"beforeHandle": handleBefore
 			};
