@@ -9,9 +9,9 @@ $(document).ready(function () {
 
 	var labelget = $('.slider4').text().trim();
 	if(labelget != '')
-		var urlfeed = 'feeds/posts/default/-/'+labelget;
+		var urlfeed = '/feeds/posts/default/-/'+labelget;
 	else
-		var urlfeed = 'feeds/posts/default/-/Photo';
+		var urlfeed = '/feeds/posts/default/-/Photo';
 	
 	let options = {
 			"url":urlfeed,
