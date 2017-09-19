@@ -89,7 +89,7 @@ function getAjax(options, callback){
 	if(typeof options.dataSend === "undefined" || typeof options.dataSend !== "object" || $.isEmptyObject(options.dataSend))
 		sendData = defaultSend;
 	else
-		if(options.url.indexOf('blogspot.com') != -1)
+		if(options.url.indexOf('blogspot.com') != -1 || options.url.indexOf('/feeds/') != -1)
 			sendData = $.extend({}, defaultSend, options.dataSend);
 		else
 			sendData = options.dataSend;
