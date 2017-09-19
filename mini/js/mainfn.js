@@ -86,12 +86,10 @@ function getAjax(options, callback){
 	if(typeof options.beforeHandle === "undefined" || !$.isFunction(options.beforeHandle))
 		options.beforeHandle = function(){};
 	
-	if(typeof options.sendData === "undefined" || typeof options.sendData !== "object" || $.isEmptyObject(options.sendData))
+	if(typeof options.dataSend === "undefined" || typeof options.dataSend !== "object" || $.isEmptyObject(options.dataSend))
 		sendData = defaultSend;
 	else
-		sendData = $.extend({}, defaultSend, options.sendData);
-	
-	console.log(options.sendData);
+		sendData = $.extend({}, defaultSend, options.dataSend);	
 	
 	$.ajax({
 		url: options.url,
