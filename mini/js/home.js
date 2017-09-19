@@ -92,7 +92,7 @@ $(document).ready(function(){
 				dataSend:{					
 					"max-results": 8
 				},
-				"beforeHandle": beforeHandle
+				"beforeHandle": handleBefore
 			};
 		
 		getAjax(options, function(data){
