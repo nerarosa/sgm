@@ -90,7 +90,7 @@ function getAjax(options, callback){
 		sendData = defaultSend;
 	else
 		sendData = $.extend({}, defaultSend, options.sendData);
-	
+	console.log(sendData);
 	$.ajax({
 		url: options.url,
 		type: "get",

@@ -25,7 +25,7 @@ $(document).ready(function(){
 		let url = url_blog + 'feeds/posts/summary/-/ComicFull',			
 			options = {
 				"url":url,
-				dataSend:{
+				"dataSend":{
 					"max-results": 12
 				},
 				"beforeHandle": handleBefore
@@ -93,7 +93,7 @@ $(document).ready(function(){
 		let url = url_blog + 'feeds/posts/summary/-/Book',			
 			options = {
 				"url":url,
-				dataSend:{					
+				"dataSend":{					
 					"max-results": 12
 				},
 				"beforeHandle": handleBefore
@@ -191,7 +191,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 	let url = url_blog + 'feeds/posts/default/-/Radio',
 		options = {
 			"url":url,
-			dataSend:{
+			"dataSend":{
 				"alt":"json-in-script", 
 				"max-results": 8
 			}			
@@ -246,7 +246,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 	let url = url_blog + 'feeds/posts/default/-/Radio',
 		options = {
 			"url":url,
-			dataSend:{
+			"dataSend":{
 				"alt":"json-in-script", 
 				"max-results": 8
 			}			
@@ -307,7 +307,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 	let url = url_blog + 'feeds/posts/default/-/AudioBook',
 		options = {
 			"url":url,
-			dataSend:{
+			"dataSend":{
 				"alt":"json-in-script", 
 				"max-results": 8
 			}			
