@@ -86,14 +86,16 @@ $(document).ready(function(){
 	})();
 	
 	(function getUpdateBook () {
-		let url = url_blog + 'feeds/posts/summary/-/Book',
+		let url = url_blog + 'feeds/posts/summary/-/Book',			
 			options = {
-				"alt":"json-in-script", 
-				"max-results": 12,
-				"orderby":"updated"
+				"url":url,
+				dataSend:{					
+					"max-results": 8
+				},
+				"beforeHandle": beforeHandle
 			};
 		
-		getAjax(url, options, function(data){
+		getAjax(options, function(data){
 			if(data == "effFeed"){
 				$('.updated-book').html('<strong>Error Load Feed!!!</strong>');
 			}else{
@@ -148,7 +150,7 @@ $(document).ready(function(){
 					$('.updated-book').html('No Result');
 				}
 			}
-		}, handleBefore)
+		})
 	})();
 });
 
@@ -184,11 +186,14 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 (function getStory(){
 	let url = url_blog + 'feeds/posts/default/-/Radio',
 		options = {
-			"alt":"json-in-script", 
-			"max-results": 8
+			"url":url,
+			dataSend:{
+				"alt":"json-in-script", 
+				"max-results": 8
+			}			
 		};
 	
-	getAjax(url, options, function(data){
+	getAjax(options, function(data){
 		if(data == "effFeed"){
 			$('#nt-storytext').html('<strong>Error Load Feed!!!</strong>');
 		}else{
@@ -236,11 +241,14 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 (function getRadio(){	
 	let url = url_blog + 'feeds/posts/default/-/Radio',
 		options = {
-			"alt":"json-in-script", 
-			"max-results": 8
+			"url":url,
+			dataSend:{
+				"alt":"json-in-script", 
+				"max-results": 8
+			}			
 		};
 	
-	getAjax(url, options, function(data){
+	getAjax(options, function(data){
 		if(data == "effFeed"){
 			$('#oneliner .radio-newsticker').html('<strong>Error Load Feed!!!</strong>');
 		}else{
@@ -294,11 +302,14 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 (function getAudioBook(){
 	let url = url_blog + 'feeds/posts/default/-/AudioBook',
 		options = {
-			"alt":"json-in-script", 
-			"max-results": 8
+			"url":url,
+			dataSend:{
+				"alt":"json-in-script", 
+				"max-results": 8
+			}			
 		};
 	
-	getAjax(url, options, function(data){
+	getAjax(options, function(data){
 		if(data == "effFeed"){
 			$('#nt-audio').html('<strong>Error Load Feed!!!</strong>');
 		}else{

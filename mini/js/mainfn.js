@@ -73,25 +73,37 @@ $.fn.isOnScreen = function(){
     return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));  
 };
 
-function getAjax(url, options, callback, beforeHandle){
-	let countLoop = 0;
+function getAjax(options, callback){
+	if(typeof options.url === "undefined" || options.url === '' || options.url === null)
+		return;
 	
-	if(typeof beforeHandle === "undefined" || !$.isFunction(beforeHandle))
-		beforeHandle = function(){};
+	let countLoop = 0;
+	let defaultSend = {
+		"alt":"json-in-script"
+	};
+	let sendData = {};	
+	
+	if(typeof options.beforeHandle === "undefined" || !$.isFunction(options.beforeHandle))
+		options.beforeHandle = function(){};
+	
+	if(typeof options.sendData === "undefined" || typeof options.sendData !== "object" || $.isEmptyObject(options.sendData))
+		sendData = defaultSend;
+	else
+		sendData = $.extend({}, defaultSend, options.sendData);
 	
 	$.ajax({
-		url: url,
+		url: options.url,
 		type: "get",
-		data: options,
+		data: sendData,
 		dataType: "jsonp",
-		beforeSend: beforeHandle,
+		beforeSend: options.beforeHandle,
 		success: function(data){
 			callback(data)
 		},
 		error: function(){
 			countLoop++;
 			if(countLoop < 3)
-				getAjax(url, options, callback);
+				getAjax(options, callback);
 			else
 				callback('errFeed');
 		}
