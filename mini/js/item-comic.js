@@ -1,7 +1,6 @@
 /* jQuery Shorten plugin 1.0.0 */
 (function($) {
-	$.fn.shorten = function (settings) {
-	
+	$.fn.shorten = function (settings) {	
 		var config = {
 			showChars: 100,
 			ellipsesText: "...",
@@ -87,24 +86,30 @@ $(document).ready(function(){
 					entry = data.feed.entry,
 					links = data.feed.link;
 					
-				for(var i=0; i< links.length; i++){
+				for(let i=0, len = links.length; i< len; i++){
 					if(links[i].rel == "next") nextUrl = links[i].href.split("?")[1];
 				}
 				
 				if(entry !== undefined){
-					var idChap = '', dateChap = '', titleChap = '';
-					for(var i = 0; i < entry.length; i++){
+					let idChap = '', 
+						dateChap = '', 
+						titleChap = '';
+					for(let i = 0, len = entry.length; i < len; i++){
 						titleChap = entry[i].title.$t;
 						idChap = entry[i].id.$t.split('post-')[1];
 						dateChap = entry[i].published.$t;
 					
-						var date = new Date(dateChap);
+						let date = new Date(dateChap);
 						dateChap = date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear();
 						
 						htmlChap += '<div class="row"><span><a href="' + url_blog + 'p/reader.html?id='+idMain + '&idc=' + idChap + '&sv=' + url.split('//')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span><span>'+ dateChap +'</span></div>';
 						
 						if(i==0)
 							$('.start.btn').attr('href', '/p/reader.html?id='+idMain + '&idc=' + idChap + '&sv=' + url.split('//')[1].split('.')[0]);
+						
+						if(i == len - 1){
+							$('.comic-date-update .value').text(dateChap);
+						}
 					}
 					
 					if(nextUrl != ''){
