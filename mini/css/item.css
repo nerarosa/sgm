@@ -13,8 +13,8 @@
 	-webkit-transition: all 0.2s linear;
 	-moz-transition: all 0.2s linear;
 	transition: all 0.2s linear;
-	width: 82px;
-	height: 162px;
+	width: 80px;
+	height: 160px;
 }
 
 .thumbs-box {
@@ -32,7 +32,7 @@
 	position: relative;
 	display: inline-block;
 	text-align: right;
-	padding: 2px 2px 0 0;
+	padding: 1px 1px 0 0;
 	width: 40px;
 	height: 40px;
 	background: #f0f0f0;
