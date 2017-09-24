@@ -549,7 +549,7 @@ a, button {-webkit-tap-highlight-color: rgba(0,0,0,0);}
 .sy-controls li a:hover, .sy-controls li a:focus {opacity: 0.8;outline: none; }
 .sy-controls li a:after {
 	content: "";
-	background-image: url("https://googledrive.com/host/0B57N8la26XZhRUJ4c3JYRVJBT0k");
+	background-image: url("arrows.svg");
 	background-repeat: no-repeat;
 	-moz-background-size: cover;
 	-o-background-size: cover;
