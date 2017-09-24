@@ -57,7 +57,7 @@ $(document).ready(function(){
 							thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 						}
 						
-						itemEmbed += '<div class="col-xs-12 col-sm-6 col-md-6"><div class="gp_products_inner"><div class="gp_products_item_image"><a href="'+ urlPost +'"><img class="lazyload" data-src="'+ thumbPost +'" alt="'+ titlePost +'" /></a></div><div class="gp_products_item_caption"><ul class="gp_products_caption_name"><li><a href="'+ urlPost +'">'+ titlePost +'</a></li><li><a href="#">'+ datePost +'</a></li></ul></div></div></div>';
+						itemEmbed += '<div class="col-xs-12 col-sm-6 col-md-6"><div class="gp_products_inner"><div class="gp_products_item_image"><a href="'+ urlPost +'"><img src="'+ thumbPost +'" alt="'+ titlePost +'" /></a></div><div class="gp_products_item_caption"><ul class="gp_products_caption_name"><li><a href="'+ urlPost +'">'+ titlePost +'</a></li><li><a href="#">'+ datePost +'</a></li></ul></div></div></div>';
 						
 						if(entry.length > 2){
 							if(i == 1){
@@ -76,10 +76,6 @@ $(document).ready(function(){
 					$('.updated-comic').html(htmlEmbed);
 					
 					handleComplete();
-					//$(".updated-comic img.lazyload").lazyload();
-					
-					let images = document.querySelectorAll(".updated-comic img.lazyload");
-					lazyload(images);
 					
 					$('.updated-comic img').each(function(){
 						if (!isImageOk($(this))) {
