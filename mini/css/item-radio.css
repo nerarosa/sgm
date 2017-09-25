@@ -64,6 +64,7 @@ div#radio-player-wrapper {
 
 /* @group progress bar */
 .progress {float:left;max-width: 85%;margin-top: 26px;	margin-left: 10px;width: calc(100% - 160px);}
+.jp-state-no-volume .progress{width: calc(100% - 90px);}
 .jp-progress {background-color: #000;position: relative;}
 .jp-audio .jp-progress {height: 2px;width: 100%;}
 .jp-seek-bar {width:0px;height:100%;cursor: pointer;}
