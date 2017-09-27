@@ -228,7 +228,7 @@
     font-weight: normal;
     margin: 0.4em 0 1em;
 }
-.cbp-qtrotator blockquote footer {font-size: 1.2em;}
+.cbp-qtrotator blockquote footer {font-size: 1.2em;color: #47a3da;font-weight: 600;}
 .cbp-qtrotator blockquote footer:before {content: "__ ";}
 .cbp-qtrotator .cbp-qtcontent img {float: right;margin-left: 3em;}
 @media screen and (max-width: 30.6em) { 
