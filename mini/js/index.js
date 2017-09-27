@@ -180,7 +180,7 @@ jQuery.cachedScript = function( url, options ) {
 var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {	
 	postsRef.once('value', function(data){
 		var htmlEmbed = '';
-		if(data.val() != null)
+		if(data.val() != null){
 			let count = 0;
 			data.forEach(function(childSnapshot) {
 				var dataChild = childSnapshot.val();
@@ -211,6 +211,7 @@ var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
 				}					
 				
 			});
+		}	
 		
 		$(sectionElement).append(htmlEmbed);
 	});
