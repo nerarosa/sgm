@@ -46,6 +46,75 @@ function imageHostFix(url){
 	
 	return url;
 }
+
+function resizeImg(url, size){
+	/*
+		size:{
+			"w": New Width,
+			"h": New Height,
+			"s": New pixels on largest dimension,			
+			"crop": - "no" not crops image
+					- "c" crops image to provided dimensions
+					- "p" smart square crop, attempts cropping to faces
+					- "pp" alternate smart square crop, does not cut off faces
+					- "cc" generates a circularly cropped image
+					- "ci" square crop to smallest of: width, height, or specified =s parameter
+					- "nu" no-upscaling. Disables resizing an image to larger than its original resolution
+			"rotation": "fv" — flip vertically
+						"fh" — flip horizontally
+						"r{90, 180, 270}" — rotates image 90, 180, or 270 degrees clockwise
+			"convert": "rj" — forces the resulting image to be JPG
+					   "rp" — forces the resulting image to be PNG
+					   "rw" — forces the resulting image to be WebP
+					   "rg" — forces the resulting image to be GIF			
+		}
+	*/
+	if(("w" in size && size.w != '') || ("h" in size && size.h != '') || ("s" in size && size.s != '')){
+		let newImg = '';
+		if(url.indexOf('googleusercontent.com') != -1 || url.indexOf('bp.blogspot.com') != -1){
+			let newWidth = '',
+				newHeight = '',
+                newSize = '';
+			
+			if("s" in size && size.s != ''){
+				newSize = "s"+ size.s + (size.crop != "" ? "-"+size.crop : "") + "-l90-e365";
+			}else{
+				if("w" in size && size.w != '') newWidth = "w" + size.w + "-";
+				if("h" in size && size.h != '') newHeight = "h" + size.h + "-";
+			
+				newSize = newWidth + newHeight + (size.crop != "" ? size.crop : "") + "-l90-e365";
+			}
+			if(url.indexOf('.jpg') == -1 && url.indexOf('.png') == -1 && url.indexOf('.gif') == -1 && url.indexOf('.jpeg') == -1 ){				
+				if(url.indexOf('=') != -1)
+					newImg = url.replace(/\=.*/g, newSize);
+				else
+					newImg = url + "=" + newSize;
+			}else{
+				//newImg = url.replace(/\/s[0-9]{1,4}.*\//g, newSize);
+				
+				let elUrl = url.split("/");
+                
+                elUrl.splice(elUrl.length - 2, 1, newSize);
+                
+                newImg = elUrl.join("/");
+			}
+			
+		}else{
+			let newWidth = '',
+				newHeight = '';
+			
+			if("w" in size && size.w != '') newWidth = '&resize_w=' + size.w;
+			if("h" in size && size.h != '') newHeight = '&resize_h=' + size.h;
+			
+			newImg = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=31536000"+ newWidth + newHeight +"&url=" + encodeURIComponent(url);
+		}
+			
+		return newImg;
+	}else{
+		return url;
+	}
+}
+
 function getViewportSize(){
 	var w = window, 
 		d = document, 

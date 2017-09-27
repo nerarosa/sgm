@@ -38,8 +38,8 @@ $(document).ready(function () {
 								}
 						}                
 					posttitle = entry[i].title.$t;
-					if ("media$thumbnail" in entry[i]) {
-						postimg = imageHostFix(entry[i].media$thumbnail.url.replace('/s72-c/','/w300-h280-c/'));
+					if ("media$thumbnail" in entry[i]) {						
+						postimg = imageHostFix(resizeImg(entry[i].media$thumbnail.url, {"w":"300","h":"280","crop": "c"}));
 					} else {
 						postimg = "http://placehold.it/300x280&amp;text=No+Image"
 					}
