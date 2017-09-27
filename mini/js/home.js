@@ -40,8 +40,8 @@ $(document).ready(function(){
 				
 				if(entry !== undefined){
 					var itemEmbed = '';					
-					for(var i = 0; i < entry.length; i++){						
-						for(var j = 0; j < entry[i].link.length; j++){
+					for(let i = 0, len = entry.length; i < len; i++){						
+						for(let j in entry[i].link){
 							if(entry[i].link[j].rel == "alternate"){
 								urlPost = entry[i].link[j].href;
 							}
@@ -52,7 +52,7 @@ $(document).ready(function(){
 							datePost = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 						
 						if("media$thumbnail" in entry[i]){
-							thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/'));
+							thumbPost = imageHostFix(resizeImg(entry[i].media$thumbnail.url, {"w":"280","h":"370","crop": "c"}));
 						}else{
 							thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 						}
@@ -108,8 +108,8 @@ $(document).ready(function(){
 				
 				if(entry !== undefined){
 					var itemEmbed = '';					
-					for(var i = 0; i < entry.length; i++){						
-						for(var j = 0; j < entry[i].link.length; j++){
+					for(let i = 0, len = entry.length; i < len; i++){						
+						for(let j in entry[i].link){
 							if(entry[i].link[j].rel == "alternate"){
 								urlPost = entry[i].link[j].href;
 							}
@@ -120,7 +120,7 @@ $(document).ready(function(){
 							datePost = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
 						
 						if("media$thumbnail" in entry[i]){
-							thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace(/\/s[0-9](.*)\//gi, '/w280-h370-c/'));
+							thumbPost = imageHostFix(resizeImg(entry[i].media$thumbnail.url, {"w":"280","h":"370","crop": "c"}));
 						}else{
 							thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 						}
@@ -207,8 +207,8 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 			if(entry !== undefined){
 				var titlePost = urlPost = sumPost = '';
 				
-				for(var i = 0, len = entry.length; i < len; i++){
-					for(var j = 0; j < entry[i].link.length; j++){
+				for(let i = 0, len = entry.length; i < len; i++){
+					for(let j in entry[i].link){
 						if(entry[i].link[j].rel == 'alternate')
 							urlPost = entry[i].link[j].href;
 					}
@@ -216,11 +216,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 					var content = "content" in entry[i] ? entry[i].content.$t : "";
 						content = content.replace(/<(?:.|\n)*?>/gm, '');
 					
-					if(content.length > 100){
-						sumPost = content.substring(0,100) + '...';
-					}else{
-						sumPost = content;						
-					}
+						sumPost = content.length > 100 ? content.substring(0,100) + '...' : content;
 					
 					titlePost = entry[i].title.$t;
 					
@@ -262,20 +258,16 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 			if(entry !== undefined){
 				var titlePost = urlPost = sumPost = '';
 				
-				for(var i = 0, len = entry.length; i < len; i++){
-					for(var j = 0; j < entry[i].link.length; j++){
+				for(let i = 0, len = entry.length; i < len; i++){
+					for(let j in entry[i].link){
 						if(entry[i].link[j].rel == 'alternate')
 							urlPost = entry[i].link[j].href;
 					}
 					
 					var content = "content" in entry[i] ? entry[i].content.$t : "";
 						content = content.replace(/<(?:.|\n)*?>/gm, '');
-					
-					if(content.length > 100){
-						sumPost = content.substring(0,100) + '...';
-					}else{
-						sumPost = content;						
-					}
+										
+						sumPost = content.length > 100 ? content.substring(0,100) + '...' : content;					
 					
 					titlePost = entry[i].title.$t;
 					
@@ -324,7 +316,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 				var titlePost = urlPost = sumPost = '';
 				
 				for(let i = 0, len = entry.length; i < len; i++){
-					for(let j = 0; j < entry[i].link.length; j++){
+					for(let j in entry[i].link){
 						if(entry[i].link[j].rel == 'alternate')
 							urlPost = entry[i].link[j].href;
 					}
@@ -333,12 +325,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 						content = content.replace(/<(?:.|\n)*?>/gm, '');
 					
 					content = sgmTags("sum", content);
-					
-					if(content.length > 300){
-						sumPost = content.substring(0,300) + '...';
-					}else{
-						sumPost = content;						
-					}
+					sumPost = content.length > 300 ? content.substring(0,300) + '...' : content;					
 					
 					titlePost = entry[i].title.$t;
 					
