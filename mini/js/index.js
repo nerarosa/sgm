@@ -190,6 +190,7 @@ var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
 					if(oneLabel == true)
 						htmlEmbed = '<div class="col2 col-xs-6"><div class="card-outline">' + (timeTop != "W" ? ('<a class="rt01img card-thumbnail" href="'+ imageHostFix(dataChild.thumb.replace(/\/s[0-9](.*)\//gi, "/w241-h161-c/")) +'">' + dataChild.title + '</a>') : ('<img class="rt01img card-thumbnail" src="'+ imageHostFix(dataChild.thumb.replace(/\/s[0-9](.*)\//gi, "/w241-h161-c/")) +'" />')) + '<div class="card-content"><a href="'+ dataChild.url +'">' + dataChild.title + '</a></div><span class="view-count"><i aria-hidden="true" class="fa fa-eye"></i><span class="text-view-count">'+ (timeTop == "W" ? dataChild.viewCountW: (timeTop == "M" ? dataChild.viewCountM : dataChild.viewCount)) +'</span></span><span class="perma-link"><a href="'+ dataChild.url +'"><i class="fa fa-play-circle" aria-hidden="true"></i></a></span></div></div>' + htmlEmbed;
 					else{
+						console.log(count);
 						if(count == 0)
 							if(timeTop != "W" && timeTop != "M")
 								$('.top-video .area-highlight').html('<a href="'+ dataChild.url +'"><h2 class="color-hl">'+ dataChild.title +'</h2></a><p><img alt="'+ dataChild.title +'" src="'+ imageHostFix(dataChild.thumb.replace(/\/s[0-9](.*)\//gi, "/w465-350-c/")) +'"></p><span class="perma-link"><a href="'+ dataChild.url +'"><i aria-hidden="true" class="fa fa-play-circle"></i></a></span>');
