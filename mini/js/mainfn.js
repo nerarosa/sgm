@@ -84,8 +84,9 @@ function resizeImg(url, size){
 			
 				newSize = newWidth + newHeight + (size.crop != "" ? size.crop : "") + "-l90-e365";
 			}
-			if(url.indexOf('.jpg') == -1 && url.indexOf('.png') == -1 && url.indexOf('.gif') == -1 && url.indexOf('.jpeg') == -1 &&
-			   url.indexOf('.JPG') == -1 && url.indexOf('.PNG') == -1 && url.indexOf('.GIF') == -1 && url.indexOf('.JPEG') == -1){
+			//if(url.indexOf('.jpg') == -1 && url.indexOf('.png') == -1 && url.indexOf('.gif') == -1 && url.indexOf('.jpeg') == -1 &&
+			  // url.indexOf('.JPG') == -1 && url.indexOf('.PNG') == -1 && url.indexOf('.GIF') == -1 && url.indexOf('.JPEG') == -1){
+			if(!/\.[jpg|png|gif|jpeg]/i.test(url)){
 				if(url.indexOf('=') != -1)
 					newImg = url.replace(/\=.*/g, newSize);
 				else
