@@ -200,6 +200,8 @@ var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
 					}						
 				else if (dataChild.type == "wallpaper")
 					htmlEmbed = '<div class="col2">'+ (timeTop != "W" ? ('<a class="rt01img card-img" href="'+ imageHostFix(dataChild.thumb.replace(/\/s[0-9](.*)\//g, "/w250-h166-c/")) +'">' + dataChild.title + '</a>') : ('<img class="rt01img card-img" src="'+ imageHostFix(dataChild.thumb.replace(/\/s[0-9](.*)\//g, "/w250-h166-c/")) +'" />')) +'<span class="view-count"><i aria-hidden="true" class="fa fa-eye"></i><span class="text-view-count">'+ (timeTop == "W" ? dataChild.viewCountW: (timeTop == "M" ? dataChild.viewCountM : dataChild.viewCount)) +'</span></span><span class="perma-link"><a href="'+ dataChild.url +'"><i class="fa fa-download" aria-hidden="true"></i></a></span></div>' + htmlEmbed;
+				else if (dataChild.type == "gif")
+					htmlEmbed = '<div class="col2">'+ (timeTop != "W" ? ('<a class="rt01img card-img" href="'+ imageHostFix(dataChild.thumb.replace(/\/s[0-9](.*)\//g, "/w250-h166-c/")) +'">' + dataChild.title + '</a>') : ('<img class="rt01img card-img" src="'+ imageHostFix(dataChild.thumb.replace(/\/s[0-9](.*)\//g, "/w250-h166-c/")) +'" />')) +'<span class="view-count"><i aria-hidden="true" class="fa fa-eye"></i><span class="text-view-count">'+ (timeTop == "W" ? dataChild.viewCountW: (timeTop == "M" ? dataChild.viewCountM : dataChild.viewCount)) +'</span></span><span class="perma-link"><a href="'+ dataChild.url +'"><i class="fa fa-download" aria-hidden="true"></i></a></span></div>' + htmlEmbed;
 				else if (dataChild.type == "comicfull"){
 					if(count == 0){
 						if(timeTop != "W" && timeTop != "M")
