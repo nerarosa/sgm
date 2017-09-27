@@ -20,8 +20,8 @@ function getPostByAlbum(label, wrap) {
 			let entry = data.feed.entry;
 			
 			if(entry !== undefined){
-				for(var i=0; i<entry.length; i++){
-					for(var j=0; j<entry[i].link.length; j++){
+				for(let i=0, len = entry.length; i < len; i++){
+					for(let j in entry[i].link){
 						if(entry[i].link[j].rel == "alternate"){
 							urlPost = entry[i].link[j].href;
 							break;
@@ -33,7 +33,7 @@ function getPostByAlbum(label, wrap) {
 					if(titlePost.indexOf('- P1') != -1) titlePost = titlePost.substring(0, titlePost.indexOf('- P1')).trim();
 					
 					if("media$thumbnail" in entry[i]){
-						thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace(/\/s[0-9]+(.*)\/?/g, "/s180-c/"));
+						thumbPost = imageHostFix(resizeImg(entry[i].media$thumbnail.url, {"s":"180","crop": "c"}));
 					}else{
 						thumbPost = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg=="
 					}
@@ -65,8 +65,8 @@ function getRecentPost(label){
 			var entry = data.feed.entry;
 			
 			if(entry !== undefined){
-				for(var i=0; i<entry.length; i++){
-					for(var j=0; j<entry[i].link.length; j++){
+				for(let i = 0, len = entry.length; i < len; i++){
+					for(let j in entry[i].link){
 						if(entry[i].link[j].rel == "alternate"){
 							urlPost = entry[i].link[j].href;
 							break;
@@ -76,7 +76,7 @@ function getRecentPost(label){
 					titlePost = entry[i].title.$t;						
 					
 					if("media$thumbnail" in entry[i]){
-						thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace(/\/s[0-9]+(\-c)?/g, "/s180-c"));
+						thumbPost = imageHostFix(resizeImg(entry[i].media$thumbnail.url, {"s":"180","crop": "c"}));
 					}else{
 						thumbPost = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
 					}
@@ -131,14 +131,14 @@ $(document).ready(function(){
 					entry = data.feed.entry;
 					if(entry !== undefined){
 						for(let i = 0, len = entry.length; i < len; i++){
-							for(var j = 0; j < entry[i].link.length; j++){
+							for(let j in entry[i].link){
 								if(entry[i].link[j].rel == "alternate"){
 									urlPost = entry[i].link[j].href;
 								}
 							}
 							titlePost = entry[i].title.$t;
 							if("media$thumbnail" in entry[i]){
-								thumbPost = imageHostFix(entry[i].media$thumbnail.url.replace('/s72-c/', '/s172-c/'));
+								thumbPost = imageHostFix(resizeImg(entry[i].media$thumbnail.url, {"s":"172","crop": "c"}));
 							}else{
 								thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 							}
@@ -312,15 +312,15 @@ if(sgmgirl == true){
 	
 if(Cookies.get('confirmage')==null){
 	if($('.main-post-content .adult-content').length > 0){
+		var hideimg = 'https://lh6.googleusercontent.com/-4mAGa3KKq9I/VaPq_MaXMaI/AAAAAAAACIA/V9utNz5pmwE/s430-no-l90/replaceadult.jpg';
+		
 		$('.main-post-content .adult-content').each(function(){
 			var oimg = $(this).attr('href');
 			//var odisplayimg = $(this).children().attr('src');
 			var odisplayimg = $(this).children().attr('data-adult-original');
 			
 			$(this).attr('data-ohref', oimg);
-			$(this).children().attr('data-osrc', odisplayimg);
-			
-			var hideimg = 'https://lh6.googleusercontent.com/-4mAGa3KKq9I/VaPq_MaXMaI/AAAAAAAACIA/V9utNz5pmwE/s430-no/replaceadult.jpg';
+			$(this).children().attr('data-osrc', odisplayimg);			
 			
 			$(this).attr('href', hideimg);
 			$(this).children().attr('src', hideimg);
@@ -332,9 +332,7 @@ if(Cookies.get('confirmage')==null){
 			if($(this).hasClass('turn-on')){
 				$('.main-post-content .adult-content').each(function(){
 					$(this).attr('href', $(this).data('ohref'));				
-					$(this).children().attr('src', $(this).children().data('osrc')).attr('data-original', $(this).children().data('adult-original'));					
-					
-					var hideimg = 'https://lh6.googleusercontent.com/-4mAGa3KKq9I/VaPq_MaXMaI/AAAAAAAACIA/V9utNz5pmwE/s430-no/replaceadult.jpg';
+					$(this).children().attr('src', $(this).children().data('osrc')).attr('data-original', $(this).children().data('adult-original'));										
 					
 					$(this).attr('data-ohref', hideimg);
 					$(this).children().attr('data-osrc', hideimg);					
@@ -352,9 +350,7 @@ if(Cookies.get('confirmage')==null){
 			}else{
 				$('.main-post-content .adult-content').each(function(){
 					var oimg = $(this).attr('href');
-					var odisplayimg = $(this).children().attr('src');
-					
-					var hideimg = 'https://lh6.googleusercontent.com/-4mAGa3KKq9I/VaPq_MaXMaI/AAAAAAAACIA/V9utNz5pmwE/s430-no/replaceadult.jpg';
+					var odisplayimg = $(this).children().attr('src');					
 					
 					$(this).attr('data-ohref', oimg);
 					$(this).children().attr('data-osrc', odisplayimg).attr('data-original', hideimg);
@@ -652,7 +648,7 @@ if(isMobile == false){
 					thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
 				}
 				
-				link.html('<span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-'+ (labelText == 'Next' ? "right" : "left") +'-2"></svg></span><div><span>'+ labelText +' Gallery</span><h3>'+title+'</h3><p>by SSGirl</p><img src="'+ imageHostFix(thumbnail.replace(/\/s[0-9]+(\-no)?/g, '/s104-c')) +'" alt="'+ labelText +' thumb" /></div>');
+				link.html('<span class="icon-wrap"><svg class="icon" width="24" height="24" viewBox="0 0 64 64"><use xlink:href="#arrow-'+ (labelText == 'Next' ? "right" : "left") +'-2"></svg></span><div><span>'+ labelText +' Gallery</span><h3>'+title+'</h3><p>by SSGirl</p><img src="'+ imageHostFix(resizeImg(thumbnail, {"s":"104","crop": "c"})) +'" alt="'+ labelText +' thumb" /></div>');
 			}
 		});
 	}
@@ -669,7 +665,7 @@ $(document).ready(function() {
 	var maxSearched = 12,
 		maxInLabel = 2,
 		max = 6,
-		imageSize = 's150-c',
+		imageSize = {"s":"150","crop": "c"},
 		defaultImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==";
 
 
@@ -677,13 +673,13 @@ $(document).ready(function() {
 		
 	//code	
 	if($.inArray("Video", labels) !== -1){
-		imageSize = 's250-c';
+		imageSize = {"s":"250","crop": "c"};
 		max = 12;
-	}else if($.inArray("Wallpaper", labels) !== -1){
-		imageSize = 'w250-h155-c';
+	}else if($.inArray("Wallpaper", labels) !== -1){		
+		imageSize = {"w":"250","h":"155","crop": "c"};
 		max = 12;
-	}else if($.inArray("ComicFull", labels) !== -1){
-		imageSize = 'w150-h200-c';
+	}else if($.inArray("ComicFull", labels) !== -1){		
+		imageSize = {"w":"150","h":"200","crop": "c"};
 		max = 12;
 	}
 
@@ -730,7 +726,7 @@ $(document).ready(function() {
 						if(entry !== undefined){
 							if(exitsPost.length > 0){
 								$.each(exitsPost, function(t) {
-									for(var f in entry) {
+									for(let f in entry) {
 										if(entry[f].id.$t.split('post-')[1].trim() == exitsPost[t]) {											
 											entry.splice(f, 1)
 										}										
@@ -738,7 +734,7 @@ $(document).ready(function() {
 								})
 							}
 							
-							for(var f in entry) {
+							for(let f in entry) {
 								if(entry[f].title.$t.trim() == titleP) {
 									entry.splice(f, 1);
 									break;
@@ -754,20 +750,16 @@ $(document).ready(function() {
 									if (t == maxInLabel)
 										return false;
 
-									var titleP = entry[t].title.$t.trim();
-									var id = entry[t].id.$t.split('post-')[1];
-									var urlP;
-									for (var u = 0; u < entry[t].link.length; u++) {
+									let titleP = entry[t].title.$t.trim();
+									let id = entry[t].id.$t.split('post-')[1];
+									let urlP;
+									for (let u in entry[t].link) {
 										if (entry[t].link[u].rel === "alternate") {
 											urlP = entry[t].link[u].href
 										}
 									}
-									var thumb;
-									if (entry[t].media$thumbnail !== undefined) {
-										thumb = imageHostFix(entry[t].media$thumbnail.url.split(/s72-c/).join(imageSize));
-									} else {
-										thumb = defaultImage;
-									}
+									
+									let thumb = "media$thumbnail" in entry[t] ? imageHostFix(resizeImg(entry[t].media$thumbnail.url, imageSize)) : defaultImage;									
 									
 									htmlEmbed += '<li data-id="'+ id +'" class="news-title clearfix"><a href="' + urlP + '"><img src="' + thumb + '" alt="' + titleP + '" nopin="nopin"></a><a class="related-post-title" href="' + urlP + '" target="_top">' + titleP + '</a></li>';
 									

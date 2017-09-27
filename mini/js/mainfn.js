@@ -104,9 +104,13 @@ function resizeImg(url, size){
 		}else{
 			let newWidth = '',
 				newHeight = '';
+			if("s" in size && size.s != ''){
+				newWidth = newHeight = size.s;
+			}else{
+				if("w" in size && size.w != '') newWidth = '&resize_w=' + size.w;
+				if("h" in size && size.h != '') newHeight = '&resize_h=' + size.h;
+			}	
 			
-			if("w" in size && size.w != '') newWidth = '&resize_w=' + size.w;
-			if("h" in size && size.h != '') newHeight = '&resize_h=' + size.h;
 			
 			newImg = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=31536000"+ newWidth + newHeight +"&url=" + encodeURIComponent(url);
 		}
