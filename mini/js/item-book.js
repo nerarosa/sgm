@@ -65,28 +65,17 @@ $(".book-sum").shorten({
 	"lessText"  : "Rút gọn"
 });
 
-function getChapter(url){
-	let options = {
-			"url":url,
-			"dataSend":{				
-				"max-results": 100,
-				"orderby": "published"
-			},
-			"beforeHandle": function(){
-				$(".book-chap-list").html("Data is Loading...");
-			}
-		};
-	
+function getChapter(options){	
 	getAjax(options, function(data){
 		if(data == "effFeed"){
-			$('.book-chap-list').html('<strong>Error Load Feed!!!</strong>');
+			//$('.book-chap-list').html('<strong>Error Load Feed!!!</strong>');
 		}else{
 			var htmlChap = '', nextUrl = '',
 				entry = data.feed.entry,
 				links = data.feed.link;
 				
 			for(let i=0, len = links.length; i<len; i++){
-				if(links[i].rel == "next") nextUrl = links[i].href.split("?")[1];
+				if(links[i].rel == "next") nextUrl = links[i].href.split("start-index=")[1].split("&")[0];
 			}
 			
 			if(entry !== undefined){
@@ -98,16 +87,16 @@ function getChapter(url){
 					let date = new Date(entry[i].published.$t);						
 					
 					if(i == 0){
-						$('.info-footer a.start').attr('href', '/p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + url.split('//')[1].split('.')[0]);
+						$('.info-footer a.start').attr('href', '/p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + options.url.split('//')[1].split('.')[0]);
 						$('.book-date-update .value').text(date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear());
 					} 
 					
-					htmlChap += '<div class="row"><span><i class="fa fa-leaf" aria-hidden="true"></i><a href="'+ url_blog + 'p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + url.split('//')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span></div>';
+					htmlChap += '<div class="row"><span><i class="fa fa-leaf" aria-hidden="true"></i><a href="'+ url_blog + 'p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + options.url.split('//')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span></div>';
 				}
 				
 				if(nextUrl != ''){
-					var next = url.split("?")[0] + "?" + nextUrl;
-					getChapter(next);
+					options.dataSend["start-index"] = nextUrl;						
+					getChapter(options);
 				}
 			}else{
 				htmlChap = "Đang cập nhật";
@@ -122,8 +111,18 @@ function getChapter(url){
 
 if(chap != ''){
 	var urlData = "//" + chap.split(";")[0] + ".blogspot.com",
-		nameComic = chap.split(";")[1];
-	var urlSv = urlData + "/feeds/posts/default/-/" + nameComic;
-	getChapter(urlSv);
+		nameBook = chap.split(";")[1];
+	var urlSv = urlData + "/feeds/posts/default/-/" + nameBook;
+	let options = {
+			"url": urlSv,
+			"dataSend":{				
+				"max-results": 10
+			},
+			"beforeHandle": function(){
+				if($(".book-chap-list .row").length == 0)
+					$(".book-chap-list").html("Data is Loading...");
+			}
+		};
+	getChapter(options);
 }
 });
