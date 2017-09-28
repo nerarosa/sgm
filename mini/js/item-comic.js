@@ -71,8 +71,7 @@ $(document).ready(function(){
 		getAjax(options, function(data){
 			if(data == "effFeed"){
 				console.log(data);
-			}else{
-				console.log(data);
+			}else{				
 				var htmlChap = '';
 				if("feed" in data){
 					var	 nextUrl = '',
@@ -134,7 +133,7 @@ $(document).ready(function(){
 							getChapter(options);
 						}
 					}else{
-						htmlChap = "Đang cập nhật";
+						//htmlChap = "Đang cập nhật";
 					}					
 				}
 				
