@@ -148,8 +148,19 @@ $(document).ready(function(){
 	if(chap != ''){
 		var nameComic = chap.split(";")[1];
 		
+		let options = {
+				"url": "//" + chap.split(";")[0] + ".blogspot.com/feeds/posts/summary/-/" + nameComic,
+				"dataSend":{				
+					"max-results": 150
+				},
+				"beforeHandle": function(){
+					if($(".comic-chap-list .row").length == 0)
+						$(".comic-chap-list").html("Data is Loading...");
+				}
+			};
+		
 		if(isNumber(chap.split(";")[0])){
-			let options = {
+			options = {
 				"url": "https://www.googleapis.com/blogger/v3/blogs/"+ chap.split(";")[0] +"/posts",
 				"dataSend":{				
 					"maxResults": 500,
@@ -161,18 +172,7 @@ $(document).ready(function(){
 						$(".comic-chap-list").html("Data is Loading...");
 				}
 			};
-		}else{
-			let options = {
-				"url": "//" + chap.split(";")[0] + ".blogspot.com/feeds/posts/summary/-/" + nameComic,
-				"dataSend":{				
-					"max-results": 150
-				},
-				"beforeHandle": function(){
-					if($(".comic-chap-list .row").length == 0)
-						$(".comic-chap-list").html("Data is Loading...");
-				}
-			};
-		}		
+		}	
 		getChapter(options);
 	}
 	
