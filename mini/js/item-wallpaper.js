@@ -195,17 +195,17 @@ $(document).ready(function(){
 	var allLinkArr = allLinkDown.split("|");
 		
 	var accordionData = [], featuredData = [];
-	for(var j=0; j<groupReso.length; j++){
-		accordionData[j]={};
+	for(let i in groupReso){
+		accordionData[i]={};
 	}
 	
 	var tempExistArr = [], tempResArr = [];
-	for(var i = 0; i<allLinkArr.length; i++){
+	for(let i = 0, len = allLinkArr.length; i < len; i++){
 		var res = allLinkArr[i].split(";")[0],
 			link = allLinkArr[i].split(";")[1].replace(/\/s[0-9](.*)\//gi, '/s0/');
 		tempResArr.push(res);	
 		var isExist = false;
-		for(var n=0; n<featuredRes.length; n++){
+		for(let n = 0, len = featuredRes.length; n < len; n++){
 			isExist = false;
 			if(featuredRes[n].$t.indexOf(res) != -1){
 				if(featuredData.length == 0){
@@ -214,7 +214,7 @@ $(document).ready(function(){
 					feaItem.grData = '<li><a target="_blank" href="'+ link +'" title="'+ res +'" download="' + link.substr(link.lastIndexOf('/') + 1) + '">'+ res +'</a></li>';
 					featuredData.push(feaItem);
 				}else{
-					for(var x=0; x<featuredData.length; x++){
+					for(let x = 0, len = featuredData.length; x < len; x++){
 						if(featuredData[x].grName == featuredRes[n].name){
 							featuredData[x].grData += '<li><a target="_blank" href="'+ link +'" title="'+ res +'" download="' + link.substr(link.lastIndexOf('/') + 1) + '">'+ res +'</a></li>';
 							isExist = true;
@@ -234,8 +234,8 @@ $(document).ready(function(){
 			}
 		}
 		
-		for(var j=0; j<groupReso.length; j++){
-			for(var x=0; x<resolution[j].length; x++){
+		for(let j = 0, len = groupReso.length; j < len; j++){
+			for(let x = 0, len = resolution[j].length; x < len; x++){
 				if(resolution[j][x].$t.indexOf(res) != -1){
 					if(!("grName" in accordionData[j])){
 						accordionData[j].grName = groupReso[j];
@@ -271,7 +271,7 @@ $(document).ready(function(){
 			count = accordionData[groupReso.length-1].grData.length;
 		}
 		
-		for(var i = 0; i < tempOther.length; i++){
+		for(let i = 0, len = tempOther.length; i < len; i++){
 			if(i==0){
 				accordionData[groupReso.length-1].grData[count] = {};
 				accordionData[groupReso.length-1].grData[count].item = "Other";
