@@ -68,7 +68,7 @@ $(document).ready(function(){
 	
 	function getChapter(url){
 		let options = {
-			"url":url,
+			"url": url,
 			"dataSend":{				
 				"max-results": 10				
 			},
@@ -111,6 +111,7 @@ $(document).ready(function(){
 					
 					if(nextUrl != ''){
 						options.dataSend["start-index"] = nextUrl;
+						console.log(options);
 						getChapter(options);
 					}
 				}else{
