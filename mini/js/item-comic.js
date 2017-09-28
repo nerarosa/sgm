@@ -109,9 +109,8 @@ $(document).ready(function(){
 					}else{
 						htmlChap = "Đang cập nhật";
 					}
-				}else{
-					console.log(data.length);
-					if(data.length > 0){						
+				}else{					
+					if("items" in data){						
 						let blogId = options.url.split("/blogs/")[1].split("/")[0];
 						let id = '', datePost = '', title = '',
 							items = data.items;
