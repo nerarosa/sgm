@@ -70,7 +70,7 @@ $(document).ready(function(){
 		
 		getAjax(options, function(data){
 			if(data == "effFeed"){
-				$('.comic-chap-list').html('<strong>Error Load Feed!!!</strong>');
+				console.log(data);
 			}else{
 				var htmlChap = '', nextUrl = '',
 					entry = data.feed.entry,
@@ -107,7 +107,7 @@ $(document).ready(function(){
 				}else{
 					htmlChap = "Đang cập nhật";
 				}
-				
+				console.log(htmlChap);
 				if($(".comic-chap-list .row").length > 0)
 					$(".comic-chap-list").append(htmlChap);
 				else
@@ -119,7 +119,7 @@ $(document).ready(function(){
 	if(chap != ''){
 		var urlData = "//" + chap.split(";")[0] + ".blogspot.com",
 			nameComic = chap.split(";")[1];
-		var urlSv = urlData + "/feeds/posts/default/-/" + nameComic;
+		var urlSv = urlData + "/feeds/posts/summary/-/" + nameComic;
 		let options = {
 			"url": urlSv,
 			"dataSend":{				
