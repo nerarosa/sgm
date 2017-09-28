@@ -123,7 +123,7 @@ $(document).ready(function(){
 		let options = {
 			"url": urlSv,
 			"dataSend":{				
-				"max-results": 10
+				"max-results": 150
 			},
 			"beforeHandle": function(){
 				if($(".comic-chap-list .row").length == 0)

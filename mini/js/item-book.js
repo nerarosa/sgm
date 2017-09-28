@@ -112,7 +112,7 @@ function getChapter(options){
 if(chap != ''){
 	var urlData = "//" + chap.split(";")[0] + ".blogspot.com",
 		nameBook = chap.split(";")[1];
-	var urlSv = urlData + "/feeds/posts/default/-/" + nameBook;
+	var urlSv = urlData + "/feeds/posts/summary/-/" + nameBook;
 	let options = {
 			"url": urlSv,
 			"dataSend":{				
