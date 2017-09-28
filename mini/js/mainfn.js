@@ -75,14 +75,14 @@ function resizeImg(url, size){
 			let newWidth = '',
 				newHeight = '',
                 newSize = '';
-			
+			let quanlity = ("q" in size && size.q != '') ? "-l" + size.q : "-l90";
 			if("s" in size && size.s != ''){
-				newSize = "s"+ size.s + (size.crop != "" ? "-"+size.crop : "") + "-l90-e365";
+				newSize = "s"+ size.s + (size.crop != "" ? "-"+size.crop : "") + quanlity + "-e365";
 			}else{
 				if("w" in size && size.w != '') newWidth = "w" + size.w + "-";
 				if("h" in size && size.h != '') newHeight = "h" + size.h + "-";
 			
-				newSize = newWidth + newHeight + (size.crop != "" ? size.crop : "") + "-l90-e365";
+				newSize = newWidth + newHeight + (size.crop != "" ? size.crop : "") + quanlity + "-e365";
 			}
 			//if(url.indexOf('.jpg') == -1 && url.indexOf('.png') == -1 && url.indexOf('.gif') == -1 && url.indexOf('.jpeg') == -1 &&
 			  // url.indexOf('.JPG') == -1 && url.indexOf('.PNG') == -1 && url.indexOf('.GIF') == -1 && url.indexOf('.JPEG') == -1){
