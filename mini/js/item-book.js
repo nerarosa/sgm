@@ -101,7 +101,7 @@ function getChapter(options){
 			}else{
 				htmlChap = "Đang cập nhật";
 			}
-			if($(".book-chap-list row").length > 0)
+			if($(".book-chap-list .row").length > 0)
 				$(".book-chap-list").append(htmlChap);
 			else
 				$(".book-chap-list").html(htmlChap);
