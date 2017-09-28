@@ -316,7 +316,7 @@ $(document).ready(function(){
 	
 	var owp = $('.wp-thumb img').attr('src');
 	if(owp !== ''){
-		owp = resizeImg(entry[i].media$thumbnail.url, {"s":"0","crop": "no", "q":"100"});
+		owp = resizeImg(owp, {"s":"0","crop": "no", "q":"100"});
 		$('#original-wp').attr('href', owp).attr("download", owp.substr(owp.lastIndexOf('/') + 1));
 		$('#crop-wp').attr('href', "/p/cropper.html?img=" + owp);
 	}
