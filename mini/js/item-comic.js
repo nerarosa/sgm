@@ -86,7 +86,7 @@ $(document).ready(function(){
 					links = data.feed.link;
 					
 				for(let i=0, len = links.length; i< len; i++){
-					if(links[i].rel == "next") nextUrl = links[i].href.split("start-index=")[1].slit("&")[0];
+					if(links[i].rel == "next") nextUrl = links[i].href.split("start-index=")[1].slit("\u0026")[0];
 				}
 				
 				if(entry !== undefined){
