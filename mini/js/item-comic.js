@@ -124,7 +124,7 @@ $(document).ready(function(){
 							
 							if(i==0){
 								$('.start.btn').attr('href', '/p/reader.html?id='+ idMain + '&idc=' + id + '&sv=' + blogId);
-								$('.comic-date-update .value').text(dateChap);
+								$('.comic-date-update .value').text(datePost);
 							}
 						}
 						
