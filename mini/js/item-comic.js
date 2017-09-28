@@ -117,7 +117,7 @@ $(document).ready(function(){
 						for(let i = 0, len = items.length; i < len; i++){
 							id = items[i].id;
 							title = items[i].title;
-							let date = new Date(item[i].published);
+							let date = new Date(items[i].published);
 							datePost = date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear();							
 							
 							htmlChap += `<div class="row"><span><a href="${url_blog}p/reader.html?id=${idMain}&idc=${id}&sv=${blogId}" target="_blank" title="${title}">${title}</a></span><span>${datePost}</span></div>`;
