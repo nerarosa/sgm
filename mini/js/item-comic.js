@@ -110,6 +110,7 @@ $(document).ready(function(){
 						htmlChap = "Đang cập nhật";
 					}
 				}else{
+					console.log(data.length);
 					if(data.length > 0){						
 						let blogId = options.url.split("/blogs/")[1].split("/")[0];
 						let id = '', datePost = '', title = '',
@@ -133,7 +134,7 @@ $(document).ready(function(){
 							getChapter(options);
 						}
 					}else{
-						//htmlChap = "Đang cập nhật";
+						htmlChap = "Đang cập nhật";
 					}					
 				}
 				
