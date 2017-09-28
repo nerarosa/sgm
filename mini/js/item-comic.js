@@ -110,9 +110,8 @@ $(document).ready(function(){
 					}
 					
 					if(nextUrl != ''){
-						options.dataSend["start-index"] = nextUrl;
-						console.log(options);
-						getChapter(options);
+						nextUrl = options.url + "?start-index=" + nextUrl;						
+						getChapter(nextUrl);
 					}
 				}else{
 					htmlChap = "Đang cập nhật";
