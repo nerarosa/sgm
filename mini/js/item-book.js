@@ -91,7 +91,7 @@ function getChapter(options){
 						$('.book-date-update .value').text(date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear());
 					} 
 					
-					htmlChap += '<div class="row"><span><i class="fa fa-leaf" aria-hidden="true"></i><a href="'+ url_blog + 'p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + options.url.split('//')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span></div>';
+					htmlChap += '<div class="row"><span><i class="fa fa-align-right" aria-hidden="true"></i><a href="'+ url_blog + 'p/book-reader.html?idb='+idMain + '&idc=' + idChap + '&sv=' + options.url.split('//')[1].split('.')[0] +'" target="_blank" title="'+ titleChap +'">'+ titleChap +'</a></span></div>';
 				}
 				
 				if(nextUrl != ''){
