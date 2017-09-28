@@ -66,16 +66,7 @@ $(document).ready(function(){
 		"lessText"  : "Rút gọn"
 	});
 	
-	function getChapter(url){
-		let options = {
-			"url": url,
-			"dataSend":{				
-				"max-results": 10				
-			},
-			"beforeHandle": function(){
-				$(".comic-chap-list").html("Data is Loading...");
-			}
-		};
+	function getChapter(options){		
 		
 		getAjax(options, function(data){
 			if(data == "effFeed"){
@@ -110,12 +101,13 @@ $(document).ready(function(){
 					}
 					
 					if(nextUrl != ''){
-						nextUrl = options.url + "?start-index=" + nextUrl;						
-						getChapter(nextUrl);
+						options.dataSend["start-index"] = nextUrl;						
+						getChapter(options);
 					}
 				}else{
 					htmlChap = "Đang cập nhật";
 				}
+				
 				if($(".comic-chap-list row").length > 0)
 					$(".comic-chap-list").append(htmlChap);
 				else
@@ -128,7 +120,16 @@ $(document).ready(function(){
 		var urlData = "//" + chap.split(";")[0] + ".blogspot.com",
 			nameComic = chap.split(";")[1];
 		var urlSv = urlData + "/feeds/posts/default/-/" + nameComic;
-		getChapter(urlSv);
+		let options = {
+			"url": urlSv,
+			"dataSend":{				
+				"max-results": 10				
+			},
+			"beforeHandle": function(){
+				$(".comic-chap-list").html("Data is Loading...");
+			}
+		};
+		getChapter(options);
 	}
 	
 });
