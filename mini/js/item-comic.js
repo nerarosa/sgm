@@ -108,7 +108,7 @@ $(document).ready(function(){
 					htmlChap = "Đang cập nhật";
 				}
 				
-				if($(".comic-chap-list row").length > 0)
+				if($(".comic-chap-list .row").length > 0)
 					$(".comic-chap-list").append(htmlChap);
 				else
 					$(".comic-chap-list").html(htmlChap);
