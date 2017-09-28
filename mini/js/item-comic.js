@@ -70,8 +70,7 @@ $(document).ready(function(){
 		let options = {
 			"url":url,
 			"dataSend":{				
-				"max-results": 100,
-				"orderby": "published"
+				"max-results": 10				
 			},
 			"beforeHandle": function(){
 				$(".comic-chap-list").html("Data is Loading...");
@@ -87,7 +86,7 @@ $(document).ready(function(){
 					links = data.feed.link;
 					
 				for(let i=0, len = links.length; i< len; i++){
-					if(links[i].rel == "next") nextUrl = links[i].href.split("?")[1];
+					if(links[i].rel == "next") nextUrl = links[i].href.split("start-index=")[1].slit("&")[0];
 				}
 				
 				if(entry !== undefined){
@@ -111,8 +110,8 @@ $(document).ready(function(){
 					}
 					
 					if(nextUrl != ''){
-						var next = url.split("?")[0] + "?" + nextUrl;
-						getChapter(next);
+						options.dataSend["start-index"] = nextUrl;
+						getChapter(options);
 					}
 				}else{
 					htmlChap = "Đang cập nhật";
@@ -128,7 +127,7 @@ $(document).ready(function(){
 	if(chap != ''){
 		var urlData = "//" + chap.split(";")[0] + ".blogspot.com",
 			nameComic = chap.split(";")[1];
-		var urlSv = urlData + "/feeds/posts/default/-/" + nameComic + "?alt=json-in-script&max-results=100&orderby=published";
+		var urlSv = urlData + "/feeds/posts/default/-/" + nameComic;
 		getChapter(urlSv);
 	}
 	
