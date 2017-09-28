@@ -72,6 +72,7 @@ $(document).ready(function(){
 			if(data == "effFeed"){
 				console.log(data);
 			}else{
+				console.log(data);
 				var htmlChap = '';
 				if("feed" in data){
 					var	 nextUrl = '',
