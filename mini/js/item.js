@@ -626,8 +626,7 @@ if(isMobile == false){
 			options = {
 				"url":url,
 				"dataSend":{
-					"path":path, 
-					"key": "AIzaSyAgi7eyJY7T5TZY7iNp0KNQAa6NG67CbYo",
+					"path":path,					
 					"fields":"title,content"
 				}
 			};

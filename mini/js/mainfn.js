@@ -32,6 +32,11 @@ function isImageOk(img) {
     }
     return true;
 }
+
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 function imageHostFix(url){
 	if(url.indexOf('googleusercontent.com') != -1)
 		return url;
@@ -76,6 +81,7 @@ function resizeImg(url, size){
 				newHeight = '',
                 newSize = '';
 			let quanlity = ("q" in size && size.q != '') ? "-l" + size.q : "-l90";
+			
 			if("s" in size && size.s != ''){
 				newSize = "s"+ size.s + (size.crop != "" ? "-"+size.crop : "") + quanlity + "-e365";
 			}else{
@@ -153,9 +159,16 @@ function getAjax(options, callback){
 		return;
 	
 	let countLoop = 0;
-	let defaultSend = {
-		"alt":"json-in-script"
-	};
+	if(options.url.indexOf('googleapis.com/blogger') != -1){
+		let defaultSend = {
+			"key":"AIzaSyAgi7eyJY7T5TZY7iNp0KNQAa6NG67CbYo"
+		};
+	}else{
+		let defaultSend = {
+			"alt":"json-in-script"
+		};
+	}
+	
 	let sendData = {};	
 	
 	if(typeof options.beforeHandle === "undefined" || !$.isFunction(options.beforeHandle))
@@ -164,7 +177,7 @@ function getAjax(options, callback){
 	if(typeof options.dataSend === "undefined" || typeof options.dataSend !== "object" || $.isEmptyObject(options.dataSend))
 		sendData = defaultSend;
 	else
-		if(options.url.indexOf('blogspot.com') != -1 || options.url.indexOf('/feeds/') != -1)
+		if(options.url.indexOf('blogspot.com') != -1 || options.url.indexOf('/feeds/') != -1 || options.url.indexOf('googleapis.com/blogger') != -1)
 			sendData = $.extend({}, defaultSend, options.dataSend);
 		else
 			sendData = options.dataSend;
