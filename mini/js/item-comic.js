@@ -107,7 +107,7 @@ $(document).ready(function(){
 				}else{
 					htmlChap = "Đang cập nhật";
 				}
-				console.log(htmlChap);
+				
 				if($(".comic-chap-list .row").length > 0)
 					$(".comic-chap-list").append(htmlChap);
 				else
@@ -123,10 +123,11 @@ $(document).ready(function(){
 		let options = {
 			"url": urlSv,
 			"dataSend":{				
-				"max-results": 10				
+				"max-results": 10
 			},
 			"beforeHandle": function(){
-				$(".comic-chap-list").html("Data is Loading...");
+				if($(".comic-chap-list .row").length == 0)
+					$(".comic-chap-list").html("Data is Loading...");
 			}
 		};
 		getChapter(options);
