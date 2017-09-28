@@ -160,11 +160,11 @@ function getAjax(options, callback){
 	
 	let countLoop = 0;
 	if(options.url.indexOf('googleapis.com/blogger') != -1){
-		let defaultSend = {
+		var defaultSend = {
 			"key":"AIzaSyAgi7eyJY7T5TZY7iNp0KNQAa6NG67CbYo"
 		};
 	}else{
-		let defaultSend = {
+		var defaultSend = {
 			"alt":"json-in-script"
 		};
 	}

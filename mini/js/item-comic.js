@@ -123,7 +123,7 @@ $(document).ready(function(){
 							htmlChap += `<div class="row"><span><a href="${url_blog}p/reader.html?id=${idMain}&idc=${id}&sv=${blogId}" target="_blank" title="${title}">${title}</a></span><span>${datePost}</span></div>`;
 							
 							if(i==0){
-								$('.start.btn').attr('href', '/p/reader.html?id='+ idMain + '&idc=' + id + '&sv=' + blogId;
+								$('.start.btn').attr('href', '/p/reader.html?id='+ idMain + '&idc=' + id + '&sv=' + blogId);
 								$('.comic-date-update .value').text(dateChap);
 							}
 						}
