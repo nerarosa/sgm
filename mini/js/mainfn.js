@@ -37,8 +37,9 @@ function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-function imageHostFix(url){
-	if(url.indexOf('googleusercontent.com') != -1)
+function imageHostFix(url, nofix){
+	nofix == undefined && (nofix == false);
+	if(url.indexOf('googleusercontent.com') != -1 || nofix)
 		return url;
 	
 	if(url.indexOf('1.bp.blogspot.com') != -1 || url.indexOf('3.bp.blogspot.com') != -1){
