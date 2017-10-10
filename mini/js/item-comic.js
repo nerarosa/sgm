@@ -69,7 +69,7 @@ $(document).ready(function(){
 	function getChapter(options){		
 		
 		getAjax(options, function(data){
-			if(data == "effFeed"){
+			if(data == "errFeed"){
 				console.log(data);
 			}else{				
 				var htmlChap = '';

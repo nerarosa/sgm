@@ -282,7 +282,7 @@ if(sgmgirl == true){
 			}
 		
 		getAjax(options, function(data){
-			if(data == "effFeed"){
+			if(data == "errFeed"){
 				console.log(data);
 			}else{
 				var entry = data.entry;
