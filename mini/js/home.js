@@ -24,7 +24,7 @@ function getNewVideo(callback){
 		};
 		
 	getAjax(options, function(data){
-		if(data == "effFeed"){
+		if(data == "errFeed"){
 			$('.updated-comic').html('<strong>Error Load Feed!!!</strong>');
 		}else{
 			var titlePost = '', thumbPost = '', urlPost='', newestInsert=[];
@@ -251,7 +251,7 @@ $(document).ready(function(){
 			};
 			
 		getAjax(options, function(data){
-			if(data == "effFeed"){
+			if(data == "errFeed"){
 				$('.updated-comic').html('<strong>Error Load Feed!!!</strong>');
 			}else{
 				var titlePost = urlPost = thumbPost = datePost = htmlEmbed = '',
@@ -319,7 +319,7 @@ $(document).ready(function(){
 			};
 		
 		getAjax(options, function(data){
-			if(data == "effFeed"){
+			if(data == "errFeed"){
 				$('.updated-book').html('<strong>Error Load Feed!!!</strong>');
 			}else{
 				var titlePost = urlPost = thumbPost = datePost = htmlEmbed = '',
@@ -417,7 +417,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 		};
 	
 	getAjax(options, function(data){
-		if(data == "effFeed"){
+		if(data == "errFeed"){
 			$('#nt-storytext').html('<strong>Error Load Feed!!!</strong>');
 		}else{
 			var entry = data.feed.entry,
@@ -468,7 +468,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 		};
 	
 	getAjax(options, function(data){
-		if(data == "effFeed"){
+		if(data == "errFeed"){
 			$('#oneliner .radio-newsticker').html('<strong>Error Load Feed!!!</strong>');
 		}else{
 			var entry = data.feed.entry,
@@ -525,7 +525,7 @@ $( '#cbp-qtrotator' ).cbpQTRotator();
 		};
 	
 	getAjax(options, function(data){
-		if(data == "effFeed"){
+		if(data == "errFeed"){
 			$('#nt-audio').html('<strong>Error Load Feed!!!</strong>');
 		}else{
 			let entry = data.feed.entry,
