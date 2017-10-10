@@ -22,7 +22,7 @@ $(document).ready(function () {
 		};
 	
 	getAjax(options, function(data){
-		if(data == "effFeed"){
+		if(data == "errFeed"){
 			$('.slider4').html('<div class="slide"><strong>Error Loading Feed!</strong></div>');
 		}else{
 			var posturl, posttitle, postimg, sliderHtml = '',
