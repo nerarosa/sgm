@@ -13,7 +13,7 @@ function getPostByAlbum(label, wrap) {
 	}
 	
 	getAjax(options, function(data){
-		if(data == "effFeed"){
+		if(data == "errFeed"){
 			$(wrap).html('<strong>Error Loading Feed!</strong>');
 		}else{
 			let titlePost = '', thumbPost = '', urlPost='', albumInsert='';
@@ -58,7 +58,7 @@ function getRecentPost(label){
 	}
 	
 	getAjax(options, function(data){
-		if(data == "effFeed"){
+		if(data == "errFeed"){
 			$("#box-content ul").html('<strong>Error Loading Feed!</strong>');
 		}else{
 			var titlePost = '', thumbPost = '', urlPost='', newestInsert='';
@@ -124,7 +124,7 @@ $(document).ready(function(){
 			}
 			
 			getAjax(options, function(data){
-				if(data == "effFeed"){
+				if(data == "errFeed"){
 					$(idtag).html('<strong>Error Loading Feed!</strong>');
 				}else{
 					var titlePost = '', urlPost = '', thumbPost = '', htmlEmbed = '',
@@ -201,7 +201,7 @@ $(document).ready(function(){
 				"url": "//ssgirl-profile.blogspot.com/feeds/posts/default/"+ idInput,				
 			}
 		getAjax(options, function(data){
-			if(data == "effFeed"){
+			if(data == "errFeed"){
 				console.log(data);
 			}else{
 				var htmlEmbed = '', 
@@ -632,7 +632,7 @@ if(isMobile == false){
 			};
 		
 		getAjax(options, function(data){
-			if(data == "effFeed"){
+			if(data == "errFeed"){
 				console.log(data);
 			}else{
 				var thumbnail = '';
