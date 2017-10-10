@@ -202,7 +202,7 @@ $(document).ready(function(){
 	var tempExistArr = [], tempResArr = [];
 	for(let i = 0, len = allLinkArr.length; i < len; i++){
 		var res = allLinkArr[i].split(";")[0],
-			link = allLinkArr[i].split(";")[1].replace(/\/s[0-9](.*)\//gi, '/s0/');
+			link = imageHostFix(resizeImg(allLinkArr[i].split(";")[1], {"s":"0", "crop":"no-d"}));
 		tempResArr.push(res);	
 		var isExist = false;
 		for(let n = 0, len = featuredRes.length; n < len; n++){
