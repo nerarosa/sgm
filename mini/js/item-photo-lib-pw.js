@@ -504,7 +504,7 @@ var listimg = $('.post-body.entry-content .main-post-content').find('img.lazyloa
 			});
 			
 			for (let i=0, len = el.length; i<len; i++){
-				if($(thumbImgEl).parent().hasClass('facebook-share-thumb')) continue;
+				if($(el[i]).parent().hasClass('facebook-share-thumb')) continue;
 				
 				var thumbImgEl = el[i];	
 				var srcImg = $(thumbImgEl).parent().attr('href');
