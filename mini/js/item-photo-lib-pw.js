@@ -503,7 +503,9 @@ var listimg = $('.post-body.entry-content .main-post-content').find('img.lazyloa
 				$('body').off('mousemove.detect');
 			});
 			
-			for (var i=1; i<el.length; i++){
+			for (let i=0, len = el.length; i<len; i++){
+				if($(thumbImgEl).parent().hasClass('facebook-share-thumb')) continue;
+				
 				var thumbImgEl = el[i];	
 				var srcImg = $(thumbImgEl).parent().attr('href');
 				var thumbImg = thumbImgEl.src;
