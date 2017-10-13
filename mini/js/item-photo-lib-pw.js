@@ -244,7 +244,7 @@ module.exports = SoundCloud;
 });
 
 $(document).ready(function(){
-var listimg = $('.post-body.entry-content .main-post-content').find('img.lazy');
+var listimg = $('.post-body.entry-content .main-post-content').find('img.lazyload');
 		var pwPlayer = new SoundCloudAudio('ed03d9ee0914b23c7fe5134568162bbe');				
 		var SCId = $('#music-id').data('soundcloud-id');
 		if(SCId == null || SCId == undefined) SCId = "174822441";
