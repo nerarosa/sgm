@@ -202,7 +202,7 @@ $(document).ready(function(){
 	var tempExistArr = [], tempResArr = [];
 	for(let i = 0, len = allLinkArr.length; i < len; i++){
 		var res = allLinkArr[i].split(";")[0],
-			link = imageHostFix(resizeImg(allLinkArr[i].split(";")[1], {"s":"0", "crop":"no-d"}));
+			link = imageHostFix(resizeImg(allLinkArr[i].split(";")[1], {"s":"0", "crop":"no-d", "nofix": true}), true);
 		tempResArr.push(res);	
 		var isExist = false;
 		for(let n = 0, len = featuredRes.length; n < len; n++){
@@ -274,7 +274,7 @@ $(document).ready(function(){
 		
 		for(let i = 0, len = tempOther.length; i < len; i++){
 			let res = tempOther[i],
-				link = allLinkDown.split(res + ';')[1].split('|')[0];
+				link = imageHostFix(resizeImg(allLinkDown.split(res + ';')[1].split('|')[0], {"s":"0", "crop":"no-d", "nofix": true}), true);
 			
 			if(i==0){
 				accordionData[groupReso.length-1].grData[count] = {};

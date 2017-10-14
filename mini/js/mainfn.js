@@ -108,7 +108,7 @@ function resizeImg(url, size){
                 newImg = elUrl.join("/");
 			}
 			
-		}else{
+		}else if(!("nofix" in size)){
 			let newWidth = '',
 				newHeight = '';
 			if("s" in size && size.s != ''){
@@ -120,6 +120,8 @@ function resizeImg(url, size){
 			
 			
 			newImg = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=31536000"+ newWidth + newHeight +"&url=" + encodeURIComponent(url);
+		}else{
+			newImg = url;
 		}
 			
 		return newImg;
