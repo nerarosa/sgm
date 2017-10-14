@@ -757,12 +757,11 @@ $(document).ready(function() {
     $(window).scroll(function() {
         stickyNav();
     });
-});
-$(function(){
-$('.searchbutton').click(function(){
-  $(this).toggleClass('active');
-  $('.search-form').slideToggle('normal');
-});
+	
+	$('.searchbutton').click(function(){
+		$(this).toggleClass('active');
+		$('.search-form').slideToggle('normal');
+	});
 });
 
 //Menu Top
