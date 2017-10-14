@@ -262,8 +262,7 @@ $(document).ready(function(){
 	}	
 	
 	var tempOther = $(tempResArr).not(tempExistArr).get();
-	console.log(tempOther);
-	console.log(tempExistArr);
+	
 	if(tempOther.length > 0){
 		if(!("grName" in accordionData[groupReso.length-1])){
 			accordionData[groupReso.length-1].grName = groupReso[groupReso.length-1];
@@ -274,6 +273,9 @@ $(document).ready(function(){
 		}
 		
 		for(let i = 0, len = tempOther.length; i < len; i++){
+			let res = tempOther[i],
+				link = allLinkDown.split(res + ';')[1].split('|')[0];
+			
 			if(i==0){
 				accordionData[groupReso.length-1].grData[count] = {};
 				accordionData[groupReso.length-1].grData[count].item = "Other";
