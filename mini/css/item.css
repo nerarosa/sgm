@@ -15,6 +15,7 @@
 	transition: all 0.2s linear;
 	width: 80px;
 	height: 160px;
+	display: none;
 }
 
 .thumbs-box {
@@ -173,7 +174,15 @@ span.like__post {display: block;border: 2px solid #03A9F4;border-radius: 50%;wid
 .icobutton {font-size: 3em;position: relative;top: 8px;margin: 0;padding: 0;color: #c0c1c3;border: 0;background: none;overflow: visible;-webkit-tap-highlight-color: rgba(0,0,0,0);}
 .icobutton div{pointer-events:none;z-index:0;}
 .icobutton .fa {display: block;padding: 0 0.1em;}
-.icobutton__text {font-size: 0.65em;position: absolute;top: 100%;left: -50%;width: 200%;text-align: center;line-height: 1.5;color: #000000;}
-.icobutton__text--side {top: 0;left: 100%;width: 100%;width: auto;padding: 0 0 0 0.3em;}
+.icobutton__text {font-size: 0.3em;position: absolute;top: 100%;left: -50%;width: 200%;text-align: center;line-height: 1.5;color: #000000;}
+.icobutton__text--side {
+	top: 130%;
+    left: 0;
+    width: 100%;
+	background: #03a9f4;
+    border-radius: 2px;
+    color: #FFF;
+    font-weight: bold;
+}
 .icobutton svg {left: 0;}
 .icobutton:hover,.icobutton:focus {outline: none;}
