@@ -262,6 +262,7 @@ $(document).ready(function(){
 	}	
 	
 	var tempOther = $(tempResArr).not(tempExistArr).get();
+	console.log(tempOther);
 	if(tempOther.length > 0){
 		if(!("grName" in accordionData[groupReso.length-1])){
 			accordionData[groupReso.length-1].grName = groupReso[groupReso.length-1];
