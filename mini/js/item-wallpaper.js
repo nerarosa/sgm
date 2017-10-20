@@ -1,4 +1,4 @@
-(function($, _0x94e1x3, _0x94e1x4, _0x94e1x5) {
+	(function($, _0x94e1x3, _0x94e1x4, _0x94e1x5) {
 	$.accordion = function(accordionParent, customoptions) {
 		var options = {
 			duration: 200,
@@ -250,8 +250,10 @@ $(document).ready(function(){
 					}else{
 						if(accordionData[j].grData[count].item == resolution[j][x].name){
 							accordionData[j].grData[count].$t += '<li><a target="_blank" href="'+ link +'" title="'+ res +'" download="' + link.substr(link.lastIndexOf('/') + 1) + '">'+ res +'</a></li>';
-						}else{
+							
 							count++;
+						}else{
+							//count++;
 						}
 					}
 					
@@ -260,7 +262,7 @@ $(document).ready(function(){
 			}
 		}
 	}	
-	console.log(accordionData);
+
 	var tempOther = $(tempResArr).not(tempExistArr).get();
 	
 	if(tempOther.length > 0){
@@ -293,10 +295,9 @@ $(document).ready(function(){
 	$(".wp-all-resolution").prepend(featuredHTML);
 	
 	var accordionHTML = '';
-	console.log(accordionData);
+
 	for(var j=0; j<accordionData.length; j++){
-		if($.isEmptyObject(accordionData[j])) continue;
-		
+		if($.isEmptyObject(accordionData[j])) continue;		
 		var groupData = accordionData[j].grData,
 			groupItem = '';
 		for(var i=0; i<groupData.length; i++){	
