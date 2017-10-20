@@ -260,7 +260,7 @@ $(document).ready(function(){
 			}
 		}
 	}	
-	
+	console.log(accordionData);
 	var tempOther = $(tempResArr).not(tempExistArr).get();
 	
 	if(tempOther.length > 0){
