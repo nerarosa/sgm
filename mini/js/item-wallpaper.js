@@ -293,6 +293,7 @@ $(document).ready(function(){
 	$(".wp-all-resolution").prepend(featuredHTML);
 	
 	var accordionHTML = '';
+	console.log(accordionData);
 	for(var j=0; j<accordionData.length; j++){
 		if($.isEmptyObject(accordionData[j])) continue;
 		
