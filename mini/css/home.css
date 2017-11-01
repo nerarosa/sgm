@@ -231,7 +231,7 @@
 .cbp-qtrotator blockquote footer {font-size: 1.2em;color: #47a3da;font-weight: 600;}
 .cbp-qtrotator blockquote footer:before {content: "__ ";}
 .cbp-qtrotator .cbp-qtcontent img {float: right;margin-left: 3em;}
-@media screen and (max-width: 30.6em) { 
+@media screen and (max-width: 30.6em) {
 	.cbp-qtrotator {font-size: 70%;}
 	.cbp-qtrotator img {width: 80px;}
 }
@@ -243,4 +243,20 @@
     text-transform: uppercase;
     color: #FFF;
     font-weight: 700;
+}
+
+@media screen and (max-width: 480px) {
+	#nt-storytext li{
+		font-size: 14px;
+		line-height: 20px;
+	}
+	#nt-audio-infos .col-xs-4{
+		padding-left:0;
+	}
+	#nt-audio-infos .infos-hour{
+		font-size: 36px;
+	}
+	#nt-audio-container i {
+		font-size: 24px;
+	}
 }
