@@ -1,4 +1,4 @@
-	(function($, _0x94e1x3, _0x94e1x4, _0x94e1x5) {
+(function($, _0x94e1x3, _0x94e1x4, _0x94e1x5) {
 	$.accordion = function(accordionParent, customoptions) {
 		var options = {
 			duration: 200,
@@ -170,7 +170,7 @@ $(document).ready(function(){
 			}
 		]
 	];
-	var featuredRes =[		
+	var featuredRes =[
 		{
 			name:"Wide 16:10",
 			$t:"1280x800,1440x900,1680x1050,1920x1200,2560x1600,2880x1800"
@@ -200,14 +200,17 @@ $(document).ready(function(){
 		
 	var accordionData = [], featuredData = [];
 	for(let i in groupReso){
-		accordionData[i]={};
+		accordionData[i] = {
+			grName : groupReso[i],
+			grData : []
+		}	
 	}
 	
 	var tempExistArr = [], tempResArr = [];
 	for(let i = 0, len = allLinkArr.length; i < len; i++){
 		var res = allLinkArr[i].split(";")[0],
 			link = imageHostFix(resizeImg(allLinkArr[i].split(";")[1], {"s":"0", "crop":"no-d", "nofix": true}), true);
-		tempResArr.push(res);	
+		tempResArr.push(res);
 		var isExist = false;
 		for(let n = 0, len = featuredRes.length; n < len; n++){
 			isExist = false;
@@ -238,26 +241,28 @@ $(document).ready(function(){
 			}
 		}
 		
-		for(let j = 0, len = groupReso.length; j < len; j++){
+		for(let j = 0, len = accordionData.length; j < len; j++){
 			for(let x = 0, len = resolution[j].length; x < len; x++){
 				if(resolution[j][x].$t.indexOf(res) != -1){
-					if(!("grName" in accordionData[j])){
-						accordionData[j].grName = groupReso[j];
-						accordionData[j].grData = [];
-						var count = 0;
-					}
-					
-					if(!(count in accordionData[j].grData)){
-						accordionData[j].grData[count] = {};
-						accordionData[j].grData[count].item = resolution[j][x].name;
-						accordionData[j].grData[count].$t = '<li><a target="_blank" href="'+ link +'" title="'+ res +'" download="' + link.substr(link.lastIndexOf('/') + 1) + '">'+ res +'</a></li>';						
+					if(accordionData[j].grData.length == 0){
+						accordionData[j].grData.push({
+							item : resolution[j][x].name,
+							$t: '<li><a target="_blank" href="'+ link +'" title="'+ res +'" download="' + link.substr(link.lastIndexOf('/') + 1) + '">'+ res +'</a></li>'
+						});
 					}else{
-						if(accordionData[j].grData[count].item == resolution[j][x].name){
-							accordionData[j].grData[count].$t += '<li><a target="_blank" href="'+ link +'" title="'+ res +'" download="' + link.substr(link.lastIndexOf('/') + 1) + '">'+ res +'</a></li>';
-							
-							count++;
-						}else{
-							//count++;
+						let isExist = false;
+						for(let k = 0; k < accordionData[j].grData.length; k++){
+							if(accordionData[j].grData[k].item == resolution[j][x].name){							
+								accordionData[j].grData[k].$t += '<li><a target="_blank" href="'+ link +'" title="'+ res +'" download="' + link.substr(link.lastIndexOf('/') + 1) + '">'+ res +'</a></li>';
+								isExist = true;
+							}
+						}
+						
+						if(!isExist){
+							accordionData[j].grData.push({
+								item : resolution[j][x].name,
+								$t: '<li><a target="_blank" href="'+ link +'" title="'+ res +'" download="' + link.substr(link.lastIndexOf('/') + 1) + '">'+ res +'</a></li>'
+							});
 						}
 					}
 					
@@ -293,23 +298,25 @@ $(document).ready(function(){
 	}
 	
 	var featuredHTML = '';
-	for(var i = 0; i < featuredData.length; i++){
+	for(let i = 0; i < featuredData.length; i++){
 		featuredHTML += '<div class="resolution-item"><div class="type-resolution">'+ featuredData[i].grName +'</div><div class="download-resolution"><ul>'+ featuredData[i].grData +'</ul></div><div class="clear"/></div>';
-	}	
-	$(".wp-all-resolution").prepend(featuredHTML);
+	}
+	$(".wp-all-resolution").prepend(featuredHTML);	
 	
 	var accordionHTML = '';
-
-	for(var j=0; j<accordionData.length; j++){
-		if($.isEmptyObject(accordionData[j])) continue;		
-		var groupData = accordionData[j].grData,
+	for(let j = 0 ; j < accordionData.length; j++){
+		if($.isEmptyObject(accordionData[j]) || accordionData[j].grData.length === 0) continue;
+		let groupData = accordionData[j].grData,
 			groupItem = '';
-		for(var i=0; i<groupData.length; i++){	
+				
+		for(let i = 0; i < groupData.length; i++){	
+			if($.isEmptyObject(groupData[i])) continue;
 			groupItem += '<div class="resolution-item"><div class="type-resolution">'+ groupData[i].item +'</div><div class="download-resolution"><ul>'+ groupData[i].$t +'</ul></div><div class="clear"></div></div>';
 		}
-	
+		
 		accordionHTML += '<div class="accordion-item '+ (j==0? "active" : "") +'"><div class="accordion-header">'+ accordionData[j].grName +' <span class="accordion-item-arrow"></span></div><div class="accordion-content">'+ groupItem +'</div></div>'
-	}	
+	}
+	
 	$("#accordion").html(accordionHTML);
 	$("#accordion").accordion();
 	
