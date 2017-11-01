@@ -17,7 +17,7 @@ function sgmSearch(urlNext) {
 		country = $('#country').val(),
 		postGr = $('#postGroup').val(),
 		stt = $('#stt').val(),
-		multiLabel = '';		
+		multiLabel = '';
 		
 	if(category != 0) multiLabel += '/' + category;
 	if(country != 0) multiLabel += '/' + country;
