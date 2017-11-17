@@ -1329,3 +1329,23 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 .compressed-context a{padding-left: 14px;padding-top: 0;padding-bottom: 0;font-size: 13px;}
 .compressed-context .divider{margin: 5px 1px;}
 .compressed-context .nav-header{padding:1px 13px;}
+
+.sv-list {
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+.sv-item {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #369fcf;
+    color: #FFF;
+    cursor: pointer;
+}
+.sv-item:hover {
+    background: #930e1f;
+}
+.sv-item.current {
+    background: #930e1f;
+    cursor: inherit;
+}
