@@ -1342,6 +1342,9 @@ ul li.vjs-menu-title.vjs-res-menu-title:hover {
 .embed-video{
 	background: #3a3a3a;
 }
+.embed-iloading{
+	opacity: .3;
+}
 .embed-video-yt iframe, .embed-video iframe {
     position: absolute;
     top: 0;
