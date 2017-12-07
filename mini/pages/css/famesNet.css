@@ -22,11 +22,6 @@
 .index_hd .hd_btn_box .search_wrap .operation span img { position:relative;}
 .index_hd .hd_btn_box .search_wrap .operation span a { display:inline-block; height:18px; color:#f89b33;}
 .index_hd .hd_btn_box .search_wrap .operation span a:hover { cursor: pointer;}
-.index_hd .hd_btn_box .selectMenu { width:120px; height:210px; position:absolute; z-index: 8; background:url("../image/up.png"); top:45px; right:60px;}
-.index_hd .hd_btn_box .selectMenu .downSelect { width:120px; height:200px; margin-top:10px; border-radius: 5px; background:#fff; }
-.index_hd .hd_btn_box .selectMenu .downSelect li { width:120px; height:40px; vertical-align: middle; }
-.index_hd .hd_btn_box .selectMenu .downSelect li a { color:#69696b; height:40px; display:block; padding-top:10px }
-.index_hd .hd_btn_box .selectMenu .downSelect li a:hover { color:#f89b33; }
 .index_hd .hd_btn_box ul {height:56px;padding:0px;}
 .index_hd .hd_btn_box ul .publish { margin-left:10px; }
 .index_hd .hd_btn_box .bar { margin-right: 0px; padding-bottom: 18px; padding-top: 18px}
@@ -45,7 +40,7 @@
 /*Home main content*/
 .recommenStory { border-bottom:1px solid #ededed; margin:auto; }
 .home_main{ min-width:1280px;  margin: 0 auto; background:#fff; }
-.img_wrap{ margin: 0 auto; padding-top: 25px; background: url("../image/index/indexBg.jpg") no-repeat; background-size:100% 100%;; height: 500px; }
+.img_wrap{ margin: 0 auto; padding-top: 25px; background: url("https://lh3.googleusercontent.com/-FFaSgnN-JrA/Wil3Z3OfqMI/AAAAAAAAE_0/EGz0WJv-3TcsTXsOSkVwno9_hl_E8PM5QCKgBGAs/s1600/indexBg.jpg") no-repeat; background-size:100% 100%;; height: 500px; }
 .img_wrap img{ opacity:1;-webkit-transition:opacity 0.3s;transition:opacity 0.3s;}
 .img_wrap img:hover{ opacity: .7;}
 .img_wrap .left_img{ width:912px;  position: relative; float: left; margin-left: 36px; overflow: hidden; }
@@ -382,7 +377,7 @@ div.flicking_con a.on{ background: #f89b33;}
     position: relative;
     width: 100%;
     height: 150px;
-    background: url('../image/footLine.png');
+    background: url('https://lh3.googleusercontent.com/-Z0dpQikYkWc/Wil3Z-TQIyI/AAAAAAAAE_0/DMwnfYjhR-MpYNeD44KAxOlcpLraRZv2gCKgBGAs/s1600/footLine.png');
     padding: 0px;
 }
 
