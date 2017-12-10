@@ -176,7 +176,7 @@ div.flicking_con a.on{ background: #f89b33;}
 .describe .desc_wrap .desc_content .icon_wrap { position:absolute; bottom: -10px;right:-17px;}
 .describe .desc_wrap .desc_content .icon_wrap li { float:left; margin-right:16px;}
 .describe .desc_wrap .desc_content .icon_wrap img { width:30px; height:30px; }
-.describe .desc_wrap .desc_content .chapter
+.describe .desc_wrap .desc_content .chapter,
 .describe .desc_wrap .desc_content .favorite {
 	display:inline-block;
 	width:132px;
@@ -214,6 +214,7 @@ div.flicking_con a.on{ background: #f89b33;}
 	display: inline-block;
     width: 12.5%;
     height: 180px;
+	text-align: center;
 	border-bottom: 1px solid #ebe9e9;
 	padding-top: 17px;
 }
