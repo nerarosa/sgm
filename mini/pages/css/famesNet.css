@@ -438,18 +438,10 @@ div.flicking_con a.on{ background: #a20061;}
     color: #A1A1A1;
     font-family: 'Arial Normal', 'Arial';
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 18px;
 }
 .footer .nav span a:hover{
     color: rgba(0,170,238,1);
-}
-
-.footer .nav .nav_logo {
-    margin-left:30px;
-}
-
-.footer .nav_pic {
-
 }
 
 .footer .logo_2 {
