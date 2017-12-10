@@ -90,7 +90,7 @@ div.flicking_con a.on{ background: #f89b33;}
 .each_wrap .list_img li .list_img_wrap a:first-child { display:block; width:180px; height: 250px}
 .each_wrap .list_img li p { margin-bottom: 10px; }
 .each_wrap .list_img li p img { width:20px;height:16px;margin-right:10px;margin-bottom:15px; float:left; }
-.each_wrap .list_img li .p3 { display:inline-block; position: relative; }
+.each_wrap .list_img li .p3 { display:inline-block; position: relative; width: 100%;}
 .each_wrap .list_img li .p3 a { display:inline-block; width:50%; height:16px;}
 .each_wrap .list_img li .p3 a span { height:16px; color:#b2b2b2; }
 .each_wrap .list_img a { color:#b2b2b2;}
