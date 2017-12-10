@@ -161,8 +161,14 @@ div.flicking_con a.on{ background: #f89b33;}
 .describe .desc_wrap .desc_content { width:916px;height:inherit; float:right; position:relative; margin:auto;}
 .describe .desc_wrap .desc_content h1 { margin-top:-4px;margin-bottom: 13px;}
 .describe .desc_wrap .desc_content p { color:#b4c5df; font-weight: bold;}
-.describe .desc_wrap .desc_content .tb_info td { width:224px; height:32px; vertical-align: top; font-size: 13px; }
-.describe .desc_wrap .desc_content .tb_info .big {width:455px;}
+.describe .desc_wrap .desc_content .tb_info .tb_info ul li {
+    margin: 10px 0;
+}
+.describe .desc_wrap .desc_content .tb_info .tb_info ul li > div {
+	display: inline-block;
+    width: 30%;
+}
+.describe .desc_wrap .desc_content .tb_info .big {width:100%;}
 .describe .desc_wrap .desc_content .p1 { margin-top:8px;margin-bottom: 8px;font-size: 13px;}
 .describe .desc_wrap .desc_content .p2 { font-size: 14px;}
 .describe .desc_wrap .desc_content span { color:#333333; font-weight: normal;}
@@ -170,10 +176,31 @@ div.flicking_con a.on{ background: #f89b33;}
 .describe .desc_wrap .desc_content .icon_wrap { position:absolute; bottom: -10px;right:-17px;}
 .describe .desc_wrap .desc_content .icon_wrap li { float:left; margin-right:16px;}
 .describe .desc_wrap .desc_content .icon_wrap img { width:30px; height:30px; }
-.describe .desc_wrap .desc_content .chapter { display:inline-block;width:132px;height:42px;background: url("../image/comicDetail/u20.png"); float:left;margin-right: 40px; color:#ffffff;font-size: 16px; cursor: pointer;}
+.describe .desc_wrap .desc_content .chapter {
+	display:inline-block;
+	width:132px;
+	height:42px;
+	background: #f89b33;
+	float:left;
+	margin-right: 40px;
+	color:#ffffff;
+	font-size: 16px;
+	cursor: pointer;
+}
 .describe .desc_wrap .desc_content .chapter span,.describe .desc_wrap .desc_content .chapter a { color:#fff;}
 .describe .desc_wrap .desc_content .chapter a { display:block; width:132px;height:42px; text-align: center;line-height: 42px; }
-.describe .desc_wrap .desc_content .favorite { display:inline-block;width:132px;height:42px;background: url("../image/comicDetail/favoriteBtn.png"); float:left; text-align: center;line-height: 42px;color:#c1cee4;font-size: 16px; cursor: pointer;}
+.describe .desc_wrap .desc_content .favorite {
+	display:inline-block;
+	width:132px;
+	height:42px;
+	background: #f2f2f2;
+	float:left;
+	text-align: center;
+	line-height: 42px;
+	color:#c1cee4;
+	font-size: 16px;
+	cursor: pointer;
+}
 
 .chapters { max-width: inherit; margin-top:30px; background:#ffffff; padding-top:1px; }
 .chapters .chapt_wrap { position: relative; margin-bottom: 10px; }
