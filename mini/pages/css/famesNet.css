@@ -161,10 +161,10 @@ div.flicking_con a.on{ background: #f89b33;}
 .describe .desc_wrap .desc_content { width:916px;height:inherit; float:right; position:relative; margin:auto;}
 .describe .desc_wrap .desc_content h1 { margin-top:-4px;margin-bottom: 13px;}
 .describe .desc_wrap .desc_content p { color:#b4c5df; font-weight: bold;}
-.describe .desc_wrap .desc_content .tb_info .tb_info ul li {
+.describe .desc_wrap .desc_content .tb_info ul li {
     margin: 10px 0;
 }
-.describe .desc_wrap .desc_content .tb_info .tb_info ul li > div {
+.describe .desc_wrap .desc_content .tb_info ul li > div {
 	display: inline-block;
     width: 30%;
 }
