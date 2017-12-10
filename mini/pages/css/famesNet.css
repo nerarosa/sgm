@@ -96,7 +96,7 @@ div.flicking_con a.on{ background: #f89b33;}
 .each_wrap .list_img li p img { width:20px;height:16px;margin-right:10px;margin-bottom:15px; float:left; }
 .each_wrap .list_img li .p3 { display:inline-block; position: relative; width: 100%;}
 .each_wrap .list_img li .p3 a { display:inline-block; width:50%; height:16px;}
-.each_wrap .list_img li .p3 a span { height:16px; color:#b2b2b2; }
+.each_wrap .list_img li .p3 a span, .each_wrap .list_img li .p2 a span { height:16px; color:#b2b2b2; font-weight:normal;}
 .each_wrap .list_img a { color:#b2b2b2;}
 .each_wrap .list_img img { width:180px; height:250px;}
 .each_wrap .list_img span { color:#000000;font-weight: bold;font-family: Arial, Verdana, sans-serif;}
