@@ -176,30 +176,29 @@ div.flicking_con a.on{ background: #f89b33;}
 .describe .desc_wrap .desc_content .icon_wrap { position:absolute; bottom: -10px;right:-17px;}
 .describe .desc_wrap .desc_content .icon_wrap li { float:left; margin-right:16px;}
 .describe .desc_wrap .desc_content .icon_wrap img { width:30px; height:30px; }
-.describe .desc_wrap .desc_content .chapter {
-	display:inline-block;
-	width:132px;
-	height:42px;
-	background: #f89b33;
-	float:left;
-	margin-right: 40px;
-	color:#ffffff;
-	font-size: 16px;
-	cursor: pointer;
-}
-.describe .desc_wrap .desc_content .chapter span,.describe .desc_wrap .desc_content .chapter a { color:#fff;}
-.describe .desc_wrap .desc_content .chapter a { display:block; width:132px;height:42px; text-align: center;line-height: 42px; }
+.describe .desc_wrap .desc_content .chapter
 .describe .desc_wrap .desc_content .favorite {
 	display:inline-block;
 	width:132px;
 	height:42px;
-	background: #f2f2f2;
-	float:left;
-	text-align: center;
-	line-height: 42px;
-	color:#c1cee4;
 	font-size: 16px;
+	border-radius: 4px;
 	cursor: pointer;
+	float:left;
+}
+.describe .desc_wrap .desc_content .chapter {	
+	background: #f89b33;
+	color:#ffffff;
+	margin-right: 40px;	
+}
+.describe .desc_wrap .desc_content .chapter span,
+.describe .desc_wrap .desc_content .chapter a { color:#fff;}
+.describe .desc_wrap .desc_content .chapter a { display:block; width:132px;height:42px; text-align: center;line-height: 42px; }
+.describe .desc_wrap .desc_content .favorite {	
+	background: #f2f2f2;
+	color:#c1cee4;	
+	text-align: center;
+	line-height: 42px;		
 }
 
 .chapters { max-width: inherit; margin-top:30px; background:#ffffff; padding-top:1px; }
@@ -210,8 +209,14 @@ div.flicking_con a.on{ background: #f89b33;}
 .chapters .chapt_wrap .chapt_menu .now_btn,.chapters .chapt_wrap .chapt_menu .scope_btn { width:84px;height:26px; border-radius: 3px; margin-top:10px; float:left; margin-left:10px; text-align: center; line-height: 26px; cursor: pointer }
 .chapters .chapt_wrap .chapt_menu .now_btn { background:#f89b33; color:#fff}
 .chapters .chapt_wrap .chapt_menu .scope_btn { border:2px solid #eeeeee; color:#dddddd; font-weight: bold }
-.chapters .tb_chapter { margin-left:35px; }
-.chapters .tb_chapter .chapter_item { float:left; width:233px; height:50px; border-bottom: 1px solid #ebe9e9; padding-top: 17px; }
+.chapters .tb_chapter { margin:0 15px; }
+.chapters .tb_chapter .chapter_item {
+	display: inline-block;
+    width: 12.5%;
+    height: 180px;
+	border-bottom: 1px solid #ebe9e9;
+	padding-top: 17px;
+}
 .chapters .tb_chapter .chapter_item a { color:#868686; cursor: pointer; }
 .chapters .ab_chapter{height: 150px;padding-top: 35px}
 .chapters .ab_chapter .ab_img{width: 970px;height: 90px;margin: 0 auto;}
