@@ -343,6 +343,12 @@ div.flicking_con a.on{ background: #a20061;}
 
 .mainArea { width:1210px; margin:0 auto; margin-top:12px; overflow: hidden; z-index: 1;}
 .mainArea .comic_wrap { width:1248px; }
+.mainArea .comic_wrap:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .mainArea .comic { width:230px; background:url("http://www.zingbox.me/image/story/u284.png"); float:left; margin-right:14px; margin-bottom: 16px;padding-bottom: 5px;}
 .mainArea .comic a { display: block; width:230px; height:320px; }
 .mainArea .comic img { width:230px; height:320px; margin-bottom: -1px; }
