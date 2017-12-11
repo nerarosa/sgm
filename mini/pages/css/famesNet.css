@@ -396,10 +396,26 @@ div.flicking_con a.on{ background: #a20061;}
 
 /*mobile/home/image*/
 .story_main { position:relative; z-index: 5; }
-.story_read_main { background:#2d2d2d; min-width: 1200px; min-height:1123px;}
-.story_read_main .nav { height:54px; min-width: 1200px; background:#0a0a0a; width:100%; z-index: 5; }
-.story_read_main .nav .wrap_area { width:1200px; height:54px; margin:auto; position:relative; }
-.story_read_main .nav .wrap_area img { cursor: pointer }
+.story_read_main {
+	background:#2d2d2d;
+	width: 100%;
+	min-height:1123px;
+}
+.story_read_main .nav {
+	height:54px;	
+	background:#0a0a0a;
+	width:100%;
+	z-index: 5;
+}
+.story_read_main .nav .wrap_area {
+	width: 100%;
+    height: 54px;
+    margin: 0 auto;
+	position:relative;
+}
+.story_read_main .nav .wrap_area img {
+	cursor: pointer
+}
 .story_read_main .nav .wrap_area .menuArea {
 	width:198px;
 	height:160px;
@@ -448,7 +464,6 @@ div.flicking_con a.on{ background: #a20061;}
 #wrap #scrollbar { width:10px; height:30px; background:#6c6c6c; position:absolute; left:0; top:0;}
 
 
-
 .story_read_main .comic_area { text-align: center; margin-top: 100px}
 .loaded { width:870px; height:900px; vertical-align: middle; display: table-cell; background:#000; }
 .story_read_main .comic_area img { max-width:870px; margin:auto }
@@ -457,17 +472,59 @@ div.flicking_con a.on{ background: #a20061;}
  .ads_area { text-align: center; }
  .ads_area img { width:654px; height:80px; }
 
-.story_read_main .read_scroll1 { width:870px; margin:0 auto; padding-top: 54px; }
-.story_read_main .read_scroll1 .top_area { width:870px; height:60px; padding-top: 24px; padding-left:4px; position:relative; }
+.story_read_main .read_scroll1 {
+	width:100%;
+	margin:0 auto;
+	padding-top: 54px;
+}
+.story_read_main .read_scroll1 .top_area {
+	max-width:980px;
+	width: 100%;
+	height:60px;
+	padding-top: 24px;
+	padding-left:4px;
+	position:relative;
+}
 .story_read_main .read_scroll1 .top_area p { color:#fff; font-size:16px; display:block; position:absolute; top:20px; }
-.story_read_main .read_scroll1 .comicList { width:870px; margin-top:0; }
-.story_read_main .read_scroll1 .comicList .item { width:870px; }
-.story_read_main .read_scroll1 .comicList .item .comicImg { width:870px; text-align: center}
-.story_read_main .read_scroll1 .comicList img { max-width:870px; }
-.story_read_main .read_scroll1 .comicList .pageInfo { width:870px; color:#fff; height:35px; padding-top:8px; position:relative; text-align: center; }
-.story_read_main .read_scroll1 .bottom_area { position:relative; }
-.story_read_main .read_scroll1 .bottom_area h1 { color:#fff; float:left; margin-right:244px; margin-top:5px; }
-.story_read_main .read_scroll1 .bottom_area .chShift { display:inline-block; position:absolute; right:0; }
+.story_read_main .read_scroll1 .comicList {
+	width: 100%;
+	margin-top:0;
+	text-align: center;
+}
+.story_read_main .read_scroll1 .comicList .item {
+	width: 100%;
+    text-align: center;
+}
+.story_read_main .read_scroll1 .comicList .item .comicImg {
+	width: 100%;
+    text-align: center;
+}
+.story_read_main .read_scroll1 .comicList img { max-width:100%; width: auto; }
+.story_read_main .read_scroll1 .comicList .pageInfo {
+	max-width:980px;
+	width: 100%;
+	margin: 0 auto;
+	color:#fff;
+	height:35px;
+	padding-top:8px;
+	position:relative;
+	text-align: center;
+}
+.story_read_main .read_scroll1 .bottom_area {
+	position: relative;
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+}
+.story_read_main .read_scroll1 .bottom_area h1 {
+	color:#fff;
+	float:left;	
+	margin-top:5px;
+}
+.story_read_main .read_scroll1 .bottom_area .chShift {
+	display: inline-block;
+    float: right;
+}
 .story_read_main .read_scroll1 .bottom_area .chShift .preCh,
 .story_read_main .read_scroll1 .bottom_area .chShift .nextCh {
 	width:136px;
