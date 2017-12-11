@@ -2,7 +2,7 @@
 .clear { clear:both;}
 
 /* index */
-.viewport{margin:0 auto;position:relative; maxwidth:100%; }
+.viewport{margin:0 auto;position:relative; max-width:100%; }
 .center-content { position: relative; width:1280px; margin: 0 auto; }
 /* head */
 .index_hd{
@@ -400,7 +400,15 @@ div.flicking_con a.on{ background: #a20061;}
 .story_read_main .nav { height:54px; min-width: 1200px; background:#0a0a0a; width:100%; z-index: 5; }
 .story_read_main .nav .wrap_area { width:1200px; height:54px; margin:auto; position:relative; }
 .story_read_main .nav .wrap_area img { cursor: pointer }
-.story_read_main .nav .wrap_area .menuArea { width:198px; height:160px;position:absolute; z-index: 3; left:835px; top:50px; }
+.story_read_main .nav .wrap_area .menuArea {
+	width:198px;
+	height:160px;
+	position:absolute;
+	z-index: 3;
+	left:835px;
+	top:50px;
+	display: none;
+}
 .story_read_main .nav .wrap_area .menuArea .menu_wrap { overflow-y:scroll; overflow-x: hidden; height:160px; }
 .story_read_main .nav .wrap_area .menuArea .menu_wrap .menu_box { width:180px; min-height:160px; background:#333333; }
 .story_read_main .nav .wrap_area .menuArea .menu_wrap .menu_box li { color:white; height:16px; padding-top:0; cursor: pointer; overflow: hidden; }
@@ -460,7 +468,21 @@ div.flicking_con a.on{ background: #a20061;}
 .story_read_main .read_scroll1 .bottom_area { position:relative; }
 .story_read_main .read_scroll1 .bottom_area h1 { color:#fff; float:left; margin-right:244px; margin-top:5px; }
 .story_read_main .read_scroll1 .bottom_area .chShift { display:inline-block; position:absolute; right:0; }
-.story_read_main .read_scroll1 .bottom_area .chShift .preCh,.story_read_main .read_scroll1 .bottom_area .chShift .nextCh { width:136px; height:30px;  background:url("../image/storyRead/u34.png"); float:left; margin-left:16px; margin-top:5px; color:#fff; text-align: center; line-height: 30px; font-size:12px; cursor: pointer }
+.story_read_main .read_scroll1 .bottom_area .chShift .preCh,
+.story_read_main .read_scroll1 .bottom_area .chShift .nextCh {
+	width:136px;
+	height:30px;
+	background:#434343;
+	border-radius: 4px;
+	float:left;
+	margin-left:16px;
+	margin-top:5px;
+	color:#fff;
+	text-align: center;
+	line-height: 30px;
+	font-size:12px;
+	cursor: pointer
+}
 /*************************** Bottom style ****************************/
 #publish { text-align: center; }
 #publish h1 { font-size:40px; }
