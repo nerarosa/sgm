@@ -605,7 +605,7 @@ div.flicking_con a.on{ background: #a20061;}
 	height:30px;
 	background:#434343;
 	border-radius: 4px;
-	float:left;
+	display:inline-block;
 	margin-left:16px;
 	margin-top:5px;
 	color:#fff;
