@@ -393,12 +393,13 @@ div.flicking_con a.on{ background: #a20061;}
 }
 .mainArea .comic p span { font-size:10px;}
 
-/*mobile/home/image*/
+
 .story_main { position:relative; z-index: 5; }
 .story_read_main {
 	background:#2d2d2d;
 	width: 100%;
 	min-height:1123px;
+	padding-bottom: 30px;
 }
 .story_read_main .nav {
 	height:54px;	
