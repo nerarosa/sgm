@@ -85,7 +85,11 @@ div.flicking_con a.on{ background: #a20061;}
 .img_wrap .right_small li img{ width: 280px;height: 140px;}
 
 
-.leftside { border-bottom: 1px solid #ededed; margin:0 auto;width:1200px;padding-bottom: 37px;}
+.leftside {
+	margin:0 auto;
+	width:1200px;
+	padding-bottom: 37px;
+}
 .stick { border:none;}
 .each_wrap { overflow: hidden; }
 .each_wrap .top { margin-top:25px;margin-bottom: 21px;position: relative;}
@@ -312,7 +316,7 @@ div.flicking_con a.on{ background: #a20061;}
 
 /*story*/
 .storyArea,.popular_main { min-width: 1280px; margin:0 auto;}
-.storyArea .menu_tab,.popular_main .menu_tab { width:100%; height:66px; margin:auto; background: url("../image/strip/menuBg.png"); padding-left:10px;padding-top:11px; text-align: center; }
+.storyArea .menu_tab,.popular_main .menu_tab { width:100%; height:66px; margin:auto; background: url("http://www.zingbox.me/image/strip/menuBg.png"); padding-left:10px;padding-top:11px; text-align: center; }
 .storyArea .menu_tab .menu_wrap ,.popular_main .menu_tab .menu_wrap { width:1200px; margin:0 auto; position:relative; display:inline-block; padding-left: 12px; }
 .storyArea .menu_tab .menu_wrap ul ,.popular_main .menu_tab .menu_wrap ul { float: left; }
 .storyArea .menu_tab .menu_wrap .tab ,.popular_main .menu_tab .menu_wrap .tab { margin-top:16px; font-size:30px; font-weight: bold; }
@@ -320,18 +324,18 @@ div.flicking_con a.on{ background: #a20061;}
 .storyArea .menu_tab .menu_wrap .tab li a { display:block ; color:#9999a5; font-size:16px; padding:0 6px; padding-top: 3px; }
 .storyArea .menu_tab .menu_wrap .tab li a:hover { color:#00aaee;  border-bottom:2px solid #00aaee; cursor: pointer; }
 .storyArea .menu_tab .menu_wrap .tab li .active { color:#00aaee;  border-bottom:2px solid #00aaee; cursor: pointer;}
-.storyArea .menu_tab .menu_wrap .category ,.popular_main .menu_tab .menu_wrap .category {  height:30px; width:154px; color: #fff; padding-top:6px; padding-left:13px; text-align: left; position:absolute; right:0px; top:9px;  background:url("../image/story/u151.png");}
-.storyArea .menu_tab .menu_wrap .category:hover ,.popular_main .menu_tab .menu_wrap .category:hover { background: url("../image/story/u1309_mouseOver.png"); cursor: pointer; }
+.storyArea .menu_tab .menu_wrap .category ,.popular_main .menu_tab .menu_wrap .category {  height:30px; width:154px; color: #fff; padding-top:6px; padding-left:13px; text-align: left; position:absolute; right:0px; top:9px;  background:url("http://www.zingbox.me/image/story/u151.png");}
+.storyArea .menu_tab .menu_wrap .category:hover ,.popular_main .menu_tab .menu_wrap .category:hover { background: url("http://www.zingbox.me/image/story/u1309_mouseOver.png"); cursor: pointer; }
 .storyArea .menu_tab .menu_wrap .category img ,.popular_main .menu_tab .menu_wrap .category img { position:absolute; right:13px; top:12px;}
-.storyArea .menu_tab .menu_wrap .categories ,.popular_main .menu_tab .menu_wrap .categories { position:absolute; z-index: 3; right:0px; top:39px; background:url("../image/story/u1301_mouseOver.png"); }
+.storyArea .menu_tab .menu_wrap .categories ,.popular_main .menu_tab .menu_wrap .categories { position:absolute; z-index: 3; right:0px; top:39px; background:url("http://www.zingbox.me/image/story/u1301_mouseOver.png"); }
 .storyArea .menu_tab .menu_wrap .categories .col ,.popular_main .menu_tab .menu_wrap .categories .col { float:right; border-right:1px solid #797979;}
 .storyArea .menu_tab .menu_wrap .categories .col li ,.popular_main .menu_tab .menu_wrap .categories .col li { height:30px; width:154px; color: #fff; padding-top:8px; padding-left:18px; text-align: left}
-.storyArea .menu_tab .menu_wrap .categories .col li:hover ,.popular_main .menu_tab .menu_wrap .categories .col li:hover { background: url("../image/story/u1309_mouseOver.png"); cursor: pointer;}
+.storyArea .menu_tab .menu_wrap .categories .col li:hover ,.popular_main .menu_tab .menu_wrap .categories .col li:hover { background: url("http://www.zingbox.me/image/story/u1309_mouseOver.png"); cursor: pointer;}
 
 
 .mainArea { width:1210px; margin:0 auto; margin-top:12px; overflow: hidden; z-index: 1;}
 .mainArea .comic_wrap { width:1248px; }
-.mainArea .comic { width:230px; background:url("../image/story/u284.png"); float:left; margin-right:14px; margin-bottom: 16px;padding-bottom: 5px;}
+.mainArea .comic { width:230px; background:url("http://www.zingbox.me/image/story/u284.png"); float:left; margin-right:14px; margin-bottom: 16px;padding-bottom: 5px;}
 .mainArea .comic a { display: block; width:230px; height:320px; }
 .mainArea .comic img { width:230px; height:320px; margin-bottom: -1px; }
 .mainArea .comic h5 {  margin-bottom: 6px;}
@@ -428,7 +432,6 @@ div.flicking_con a.on{ background: #a20061;}
     min-width:1280px;
     vertical-align: top;
     margin-top: 30px;
-
 }
 
 .footer .nav .links { width:440px; }
@@ -452,7 +455,6 @@ div.flicking_con a.on{ background: #a20061;}
     margin-right:50px;
 }
 .footer .copyright{
-
     margin-top: 5px;
     font-size: 15px;
     color: #BCBCBC;
