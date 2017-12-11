@@ -433,7 +433,23 @@ div.flicking_con a.on{ background: #a20061;}
 .story_read_main .nav p a { color:#fff; font-size:20px; }
 .story_read_main .nav .menu_area { width:172px; height:29px; position:absolute; left:860px; top:14px; background:#292929; overflow: hidden; }
 .story_read_main .nav .menu_area img { width:18px; height:16px; cursor: pointer }
-.story_read_main .nav .menu_area span { display:inline-block; padding:0 10px; margin-top:6px; }
+.story_read_main .nav .menu_area span {
+	display:inline-block;
+	padding:0 10px;
+	margin-top:6px;
+	font-size: 24px;
+    line-height: 29px;
+    color: #6e6e6e;
+}
+.story_read_main .nav .menu_area span i {
+	cursor: pointer;
+}
+.story_read_main .nav .menu_area span i:hover {
+	color: #FFF;
+}
+.story_read_main .nav .menu_area span i:nth-child(2) {
+    margin: 0 20px;
+}
 .story_read_main .nav .menu_area span .center_img { margin:0 30px;}
 .story_read_main .nav .menu_area span img {  float:left; }
 .story_read_main .nav .menu_area .out_img { width:20px; height:18px; margin-top:-10px; margin-left:8px; }
@@ -533,7 +549,7 @@ div.flicking_con a.on{ background: #a20061;}
 .story_read_main .read_scroll1 {
 	width:100%;
 	margin:0 auto;
-	padding-top: 54px;
+	padding-top: 10px;
 }
 .story_read_main .read_scroll1 .top_area {
 	max-width:980px;
