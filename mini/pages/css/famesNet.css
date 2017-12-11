@@ -327,7 +327,15 @@ div.flicking_con a.on{ background: #a20061;}
 .storyArea .menu_tab .menu_wrap .category ,.popular_main .menu_tab .menu_wrap .category {  height:30px; width:154px; color: #fff; padding-top:6px; padding-left:13px; text-align: left; position:absolute; right:0px; top:9px;  background:url("http://www.zingbox.me/image/story/u151.png");}
 .storyArea .menu_tab .menu_wrap .category:hover ,.popular_main .menu_tab .menu_wrap .category:hover { background: url("http://www.zingbox.me/image/story/u1309_mouseOver.png"); cursor: pointer; }
 .storyArea .menu_tab .menu_wrap .category img ,.popular_main .menu_tab .menu_wrap .category img { position:absolute; right:13px; top:12px;}
-.storyArea .menu_tab .menu_wrap .categories ,.popular_main .menu_tab .menu_wrap .categories { position:absolute; z-index: 3; right:0px; top:39px; background:url("http://www.zingbox.me/image/story/u1301_mouseOver.png"); }
+.storyArea .menu_tab .menu_wrap .categories,
+.popular_main .menu_tab .menu_wrap .categories {
+	position:absolute;
+	z-index: 3;
+	right:0px;
+	top:39px;
+	background:url("http://www.zingbox.me/image/story/u1301_mouseOver.png");
+	display:none;
+}
 .storyArea .menu_tab .menu_wrap .categories .col ,.popular_main .menu_tab .menu_wrap .categories .col { float:right; border-right:1px solid #797979;}
 .storyArea .menu_tab .menu_wrap .categories .col li ,.popular_main .menu_tab .menu_wrap .categories .col li { height:30px; width:154px; color: #fff; padding-top:8px; padding-left:18px; text-align: left}
 .storyArea .menu_tab .menu_wrap .categories .col li:hover ,.popular_main .menu_tab .menu_wrap .categories .col li:hover { background: url("http://www.zingbox.me/image/story/u1309_mouseOver.png"); cursor: pointer;}
