@@ -342,7 +342,7 @@ div.flicking_con a.on{ background: #a20061;}
 
 
 .mainArea { width:1210px; margin:0 auto; margin-top:12px; overflow: hidden; z-index: 1;}
-.mainArea .comic_wrap { width:1248px; }
+.mainArea .comic_wrap { width:100%; }
 .mainArea .comic_wrap:after {
     content: "";
     clear: both;
