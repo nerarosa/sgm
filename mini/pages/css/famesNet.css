@@ -349,11 +349,26 @@ div.flicking_con a.on{ background: #a20061;}
     display: table;
 }
 
-.mainArea .comic { width:230px; background:url("http://www.zingbox.me/image/story/u284.png"); float:left; margin-right:14px; margin-bottom: 16px;padding-bottom: 5px;}
-.mainArea .comic a { display: block; width:230px; height:320px; }
-.mainArea .comic img { width:230px; height:320px; margin-bottom: -1px; }
+.mainArea .comic {
+	width:19%;
+	    width: calc(20% - 14px);
+	background: #FFF;
+	float:left;
+	margin: 0 7px 16px;
+}
+.mainArea .comic a { display: block;}
+.mainArea .comic img { width:100%; height:auto;}
 .mainArea .comic h5 {  margin-bottom: 6px;}
-.mainArea .comic h5 .title { width:auto; height:auto; display:inline-block; font-weight: bold; color:#000; cursor: pointer; }
+.mainArea .comic h5 .title {
+	width:100%;
+	height:auto;
+	display:inline-block;
+	font-weight: bold;
+	color:#000;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .mainArea .comic p {color: #949494; margin-bottom: 4px; cursor: default}
 .mainArea .comic p img { width:7px;height:9px; margin-right:8px;}
 .mainArea .comic .icons { display:inline-block; }
