@@ -369,11 +369,13 @@ div.flicking_con a.on{ background: #a20061;}
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.mainArea .comic .description {
+	padding: 0 5px;
+}
 .mainArea .comic p {color: #949494; margin-bottom: 4px; cursor: default}
 .mainArea .comic p img { width:7px;height:9px; margin-right:8px;}
-.mainArea .comic .icons { display:inline-block; }
-.mainArea .comic .icons a { width: 100px; height:auto; display:block; float:left; color:#b2b2b2; }
-.mainArea .comic .icons img { width:18px; height:18px; margin-right:6px; margin-left: -4px;}
+.mainArea .comic .icons { display:inline-block; width: 100%;}
+.mainArea .comic .icons a { width: 50%; height:auto; display:inline-block; color:#b2b2b2; }
 .mainArea .comic p span { font-size:10px;}
 
 /*mobile/home/image*/
