@@ -770,27 +770,20 @@ $(document).ready(function(){
 			data: {
 				key : "AIzaSyALiTeDemN-zjrulrD723vdt6MIjRfIMuY",
 				part : "snippet",
-				playlistId : "PL2ZbFswbAD-_nfD_3Qy99zw7c1lOBacQE",
+				playlistId : "PLcexS2ONZ6d0yoH-ELBJo2iq4aJr82zEt",
 				maxResults : 20
 			},
 			dataType: "jsonp",
-			success: function(data) {
-				var idvideo = [];
-				var videos = data.items;
+			success: function(data) {				
+				let videos = data.items;
 				if(videos !== undefined){
-					for(var i=0; i<videos.length; i++){
-						idvideo.push(videos[i].snippet.resourceId.videoId);
-					}
-				
-					if(idvideo.length > 0){
-						var randNum = Math.floor(Math.random() * idvideo.length);
-						var ytLink = "http://www.youtube.com/embed/"+ idvideo[randNum] +"?rel=0&amp;autoplay=1&amp;wmode=transparent&amp;showinfo=0";
-						$(".yt-overlay-play-button a").attr("href", ytLink);
-						$(".yt-overlay-play-button a").addClass("has-yt");
+					if(videos.length > 0){
+						let randNum = Math.floor(Math.random() * (videos.length - 1));
+						let ytLink = "http://www.youtube.com/embed/"+ videos[randNum].snippet.resourceId.videoId +"?rel=0&amp;autoplay=1&amp;wmode=transparent&amp;showinfo=0";
+						$(".yt-overlay-play-button a").attr("href", ytLink).addClass("has-yt");						
 					}
 					
 					$('.yt-overlay-play-button a[data-lightbox-gallery]').iLightbox();
-					
 				}	
 			},
 			error: function(e){
