@@ -734,7 +734,7 @@ $(document).ready(function () {
 
 $(document).ready(function(){
 	
-	var listYoutube = ["PLcexS2ONZ6d0yoH-ELBJo2iq4aJr82zEt"];
+	var listYoutube = ["PLcexS2ONZ6d0yoH-ELBJo2iq4aJr82zEt", "PLcexS2ONZ6d2gOZI02lNMQtBhtJO-yxHg"];
 	function randomVideoFromYTChannel(){
 		let ranList = Math.floor(Math.random() * (listYoutube.length - 1));
 		
