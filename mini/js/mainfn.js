@@ -184,22 +184,26 @@ function getAjax(options, callback){
 			sendData = $.extend({}, defaultSend, options.dataSend);
 		else
 			sendData = options.dataSend;
-	
-	$.ajax({
-		url: options.url,
-		type: "get",
-		data: sendData,
-		dataType: "jsonp",
-		beforeSend: options.beforeHandle,
-		success: function(data){
-			callback(data)
-		},
-		error: function(){
-			countLoop++;
-			if(countLoop < 3)
-				getAjax(options, callback);
-			else
-				callback('errFeed');
-		}
-	});
+		
+	(function _init(){
+        countLoop++;
+        $.ajax({
+            url: options.url,
+            type: "get",
+            data: sendData,
+            dataType: "jsonp",
+            beforeSend: options.beforeHandle,
+            success: function(data){
+                callback(data);
+            },
+            error: function(e){            
+                if(countLoop < 3)
+                    _init();
+                else{
+                    console.log(e);
+                    callback('errFeed');
+                }
+            }
+        });   
+    })();
 }
