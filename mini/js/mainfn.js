@@ -124,7 +124,7 @@ function resizeImg(url, size){
 			newImg = url;
 		}
 			
-		return newImg;
+		return newImg.replace('http://', 'https://');
 	}else{
 		return url;
 	}
