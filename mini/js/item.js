@@ -407,6 +407,7 @@ if(Cookies.get('confirmage')==null){
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
+	console.log(user);	
       initViewCount();
     }else{
 		loginFireBase();
@@ -555,8 +556,6 @@ function initViewCount(){
 		data.viewCountW++;
 
 		data.viewCountM++;
-				
-		console.log(data);
 		
 		if(isnew){			
 			postRef.set(data).catch(function(error) {
