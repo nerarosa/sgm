@@ -183,8 +183,6 @@ var fetchPosts = function(postsRef, sectionElement, timeTop, oneLabel) {
 		if(data.val() != null){
 			let count = 0;
 			data.forEach(function(childSnapshot) {
-				console.log(childSnapshot.key);
-				console.log(childSnapshot.val());
 				var dataChild = childSnapshot.val();
 				let postUrl = dataChild.url.replace('?m=1', ''),
 					postTitle = dataChild.title;
