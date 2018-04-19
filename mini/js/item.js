@@ -585,6 +585,9 @@ function initViewCount(){
 			
 			if(data.thumb != thumbUrl)
 				postRef.child('thumb').set(thumbUrl);
+			
+			if(data.url != urlP)
+				postRef.child('url').set(urlP);
 		}
 		
 		if(idGirl != '' && idGirl != null){
