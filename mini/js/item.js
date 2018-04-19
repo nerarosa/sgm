@@ -1011,20 +1011,24 @@ $(document).ready(function() {
 	function unlike(){
 		firebase.auth().onAuthStateChanged(function(user) {
 			if (user) {
-				videoRef.transaction(function(currentLike) {
-						return currentLike - 1;
-				}, function(error, committed, snapshot) {
-				  if (error) {
-					console.log(error);
-				  } else if (!committed) {
-					console.log('We aborted the transaction.');
-				  } else {
-					
-				  }
-					if(snapshot !== null)
-						$('.like__post .icobutton__text').text(snapshot.val());
-					
-				}, true);
+				videoRef.once('value', function(snapshot){
+					if(snapshot.exists()){
+						videoRef.transaction(function(currentLike) {
+								return currentLike - 1;
+						}, function(error, committed, snapshot) {
+						  if (error) {
+							console.log(error);
+						  } else if (!committed) {
+							console.log('We aborted the transaction.');
+						  } else {
+							
+						  }
+							if(snapshot !== null)
+								$('.like__post .icobutton__text').text(snapshot.val());
+							
+						}, true);
+					}
+				})
 			} else {
 				loginFireBase();
 			}
@@ -1032,20 +1036,24 @@ $(document).ready(function() {
 	}
 	function like(){
 		firebase.auth().onAuthStateChanged(function(user) {
-			if (user) {				
-				videoRef.transaction(function(currentLike) {
-					return currentLike + 1;
-				}, function(error, committed, snapshot) {
-				  if (error) {
-					console.log(error);
-				  } else if (!committed) {
-					console.log('We aborted the transaction.');
-				  } else {
-					
-				  }
-				  if(snapshot !== null)
-					$('.like__post .icobutton__text').text(snapshot.val());
-				}, true);
+			if (user) {
+				videoRef.once('value', function(snapshot){
+					if(snapshot.exists()){
+						videoRef.transaction(function(currentLike) {
+							return currentLike + 1;
+						}, function(error, committed, snapshot) {
+						  if (error) {
+							console.log(error);
+						  } else if (!committed) {
+							console.log('We aborted the transaction.');
+						  } else {
+							
+						  }
+						  if(snapshot !== null)
+							$('.like__post .icobutton__text').text(snapshot.val());
+						}, true);				
+					}
+				})
 			} else {
 				loginFireBase();
 			}
