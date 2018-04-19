@@ -1005,7 +1005,7 @@ $(document).ready(function() {
 		});
 	}
 	
-	function unlike(){		
+	function unlike(){
 		firebase.auth().onAuthStateChanged(function(user) {
 			if (user) {
 				videoRef.transaction(function(currentLike) {
