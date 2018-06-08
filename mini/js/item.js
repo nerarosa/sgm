@@ -554,9 +554,7 @@ function initViewCount(){
 
 		data.viewCountW++;
 
-		data.viewCountM++;
-		
-		console.log(data);
+		data.viewCountM++;		
 		
 		if(isnew){			
 			postRef.set(data).catch(function(error) {
