@@ -225,7 +225,7 @@ h4#results-text-change{margin:0 10%}
 #gallery-container {float: left;width: 100%;margin-bottom: 40px;height:0;}
 .ss-overlay.open #gallery-container {height:auto;min-height: 500px;}
 #grid-gallery {position: relative;min-height: 400px;margin-left: 7px;}
-.content-box {float: left;margin: 0 7px 7px 0;visibility: hidden;-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);display: block;vertical-align: bottom;cursor: pointer;}
+.content-box {float: left;margin: 0 7px 7px 0;visibility: hidden;-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);display: block;vertical-align: bottom;cursor: pointer;position:relative;}
 .content-box img {display: block;}
 .content-box-content {-webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset;box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset;}
 .content-box-content {position: absolute;bottom: 0px;width: 100%;height: 100%;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";filter: alpha(opacity=90);opacity: 0.9;}
