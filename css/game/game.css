@@ -1,0 +1,425 @@
+.fa,.fa-stack{display:inline-block}
+.fa-fw,.fa-li,body{text-align:center}
+
+body,html{margin:0;padding:0;background-color:#333}
+body{font-family:"Roboto Condensed", Arial, sans-serif;font-size:12px;font-weight:300;overflow-x:hidden}
+body .hide{display:none!important}
+.holder{position:relative}
+section.offScreenNavigation{overflow-y:auto;position:fixed;top:0;right:0;bottom:0;left:-200px;z-index:0;background:#252525;width:200px;height:100%;min-height:100%;color:#fff;transition:left .2s}
+section.offScreenNavigation ul{padding:0;margin:0;list-style:none}
+section.offScreenNavigation ul li{display:block;text-align:left;margin-left:-200px;transition:margin .6s}
+#offScreenNavigationTrigger+label[for=offScreenNavigationTrigger],article{transition:left .2s}
+section.offScreenNavigation ul li a{display:block;padding:10px 15px 10px 10px;text-decoration:none;font-size:120%;color:#fff}
+section.offScreenNavigation ul li a em{font-style:normal;color:#fff;opacity:.6;float:right}
+section.offScreenNavigation ul li a em.fa{font-size:140%}
+section.offScreenNavigation ul li a.active,section.offScreenNavigation ul li a:hover{color:#fff;background-color:#e84e19}
+section.offScreenNavigation ul li+li{border-top:1px solid #484848}
+#offScreenNavigationTrigger{position:absolute;top:-20px;right:0;clip:rect(0,0,0,0)}
+#offScreenNavigationTrigger:checked~section.offScreenNavigation{left:0}
+#offScreenNavigationTrigger:checked~section.offScreenNavigation ul li{margin-left:0}
+#offScreenNavigationTrigger:checked~article{left:200px;box-shadow:0 0 5px 5px rgba(0,0,0,.5)}
+#offScreenNavigationTrigger:checked+label{left:215px}
+#offScreenNavigationTrigger:checked+label svg.open{display:none}
+#offScreenNavigationTrigger:checked+label svg.close{display:block}
+label[for=offScreenNavigationTrigger]{position:absolute;top:10px;left:10px;z-index:2;width:30px;height:30px;cursor:pointer}
+label[for=offScreenNavigationTrigger] svg{fill:#e84e19}
+label[for=offScreenNavigationTrigger] svg.close{display:none}
+.creative-leaderboard{display:block;margin:0 -20px}
+.creative-leaderboard>div{background:url(https://lh3.googleusercontent.com/-Te6fqji7GhY/VqIyRlLYOtI/AAAAAAAABos/l97OrWzIT58/s0-Ic42/AadBackground.png);text-align:center}
+.creative-leaderboard>div>span{display:block;margin:10px 0 5px;padding-top:5px;color:#999}
+article{min-width:100%;min-height:100%;background-color:#fff;position:relative;top:0;bottom:100%;left:0;z-index:1}
+article .button{font-weight:300;text-decoration:none;color:#fff!important;background-color:#e84e19}
+article .button:hover{color:#fff!important;background-color:#333}
+article header h1,article header h2{margin:0;color:#333;font-weight:400}
+article header{zoom:1;display:block;padding:10px 0 5px;background-color:#e1e1e1}
+article header:after,article header:before{content:"\0020";display:block;height:0;overflow:hidden}
+article header:after{clear:both}
+article header a{display:block;padding:0 55px;text-decoration:none}
+article header h1{-moz-box-orient:vertical;display:inline-block;vertical-align:top;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;width:100%;overflow:hidden;padding:0;font-size:160%}
+article header h1.withLogo{text-indent:-10000px;padding-top:0;width:188px;height:40px;background-size:188px auto!important}
+article header h1.withLogo.withClaim{width:131px;height:35px;background-size:131px 35px!important}
+article header h2{display:block;padding:4px 10px 0;opacity:.8;line-height:130%;font-size:100%}
+article .inner nav{display:none}
+article section.game,article section.games,article section.page{background-color:#fff;padding:10px}
+article section.game h2,article section.game h3,article section.games h2,article section.games h3,article section.page h2,article section.page h3{font-weight:300}
+article section.game h3,article section.games h3,article section.page h3{font-size:2em;text-align:left;color:#e84e19;margin:10px 0 20px;white-space:nowrap}
+article section.game h3 span,article section.games h3 span,article section.page h3 span{padding:0}
+article section.game h3 a,article section.games h3 a,article section.page h3 a{color:#e84e19;text-decoration:none}
+article section.game h3 a.button,article section.games h3 a.button,article section.page h3 a.button{-moz-box-orient:vertical;display:inline-block;vertical-align:top;padding:0 10px;font-size:60%;line-height:180%;float:right}
+article section.game h3 a.button .fa-chevron-circle-left,article section.game h3 a.button .fa-chevron-circle-right,article section.games h3 a.button .fa-chevron-circle-left,article section.games h3 a.button .fa-chevron-circle-right,article section.page h3 a.button .fa-chevron-circle-left,article section.page h3 a.button .fa-chevron-circle-right{-moz-box-orient:vertical;display:inline-block;vertical-align:top;vertical-align:middle;margin:-5px 0 0}
+article section.game h3 a.button em,article section.games h3 a.button em,article section.page h3 a.button em{display:none;font-style:normal}article section.game h3 a:hover,article section.games h3 a:hover,article section.page h3 a:hover{color:#333}
+article section.game h3+p,article section.games h3+p,article section.page h3+p{margin-top:-10px!important}
+article section.game p,article section.games p,article section.page p{padding:0;margin:20px 0;color:#333;text-align:left;font-size:130%;line-height:140%}
+article section.game ul,article section.games ul,article section.page ul{zoom:1;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;margin:-5px;padding:0;list-style:none}
+article section.game ul:after,article section.game ul:before,article section.games ul:after,article section.games ul:before,article section.page ul:after,article section.page ul:before{content:"\0020";display:block;height:0;overflow:hidden}
+article section.game ul:after,article section.games ul:after,article section.page ul:after{clear:both}
+article section.game ul li,article section.games ul li,article section.page ul li{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;position:relative;float:left;display:block;width:33.3%;overflow:hidden}
+article section.game ul li a,article section.games ul li a,article section.page ul li a{display:block;position:absolute;top:5px;left:5px;right:5px;bottom:5px}
+article section.game ul li a img,article section.games ul li a img,article section.page ul li a img{display:block;width:100%;height:100%;}
+article section.game ul li a span,article section.games ul li a span,article section.page ul li a span{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;position:absolute;top:100%;left:0;bottom:0;display:block;overflow:hidden;margin-top:-22px;width:100%;padding:3px 5px;background:rgba(0,0,0,.7);color:#fff;text-align:center;white-space:nowrap}
+article section.game ul li:first-child,article section.games ul li:first-child,article section.page ul li:first-child{width:66.6%}
+article section.game ul li:first-child span,article section.games ul li:first-child span,article section.page ul li:first-child span{margin-top:-26px;background-color:#e84e19;font-size:130%}
+article section.game ul li:before,article section.games ul li:before,article section.page ul li:before{content:'';height:0;margin-bottom:100%;display:block;width:100%}
+article section.game ul li:nth-child(n+7),article section.games ul li:nth-child(n+7),article section.page ul li:nth-child(n+7){display:none}
+article section.game ul li.dummy a,article section.games ul li.dummy a,article section.page ul li.dummy a{background-color:#eee}
+article section.game ul:nth-of-type(even) li,article section.games .cat-content:nth-of-type(even) ul li,article section.page ul:nth-of-type(even) li{float:right}
+article section.game ul+h3,article section.games ul+h3,article section.page ul+h3{margin-top:30px}
+article section.game ul.categoryView,article section.games ul.categoryView,article section.page ul.categoryView{margin-bottom:20px}
+article section.game ul.categoryView li,article section.games ul.categoryView li,article section.page ul.categoryView li{display:block!important}
+article section.game{text-align:left;padding:10px}
+article section.game .branding{overflow:hidden}
+article section.game .branding .holder{display:block;height:0;width:100%;margin-bottom:25%}
+article section.game .branding .holder .button{display:inline-block;margin:10px 0 0 10px;padding:4px 10px;font-size:120%}
+article section.game .branding .holder .button em{display:none}
+article section.game>img{width:25%;margin:-10% 3% 10px;float:left;border:4px solid #fff}
+article section.game .details h2{display:block;margin:10px 0;padding-left:32%;font-size:200%;color:#e84e19}
+article section.game .details .cta{clear:both;margin:10px -10px 0;padding:20px;background-color:#eee;text-align:center}
+article section.game .details .cta .button{padding:10px 40px;background-color:#098500;font-size:160%;color:#098500}
+article section.game .details .cta .button:hover{background-color:#18a70e}
+article section.game .details p.description{padding-top:10px;font-size:110%;margin-bottom:0}
+article section.game .details #walkthroughPlayer{height:260px;margin-top:30px}
+article section.game section.games{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;float:none;width:100%;padding-bottom:30px}
+article section.game section.games h3{text-align:center}
+article section.page{text-align:left}
+article section.page p,article section.page ul li{margin:0 0 20px;font-size:130%;line-height:140%}
+article section.page p a,article section.page ul li a{position:static;text-decoration:none;color:#e84e19}
+article section.page p a:hover,article section.page ul li a:hover{text-decoration:underline;color:#333}
+article section.page ul{margin:0}
+article section.page ul li{margin-bottom:10px;float:none!important;width:auto}
+article section.page ul li:before{margin:0}
+article footer{display:block;padding:20px 10px 50px;background-color:#333}
+article footer,article footer a{color:#fff}
+article footer a{text-decoration:underline}
+article footer p{margin-bottom:10px}
+article footer p.copy,article footer p.links{text-align:center}
+article footer p.links a{-moz-box-orient:vertical;display:inline-block;vertical-align:top;padding:7px}
+article footer p.madeWithLove{clear:both;padding-top:10px}
+
+#play-game-wraper {
+	width: 100%;
+    margin-top: 40px;    
+    position: relative;
+	overflow: hidden;
+	padding-bottom: 75%;
+    padding-top: 0px;
+    height: 0;
+	display: none;
+}
+#play-game-wraper object#flashgame, #play-game-wraper embed{position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+.info-title {padding: 10px 0 10px 10px;background: #EEE;}
+.info-title h3 {margin: 0 !important;padding: 0;font-size: 200% !important;}
+.info-content, .comment-content, .related-content {	
+	min-height: 1px;
+	background: #B70041;
+	padding: 15px;
+    font-size: 1.2em;
+    color: #DCDCDC;
+    font-family: Verdana, Arial, Helvetica,Tahoma, sans-serif;
+}
+article section.game .info-content p {font-size: 110%;margin: 0;line-height: 110%;}
+
+#container-commentfb .fb_iframe_widget,
+#container-commentfb .fb_iframe_widget span,
+#container-commentfb .fb_iframe_widget span iframe[style] {min-width: 100% !important;width: 100% !important;}
+.accordion-item-hd {display: block;position: relative;cursor: pointer;}
+.accordion-item-input:checked ~ .accordion-item-bd {
+	max-height: 1000px;  
+	padding:15px;
+	-webkit-transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
+	transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
+}
+.accordion-item-hd-cta {
+	display: block;
+	width: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	pointer-events: none;  
+	text-align: center;  
+	line-height: 1;
+}
+.accordion-item-hd-cta:before {
+	content: "\f055";
+	font-family: "FontAwesome";
+	-webkit-transition: -webkit-transform .3s ease;
+	transition: transform .3s ease;  
+}
+.accordion-item-input:checked ~ .info-title .accordion-item-hd > .accordion-item-hd-cta:before {content: "\f056";	}
+.accordion-item-bd {
+	max-height: 0;
+	padding:0;
+	margin-bottom: 0;
+	overflow: hidden;
+	-webkit-transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
+	transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
+}
+.accordion-item-input {clip: rect(0 0 0 0);width: 1px;height: 1px;margin: -1;overflow: hidden;position: absolute;left: -9999px;}
+
+article header a.glogo {float:left;}
+article header .sgm-menu-wrap {float: right;position: relative;}
+article header a.menu-item{padding:0;}
+
+.menu-item {
+  background: #ffc107;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;  
+  position: relative; 
+  float: left;  
+  color: white;
+  text-align: center;
+  line-height: 60px; 
+  -webkit-transition: -webkit-transform ease-out 200ms;
+  transition: -webkit-transform ease-out 200ms;
+  transition: transform ease-out 200ms;
+  transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
+}
+.menu-open-button {
+	background: #ffc107;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;  
+  position: absolute;
+  top: 20px;
+  right:0;
+  color: white;
+  text-align: center;
+  line-height: 60px; 
+  -webkit-transition: -webkit-transform ease-out 200ms;
+  transition: -webkit-transform ease-out 200ms;
+  transition: transform ease-out 200ms;
+  transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
+	-webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.menu-open {display: none;}
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12.5px;
+  margin-top: -1.5px;
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+.hamburger-1 {
+  -webkit-transform: translate3d(0, -8px, 0);
+          transform: translate3d(0, -8px, 0);
+}
+.hamburger-2 {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.hamburger-3 {
+  -webkit-transform: translate3d(0, 8px, 0);
+          transform: translate3d(0, 8px, 0);
+}
+.menu-open:checked + .menu-open-button .hamburger-1 {
+  -webkit-transform: translate3d(0, 0, 0) rotate(45deg);
+          transform: translate3d(0, 0, 0) rotate(45deg);
+}
+.menu-open:checked + .menu-open-button .hamburger-2 {
+  -webkit-transform: translate3d(0, 0, 0) scale(0.1, 1);
+          transform: translate3d(0, 0, 0) scale(0.1, 1);
+}
+.menu-open:checked + .menu-open-button .hamburger-3 {
+  -webkit-transform: translate3d(0, 0, 0) rotate(-45deg);
+          transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+.sgm-menu {position: relative;box-sizing: border-box;font-size: 20px;text-align: left;}
+.menu-item:hover {background: white;color: #ffc107;}
+.menu-item:nth-child(3) {
+	-webkit-transition-duration: 180ms;
+        transition-duration: 180ms;
+}
+.menu-item:nth-child(4) {
+  -webkit-transition-duration: 180ms;
+          transition-duration: 180ms;
+}
+.menu-item:nth-child(5) {
+  -webkit-transition-duration: 180ms;
+          transition-duration: 180ms;
+}
+.menu-item:nth-child(6) {
+  -webkit-transition-duration: 180ms;
+          transition-duration: 180ms;
+}
+.menu-open-button {
+  z-index: 2;
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
+  -webkit-transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+          transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+  cursor: pointer;
+  display:none;
+}
+
+.menu-open-button:hover {
+  -webkit-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+          transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+}
+
+.menu-open:checked + .menu-open-button {
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+          transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+}
+.menu-open:checked ~ .menu-item {
+  -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media only screen and (max-width:728px){
+	.sgm-menu {
+		position: absolute;		
+		top: -20px;
+		right: 15px;
+		width: 100px;
+		height: 90px;
+		box-sizing: border-box;
+		font-size: 20px;
+		text-align: left;
+		z-index: 50;
+	}
+	.menu-open-button {display:block;}
+	.menu-item {
+		position: absolute;
+		top: 20px;
+		right:0;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);		
+	}
+	.menu-open:checked ~ .menu-item {
+	  -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+			  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
+	.menu-open:checked ~ .menu-item:nth-child(3) {
+	  -webkit-transition-duration: 170ms;
+			  transition-duration: 170ms;
+	  -webkit-transform: translate3d(0, 60px, 0);
+			  transform: translate3d(0, 60px, 0);
+	}
+	.menu-open:checked ~ .menu-item:nth-child(4) {
+	  -webkit-transition-duration: 250ms;
+			  transition-duration: 250ms;
+	  -webkit-transform: translate3d(0, 120px, 0);
+			  transform: translate3d(0, 120px, 0);
+	}
+	.menu-open:checked ~ .menu-item:nth-child(5) {
+	  -webkit-transition-duration: 330ms;
+			  transition-duration: 330ms;
+	  -webkit-transform: translate3d(0, 180px, 0);
+			  transform: translate3d(0, 180px, 0);
+	}
+	.menu-open:checked ~ .menu-item:nth-child(6) {
+	  -webkit-transition-duration: 410ms;
+			  transition-duration: 410ms;
+	  -webkit-transform: translate3d(0, 240px, 0);
+			  transform: translate3d(0, 240px, 0);
+	}
+	.menu-open:checked ~ .menu-item:nth-child(6) {
+	  -webkit-transition-duration: 490ms;
+			  transition-duration: 490ms;
+	  -webkit-transform: translate3d(0, 300px, 0);
+			  transform: translate3d(0, 300px, 0);
+	}
+}
+
+@media only screen and (max-width:480px){
+	.info-content, .comment-content, .related-content{font-size:1em;}
+	article section.game .details .cta .button{padding: 10px 25px;}	
+}
+
+@media only screen and (min-width:480px){
+	article section.game>img,article section.games ul li{width:20%}
+	article section.game .branding{margin-top:30px}
+	article section.game .branding .holder{margin-bottom:20%}
+	article section.game .branding .holder .button{margin:20px 0 0 20px;font-size:175%}
+	article section.game .branding .holder .button em{display:inline-block;font-style:normal}
+	article section.game .details h2{font-size:288%;padding-left:26%}
+	article section.game .details .cta{margin:10px 0 0}
+	article section.game .details p.description{font-size:130%}
+	article section.games ul li:first-child{width:40%}
+	article section.games ul li:nth-child(n+7){display:block}
+	article section.games ul li:nth-child(n+8){display:none}	
+}
+
+@media only screen and (min-width:641px){
+	article .inner nav ul li a:after,article .inner:after{clear:both}
+	.inner{max-width:980px;margin:0 auto}
+	.creative-leaderboard{margin:0}
+	article header{padding:10px 0}
+	article header h1{font-size:260%}
+	article header h1.withLogo{margin:0 10px;width:263px;height:60px;background-size:263px auto!important}
+	article header h1.withLogo.withClaim{width:206px;height:55px;background-size:206px 55px!important}
+	article header h2{font-size:110%}
+	article .inner{zoom:1;position:relative}
+	article .inner:after,article .inner:before{content:"\0020";display:block;height:0;overflow:hidden}
+	article .inner nav{display:block;width:30%;margin-top:30px;margin-bottom:30px;float:left}
+	article .inner nav h2{display:none}
+	article .inner nav ul{display:block;padding:0;margin:0}
+	article .inner nav ul li{display:block;text-align:left;font-weight:400}
+	article .inner nav ul li a{zoom:1;display:block;padding:10px;text-decoration:none;color:#e84e19;white-space:nowrap;font-size:120%;text-align:left}
+	article .inner nav ul li a:after,article .inner nav ul li a:before{content:"\0020";display:block;height:0;overflow:hidden}
+	article .inner nav ul li a span{float:left}
+	article .inner nav ul li a em{font-style:normal;color:#bbb;float:right}
+	article .inner nav ul li a em.fa{font-size:140%}
+	article .inner nav ul li a em.fa-star{-webkit-animation:spinStar 4s linear infinite;animation:spinStar 4s linear infinite}
+	article .inner nav ul li a:hover{background-color:#e84e19;color:#fff}
+	article .inner nav ul li a:hover em{color:#fff}
+	article .inner nav ul li a.active{background-color:#333;color:#fff}
+	article .inner nav ul li a.active em{color:#fff}
+	article .inner nav ul li+li{border-top:1px solid #e1e1e1}
+	article section.game,article section.games,article section.page{float:right;width:66%}
+	article section.game h3,article section.games h3,article section.page h3{margin-top:20px;font-size:290%;line-height:100%;text-align:left}
+	article section.game h3 a.button .fa-chevron-circle-right,article section.games h3 a.button .fa-chevron-circle-right,article section.page h3 a.button .fa-chevron-circle-right{margin-left:5px}
+	article section.game h3 a.button .fa-chevron-circle-left,article section.games h3 a.button .fa-chevron-circle-left,article section.page h3 a.button .fa-chevron-circle-left{margin-right:5px}
+	article section.game h3 a.button em,article section.games h3 a.button em,article section.page h3 a.button em{display:inline;font-size:90%}
+	article section.game ul+h3,article section.games ul+h3,article section.page ul+h3{margin-top:50px}
+	article section.game ul li a span,article section.games ul li a span,article section.page ul li a span{transition:top .2s}
+	article section.game ul li a:hover span,article section.games ul li a:hover span,article section.page ul li a:hover span{top:0;margin-top:0;padding:40% 10px 0;white-space:normal}
+	article section.game ul li:first-child a:hover span,article section.games ul li:first-child a:hover span,article section.page ul li:first-child a:hover span{opacity:.8}
+	article footer p.copy{float:left;text-align:left}
+	article footer p.links{float:right;text-align:right}
+	#offScreenNavigationTrigger,label[for=offScreenNavigationTrigger],section.offScreenNavigation{display:none}
+}
+
+@media only screen and (min-width:700px){
+	article .inner nav{width:25%}
+	article section.game,article section.games,article section.page{width:70%}
+	article section.game .details #walkthroughPlayer,article section.games .details #walkthroughPlayer,article section.page .details #walkthroughPlayer{height:365px;margin-bottom:30px}
+}
+
+@media only screen and (min-width:961px){
+	article .inner nav{width:20%}
+	article section.game,article section.games,article section.page{width:75%}
+	article section.game{padding:0}
+}
+		
+article header { background-color: #ffdfea; }
+article header h1, article header h2 { color: #333333; }
+article header h1.withLogo {background: url("https://lh3.googleusercontent.com/-rwjPskV4RO4/VqH-Ug9mWrI/AAAAAAAABoI/Xhb3MK255YA/s1600-Ic42/logo.png") no-repeat center center; }
+article section.games h3, article section.games h3 a, article section.game  h3, article section.game  h3 a, article section.page  h3, article section.page  h3 a { color: #d42f69; }
+article .button { background-color: #d42f69; }
+label[for="offScreenNavigationTrigger"] svg { fill: #d42f69; }
+article section.games ul li:first-child span,  article section.game  ul li:first-child span, article section.page  ul li:first-child span { background-color: #d42f69; }
+section.offScreenNavigation ul li a:hover, section.offScreenNavigation ul li a.active { background-color: #d42f69; }
+article section.games h3 a:hover, article section.game  h3 a:hover, article section.page  h3 a:hover { color: #f4d049; }
+article .button:hover { background-color: #f4d049; }
+
+@media only screen and (min-width: 641px) {
+	article .inner nav ul li a { color: #d42f69; }
+	article .inner nav ul li a:hover { background-color: #d42f69; }
+	article .inner nav ul li a.active { background-color: #f4d049; }
+}
