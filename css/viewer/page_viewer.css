@@ -1,0 +1,70 @@
+.docs-pictures {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.docs-pictures li {
+	float: left;
+	width: 33.3%;
+	height: 33.3%;
+	margin: 0 -1px -1px 0;
+	border: 1px solid transparent;
+	overflow: hidden;
+}
+
+.docs-pictures li img {
+	width: 100%;
+}
+
+.docs-toggles > .btn,.docs-toggles > .btn-group {
+	margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+	.docs-collapse {
+		display: block;
+	}
+}
+
+.docs-buttons > .btn-group,
+.docs-buttons > .input-group {
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.docs-buttons .input-group-btn {
+	width: 50%;
+}
+
+.docs-buttons .input-group-btn .btn {
+	width: 100%;
+}
+
+.page-header {
+	margin-top:15px;
+	font-family: "Roboto Condensed", Arial, sans-serif;
+}
+
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {
+	min-width: 100% !important;
+	width: 100% !important;
+}
+
+a.other-post-url {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	height: 30px;
+	text-align: center;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	margin-left: -15px;
+	color: #FFF;
+	overflow: hidden;
+	word-wrap: break-word;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
