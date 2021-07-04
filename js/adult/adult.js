@@ -462,6 +462,7 @@ function animatedGridLayout() {
 		$(closeCtrl).on('click', function() {
 			// hide content
 			hideContent();
+			History.back();
 		});
 
 		History.Adapter.bind(window, 'statechange', function () {
@@ -482,6 +483,7 @@ function animatedGridLayout() {
 					if ("activeElement" in document)
     					document.activeElement.blur();
 					hideContent();
+					History.back();
 				}
 			}
 		} );
@@ -597,7 +599,7 @@ function animatedGridLayout() {
 			current = -1;
 		}, 25);
 		
-		History.back();
+		//History.back();
 		//History.go(1);
 	}
 
