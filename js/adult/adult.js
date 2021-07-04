@@ -568,7 +568,6 @@ function animatedGridLayout() {
 		setTimeout(function() {
 			var dummy = gridItemsContainer.querySelector('.sgm--placeholder');
 
-		
 			$(bodyEl).removeClass('noscroll');
 			dummy.style.WebkitTransform = 'translate3d(' + gridItem.offsetLeft + 'px, ' + gridItem.offsetTop + 'px, 0px) scale3d(' + gridItem.offsetWidth/gridItemsContainer.offsetWidth + ',' + gridItem.offsetHeight/getViewport('y') + ',1)';
 			dummy.style.transform = 'translate3d(' + gridItem.offsetLeft + 'px, ' + gridItem.offsetTop + 'px, 0px) scale3d(' + gridItem.offsetWidth/gridItemsContainer.offsetWidth + ',' + gridItem.offsetHeight/getViewport('y') + ',1)';
@@ -602,14 +601,19 @@ function animatedGridLayout() {
 		window.scrollTo(xscroll, yscroll);
 	}
 
+	/*window.addEventListener('')
+	hideContent();*/
+
 	init();
 };
 
 function getPreviewPost(url){
 	var tempUrl = '';
+
 	if(url == undefined){
 		tempUrl = url;
-		if(cat != '' && cat != null){
+
+		if(!isEmpty(cat)){
 			url = urlData + '/feeds/posts/default/-/Main/'+ cat;
 		}else
 			url = urlData + '/feeds/posts/default/-/Main';
@@ -619,30 +623,30 @@ function getPreviewPost(url){
 		type: 'get',
 		url: url,
 		data: {
-			"alt" : "json-in-script",
+			alt : "json-in-script",
 			"max-results" : postInPage,
 			"start-index" : startIndex,
-			"orderby" : "updated"
+			orderby : "updated"
 		},
 		dataType: 'jsonp',
 		beforeSend: function(){
-			if(tempUrl != undefined)
+			if(undefined !== tempUrl)
 				$('.load-more').show();
 		},
 		success: function(data){
-			var entry = data.feed.entry,
+			let entry = data.feed.entry,
 				links = data.feed.link,
 				nextUrl = '',
 				htmlEmbed = '';
 			
 			for(let i = 0, len = links.length; i < len; i++){
-				if(links[i].rel == 'next'){
+				if('next' == links[i].rel){
 					nextUrl = links[i].href;
 				}
 			}
 			
-			if(entry !== undefined){
-				var urlPost = '',
+			if(undefined !== entry){
+				let urlPost = '',
 					titlePost = '',
 					thumbPost = '',
 					cat = '';
@@ -655,7 +659,7 @@ function getPreviewPost(url){
 						}
 					}
 					
-					var idP = entry[i].id.$t.split('post-')[1];
+					let idP = entry[i].id.$t.split('post-')[1];
 					for(let j = 0; j < entry[i].category.length; j++){						
 						if(entry[i].category[j].term != "Main"){
 							cat = entry[i].category[j].term;
@@ -671,14 +675,24 @@ function getPreviewPost(url){
 						thumbPost = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAA1BMVEXMzMzKUkQnAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==';
 					}
 					
-					htmlEmbed += '<a name="'+ idP +'" class="grid__item" href="#"><h2 class="title title--preview">'+ titlePost +'</h2><div class="loader"></div><span class="category">'+ cat +'</span><div class="meta meta--preview"><img class="meta__avatar" src="'+ thumbPost +'" alt="author04" /><span class="meta__date"><i class="fa fa-calendar-o"></i> 6 Apr</span><span class="meta__reading-time"><i class="fa fa-clock-o"></i> 2 min read</span></div></a>';
+					htmlEmbed += `<a name="${idP}" class="grid__item" href="#">
+						<h2 class="title title--preview">${titlePost}</h2>
+						<div class="loader"></div>
+						<span class="category">${cat}</span>
+						<div class="meta meta--preview">
+							<img class="meta__avatar" src="${thumbPost}" alt="author04" />
+							<span class="meta__date"><i class="fa fa-calendar-o"></i> 6 Apr</span>
+							<span class="meta__reading-time"><i class="fa fa-clock-o"></i> 2 min read</span>
+						</div>
+					</a>`;
 				}
 				
-				if(tempUrl == undefined){
+				if(undefined === tempUrl){
 					$('header.top-bar').after(htmlEmbed);					
 				}else{
 					$('.load-more').before(htmlEmbed);
 					$('.load-more').hide();
+
 					var curPage = url.split('&start-index=')[1].split('&')[0];
 						curPage = Math.floor(curPage / postInPage) + 1;
 					History.pushState(null, 'Trang ' + curPage + ' ~ SGMedia', '?page=' + curPage);
@@ -686,7 +700,7 @@ function getPreviewPost(url){
 				
 				animatedGridLayout();
 				
-				if(nextUrl != ''){
+				if('' !== nextUrl){
 					$('.load-more').data('next', nextUrl.split('?')[1]);
 				}else{
 					$('.load-more').data('next', '');
@@ -697,7 +711,7 @@ function getPreviewPost(url){
 		},
 		error: function(){
 			setTimeout(function(){
-				if(url == undefined)
+				if(undefined === url)
 					getPreviewPost();
 				else
 					getPreviewPost(url);
@@ -715,13 +729,14 @@ $(document).ready(function(){
 	
 	win.scroll(function() {
 		urlLoadMore = $('.load-more').data('next');
+
 		if ($(document).height() - win.height() == win.scrollTop()) {
-			if(cat != '' && cat != null)
+			if(!isEmpty(cat))
 				loadUrl =  urlData + '/feeds/posts/default/-/' + cat + '?' + urlLoadMore;
 			else
 				loadUrl =  urlData + '/feeds/posts/default?' + urlLoadMore;
 			
-			if(urlLoadMore != ''){
+			if('' != urlLoadMore){
 				getPreviewPost(loadUrl);
 				loadUrl = '';
 				$('.load-more').data('next', '');
@@ -765,7 +780,7 @@ $(document).ready(function(){
 	
 	let idOpen = $.url('?id');
 	
-	if(idOpen !== undefined && idOpen != null && idOpen !== ''){
+	if(!isEmpty(idOpen)){
 		$(".photo-exam").on("click", function(){
 			let photo_url = $(this).data("url");
 			
@@ -774,8 +789,6 @@ $(document).ready(function(){
 		
 		$(".video-exam").on("click", function(){
 			let video_url = $(this).data("url");
-			
-			
 		});
 	}
 });
