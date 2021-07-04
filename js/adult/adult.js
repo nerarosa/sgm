@@ -660,11 +660,13 @@ function getPreviewPost(url){
 					}
 					
 					let idP = entry[i].id.$t.split('post-')[1];
-					for(let j = 0; j < entry[i].category.length; j++){						
+					let cats = [];
+					for(let j = 0; j < entry[i].category.length; j++){
 						if(entry[i].category[j].term != "Main"){
-							cat = entry[i].category[j].term;
-							break;
-						}						
+							cats.push(entry[i].category[j].term);
+						}
+
+						if(cats.length == 2) break;
 					}
 					
 					titlePost = entry[i].title.$t;
@@ -678,7 +680,7 @@ function getPreviewPost(url){
 					htmlEmbed += `<a name="${idP}" class="grid__item" href="#">
 						<h2 class="title title--preview">${titlePost}</h2>
 						<div class="loader"></div>
-						<span class="category fs-12px">${cat}</span>
+						<span class="category fs-12px">${cats.join(',')}</span>
 						<div class="meta meta--preview">
 							<img class="meta__avatar" src="${thumbPost}" alt="author04" />
 							<span class="meta__date"><i class="fa fa-calendar-o"></i> 6 Apr</span>
