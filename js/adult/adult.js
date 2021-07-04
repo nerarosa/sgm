@@ -465,7 +465,12 @@ function animatedGridLayout() {
 		});
 
 		History.Adapter.bind(window, 'statechange', function () {
-			console.log(History.getState().url);
+			let currentUrl = History.getState().url,
+				hasPostId = $.url('?id', currentUrl);
+
+			if('' === hasPostId || null === hasPostId || undefined === hasPostId){
+				hideContent();
+			}
 		});
 
 		// keyboard esc - hide content
