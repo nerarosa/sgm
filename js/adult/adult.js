@@ -157,12 +157,10 @@ function getPostContent(id, el){
 			var contentFull = "content" in entry ? entry.content.$t : "";
 			var content = sgmTags("con", contentFull);
 			
-			var cat = '';
-			
+			var cats = [];
 			for(let j = 0; j < entry.category.length; j++){						
 				if(entry.category[j].term != "Main"){
-					cat = entry.category[j].term;
-					break;
+					cats.push(entry.category[j].term);
 				}
 			}
 			
@@ -171,7 +169,7 @@ function getPostContent(id, el){
 			
 			let thumbPost = "media$thumbnail" in entry ? entry.media$thumbnail.url : 'http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s72-c/grey.GIF';
 					
-			htmlEmbed = `<span class="category category--full">${cat}</span>
+			htmlEmbed = `<span class="category category--full">${cats.join(', ')}</span>
 				<h2 class="title title--full">${titlePost}</h2>
 				<div class="meta meta--full">
 					<img class="meta__avatar" src="${thumbPost}" alt="${titlePost}" />
