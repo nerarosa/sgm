@@ -464,6 +464,10 @@ function animatedGridLayout() {
 			hideContent();
 		});
 
+		History.Adapter.bind(window, 'statechange', function () {
+			console.log(History.getState().url);
+		});
+
 		// keyboard esc - hide content
 		document.addEventListener('keydown', function(ev) {
 			if(!isAnimating && current !== -1) {
