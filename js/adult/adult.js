@@ -560,6 +560,10 @@ function animatedGridLayout() {
 			$(bodyEl).addClass('noscroll');
 
 			isAnimating = false;
+
+			$(".content--show .scroll-wrap").scroll(function() {
+				console.log('scroll div');
+			});
 		});
 	}
 
@@ -759,10 +763,6 @@ $(document).ready(function(){
 	
 	$('body').on('click', '.pagination', function(e){
 		getNextContent($(this).data('id'));
-	});
-
-	$(document).on("scroll", ".content--show .scroll-wrap", function() {
-		console.log('scroll div');
 	});
 
 	$('body').on('click', '.pager a', function(e){
