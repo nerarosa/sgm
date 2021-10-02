@@ -284,7 +284,7 @@ function getPostContent(id, el){
 	});
 }
 
-function getNextContent(id){	
+function getNextContent(id, autoload=false){	
 	$.ajax({
 		type: 'get',
 		url: urlData + '/feeds/posts/default/'+ id +'?alt=json-in-script',
@@ -332,7 +332,11 @@ function getNextContent(id){
 			
 			$('.pager a[data-id=' + id + ']').addClass('loaded');
 			
-			$('.scroll-wrap').animate({scrollTop: $('#' + id).offset().top - $('.scroll-wrap').offset().top + $('.scroll-wrap').scrollTop() - 100}, "slow");
+			if(!autoload)
+				$('.scroll-wrap').animate({
+					scrollTop: $('#' + id).offset().top - $('.scroll-wrap').offset().top + $('.scroll-wrap').scrollTop() - 100
+				}, "slow");
+
 			$('.pager a').removeClass('current');
 			$('.pager a[data-id=' + id + ']').addClass('current');
 		},
@@ -573,7 +577,7 @@ function animatedGridLayout() {
 					if($(".pagination").length){
 						if(!$(".pagination").hasClass('loading')){
 							let page_id = $(".pagination").data('id');
-							getNextContent(page_id);
+							getNextContent(page_id, true);
 						}
 					}
 				}
