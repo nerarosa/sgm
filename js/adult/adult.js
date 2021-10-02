@@ -447,7 +447,9 @@ function animatedGridLayout() {
 				setTimeout(function() {
 					$(item).addClass('grid__item--animate');
 					// reveal/load content after the last element animates out (todo: wait for the last transition to finish)
-					setTimeout(function() { loadContent(item); }, 500);
+					setTimeout(function() { 
+						loadContent(item); 
+					}, 500);
 				}, 1000);
 
 				let itemTitle = $(item).find('h2.title--preview').text(),
@@ -759,6 +761,10 @@ $(document).ready(function(){
 		getNextContent($(this).data('id'));
 	});
 	
+	$(".content--show .scroll-wrap").scroll(function() {
+		console.log('scroll div');
+	});
+
 	$('body').on('click', '.pager a', function(e){
 		if($(this).hasClass('loaded')){
 			if($(this).hasClass('current')){
