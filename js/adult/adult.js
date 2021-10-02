@@ -760,10 +760,8 @@ $(document).ready(function(){
 	$('body').on('click', '.pagination', function(e){
 		getNextContent($(this).data('id'));
 	});
-	
-	console.log($(".content--show .scroll-wrap").length);
 
-	$(".content--show .scroll-wrap").scroll(function() {
+	$(document).on("scroll", ".content--show .scroll-wrap", function() {
 		console.log('scroll div');
 	});
 
