@@ -562,7 +562,13 @@ function animatedGridLayout() {
 			isAnimating = false;
 
 			$(".content--show .scroll-wrap").scroll(function() {
-				console.log('scroll div');
+				let self = $(this);
+				if(self.scrollTop() + self.innerHeight() >= self[0].scrollHeight - 100) {
+					if($(".pagination").length){
+						let page_id = $(".pagination").data('id');
+						getNextContent(page_id);
+					}
+				}
 			});
 		});
 	}
