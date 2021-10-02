@@ -289,6 +289,11 @@ function getNextContent(id){
 		type: 'get',
 		url: urlData + '/feeds/posts/default/'+ id +'?alt=json-in-script',
 		dataType: 'jsonp',
+		beforeSend: function(){
+			if($('.pagination').length){
+				$('.pagination').addClass('loading');
+			}
+		},
 		success: function(data){
 			var entry = data.entry,
 				htmlEmbed = '';
@@ -306,6 +311,7 @@ function getNextContent(id){
 			if(!isEmpty(part)){
 				if($('.pagination').length){
 					$('.pagination').data('id', part);
+					$('.pagination').removeClass("loading");
 				}else{
 					htmlEmbed += '<div class="pagination" data-id="' + part + '">Tải trang sau</div>';
 				}
@@ -563,10 +569,12 @@ function animatedGridLayout() {
 
 			$(".content--show .scroll-wrap").scroll(function() {
 				let self = $(this);
-				if(self.scrollTop() + self.innerHeight() >= self[0].scrollHeight - 100) {
+				if(self.scrollTop() + self.innerHeight() >= self[0].scrollHeight - 200) {
 					if($(".pagination").length){
-						let page_id = $(".pagination").data('id');
-						getNextContent(page_id);
+						if(!$(".pagination").hasClass('loading')){
+							let page_id = $(".pagination").data('id');
+							getNextContent(page_id);
+						}
 					}
 				}
 			});
