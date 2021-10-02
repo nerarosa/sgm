@@ -285,6 +285,7 @@ function getPostContent(id, el){
 }
 
 function getNextContent(id, autoload=false){	
+
 	$.ajax({
 		type: 'get',
 		url: urlData + '/feeds/posts/default/'+ id +'?alt=json-in-script',
@@ -292,6 +293,10 @@ function getNextContent(id, autoload=false){
 		beforeSend: function(){
 			if($('.pagination').length){
 				$('.pagination').addClass('loading');
+
+				if(autoload){
+					$('.pagination').addClass('disabled').text("Loading....");
+				}
 			}
 		},
 		success: function(data){
@@ -312,6 +317,10 @@ function getNextContent(id, autoload=false){
 				if($('.pagination').length){
 					$('.pagination').data('id', part);
 					$('.pagination').removeClass("loading");
+
+					if(autoload){
+						$('.pagination').removeClass('disabled').text("Tải trang sau");
+					}
 				}else{
 					htmlEmbed += '<div class="pagination" data-id="' + part + '">Tải trang sau</div>';
 				}
