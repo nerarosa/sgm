@@ -761,6 +761,8 @@ $(document).ready(function(){
 		getNextContent($(this).data('id'));
 	});
 	
+	console.log($(".content--show .scroll-wrap").length);
+
 	$(".content--show .scroll-wrap").scroll(function() {
 		console.log('scroll div');
 	});
