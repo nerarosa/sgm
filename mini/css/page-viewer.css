@@ -1,0 +1,17 @@
+li.viewer-crop:before, li.viewer-dl:before{
+    text-align: center;
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #FFF;
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+li.viewer-crop:before {
+    content: "\f125";
+}
+li.viewer-dl:before {content: "\f019";}
+.viewer-toolbar{width:330px;}
+.docs-pictures > li.current img {
+    border: 3px solid #d9534f;
+}
