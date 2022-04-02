@@ -521,7 +521,7 @@ a=document.querySelector("div.ss-overlay"),e=a.querySelector("button.overlay-clo
 (function(){function c(){if(classie.has(b,"open")){classie.remove(b,"open");classie.add(b,"close");var a=function(c){if(support.transitions){if("visibility"!==c.propertyName)return;this.removeEventListener(transEndEventName,a)}classie.remove(b,"close")};support.transitions?b.addEventListener(transEndEventName,a):a()}else classie.has(b,"close")||(classie.add(b,"open"),$("input#morphsearchInput").focus())}var d=document.getElementById("trigger-overlay1"),b=document.querySelector("div.second-overlay"),
 a=b.querySelector("button.overlay-close");transEndEventNames={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd",msTransition:"MSTransitionEnd",transition:"transitionend"};transEndEventName=transEndEventNames[Modernizr.prefixed("transition")];support={transitions:Modernizr.csstransitions};d.addEventListener("click",c);a.addEventListener("click",c)})();
 
-var ssgirlData = '//ssgirl-profile.blogspot.com';
+var ssgirlData = 'http://ssgirl-profile.blogspot.com';
 function getListStar(){
 	var url = ssgirlData + '/feeds/posts/summary?alt=json-in-script&max-results=200';
 		
