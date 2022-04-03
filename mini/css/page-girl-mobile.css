@@ -1,0 +1,134 @@
+body{line-height:1.5;font-family:arial,sans-serif;background:#fff;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;border:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+ol,ul{list-style:none;}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:normal;}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;*font-size:100%;}
+fieldset,img,a img,:link img,:visited img{border:0;padding: 0;margin: 0;}
+a{text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover{text-decoration:none;}
+a:active{text-decoration:none;}
+:focus{outline:0;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;}
+sup,sub{font-size:100%;vertical-align:baseline;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+.clear,.clearfix:after{clear:both;height:0;overflow:hidden;display:block;}
+.clearfix:after{visibility:hidden;content:".";}
+.clearfix{*zoom:1;}
+body{width: 100%;height: auto;}
+
+.fl{float: left;}
+.fr{float: right;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.tl{text-align:left;}
+.none{display:none;}
+.block{display:block;}
+.mc{margin-right: auto;margin-left: auto;}
+.row{display: block;width: 100%;height: 100%;overflow:hidden;}
+.header-nav-tag,.header-nav-cont{height: 44px;float: left;display: block;}
+.header-nav-tag a,.header-nav-cont a{
+	display: block;
+    float: left;
+    line-height: 44px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 15px 0 10px;
+    background-position-x: 100%;
+    background-position-y: 46%;
+	position: relative;   
+	padding: 0 15px 0 15px;
+}
+.header-nav-tag .nav-back,.header-nav-cont .nav-back{
+    z-index: 10;
+    background-image: url(http://m.uumnt.com/style/img/icon-nav-1.png);
+}
+.header-nav-tag .nav-tag,.header-nav-cont .nav-tag{
+    z-index: 9;
+    background-image: url(http://m.uumnt.com/style/img/icon-nav-2.png);
+    margin-left: -9px;
+}
+.header-nav-tag .nav-tag-row,.header-nav-cont .nav-tag-row{
+    z-index: 8;
+    background-image: url(http://m.uumnt.com/style/img/icon-nav-3.png);
+    margin-left: -9px;
+}
+
+body{background-color: #ededed;padding-top: 44px !important;}
+header{height: 44px;width: 100%;position: fixed;left: 0px;top: 0px;z-index: 999999999;}
+footer{background-color: #bb552f;padding: 8px 0px;text-align: center;margin-top: 8px;}
+footer a,footer span,footer p{color: #fff;font-size: 13px;}
+.tag li{width: 25%;height: 38px;}
+.tag li a{color: #a6a6a6;font-size: 14px;line-height: 38px;display: block;}
+header .home{display: block;float: left;margin-left: 5px;width: 32px;height: 44px;}
+header .search{display: block;float: right;;width: 32px;height: 44px;}
+header .morecat{display: block;float: right;width: 32px;height: 44px;margin-left: 8px;margin-right: 8px;padding-left: 3px;padding-right: 3px;}
+header .logo{position: absolute;left: 36%;top:5px;}
+header .logo img{height: 32px;width: auto;}
+nav{position: fixed;left: 0;top:44px;z-index: 999999999;height: auto;width: 100%;display: none;}
+nav div:first-child{border-bottom: 2px solid #bb552f;padding-bottom: 5px;}
+nav ul{margin: 8px 0;}
+nav ul li{float: left;width: 25%;margin-bottom: 3px;}
+nav ul li a{display: block;color: #484848;font-size: 16.8px;text-indent: 1em;}
+@media screen and (max-width: 360px){
+	nav ul li a{font-size: 15.6px;}
+}
+.loadgif{background-image: url("data:image/gif;base64,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");background-repeat: no-repeat;background-position: center;}
+
+#list{margin-top: 8px;}
+#list li{float: left;width: 45%;height: auto;margin-bottom: 8px;background-color: #fff;padding: 2%;}
+#list li img{width: 98%;display: block;margin-left: auto;margin-right: auto;background-image: url("data:image/gif;base64,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");background-repeat: no-repeat;background-position: center;}
+#list li .title{color: #2e2e2e;font-size: 14px;display: block;margin-top: 8px;margin-bottom: 2px;width:100%;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+#list li:nth-child(2n+1){float: right;}
+.page{text-align: center;margin-top: 5px;}
+.page a{background-color: #d87651;color: #fff;font-size: 14px;display: inline-block;padding: 2% 8%;margin-left: 5px;}
+.bg{background-color:#bb552f;}
+.bg-w{background-color: #fff;}
+.bg-d4{background-color: #d46d47;}
+.border-top{border-top: 2px solid #bb552f;}
+.border-tag{border-top:1px solid #ededed;}
+.border-tag4{border-right:1px solid #ededed;}
+.tstyle-h{font-size:130%;color: #bb552f;font-weight: 700;text-indent: 1em;line-height: 40px;height: 40px;}
+.mr8{margin-top: 8px;}
+.mr24{margin-top: 10px;}
+.mr3{margin-top: 3px;}
+.mr10{margin-top: 10px;}
+.m2b{margin-right: 2%;margin-left: 2%;}
+.h30{height: 30px;}
+.h44{height: 44px;}
+.h178{height: 178px;}
+
+[class*="icon-"]{
+	background-image: url("http://m.uumnt.com/style/img/icon.png");
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+.icon-home{background-position: -150px 8px;width: 32px;height: 32px;}
+.icon-search{background-position: -200px 8px;width: 32px;height: 32px;}
+.icon-more{background-position: 6px 8px;width: 32px;height: 32px;}
+.icon-close{background-position: -244px 8px;width: 32px;height: 32px;}
+.icon-back{background-position: 12px -143px;width: 32px;height: 32px;}
+.icon-back-w{background-position: 6px -190px;width: 32px;height: 32px;}
+
+.mote-select-plan{border-bottom: 1px solid #ededed;background-color: #fff;position: relative;padding: 6px 0px;}
+.mote-select-plan-title{width: 65px;position: absolute;left: 0px;top: 14px;text-align: center;font-size: 16px;color: #494949;}
+.mote-select-plan-cont{position: relative;margin-left: 65px;}
+.mote-select-plan-cont a{display: block;float: left;margin:5px 6px;padding: 3px 5px;font-size: 16px;color: #494949;}
+.mote-select-plan-cont .cur{
+    background-color: #f17d51;
+    color: #fff;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+.mote-list{margin-top: 10px;}
+.mote-list li div{border:1px solid #e6e6e6;}
+.mote-list li{width: 32%;float: left;margin-right: 2%;background-color: #fff;margin-bottom: 8px;}
+.mote-list img{width: 100%;display: block;border-radius: 50%;max-width: 95%;max-height: 95%;margin: 2.5% auto;}
+.mote-list .mr0{margin-right:0px;}
+.mote-list .title{background-color: #f8f8f8;text-align: center;height: 23px;line-height: 23px;border-top:1px solid #e6e6e6;display: block;width: 100%;color: #979797;font-size: 14px;}
