@@ -608,7 +608,7 @@ function animatedGridLayout() {
 		$(bodyEl).removeClass('view-single');
 
 		setTimeout(function() {
-			var dummy = gridItemsContainer.querySelector('.sgm--placeholder');
+			var dummy = document.querySelector('.sgm--placeholder');
 
 			$(bodyEl).removeClass('noscroll');
 			dummy.style.WebkitTransform = 'translate3d(' + gridItem.offsetLeft + 'px, ' + gridItem.offsetTop + 'px, 0px) scale3d(' + gridItem.offsetWidth/gridItemsContainer.offsetWidth + ',' + gridItem.offsetHeight/getViewport('y') + ',1)';
